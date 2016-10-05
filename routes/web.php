@@ -11,6 +11,8 @@
 |
 */
 
+use App\Area;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+
+Route::get('areas', 'AreasController@list');
+Route::get('areas/create', 'AreasController@create');
+Route::post('areas', 'AreasController@store');
