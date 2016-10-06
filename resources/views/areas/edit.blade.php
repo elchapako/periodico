@@ -3,11 +3,11 @@
 @section('content')
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <h1>Create an Area</h1>
+            <h1>Update an Area</h1>
             @include('partials/errors')
-            {!! Form::open(['route' => 'areas.store', 'method' => 'POST']) !!}
+            {!! Form::model($area, ['route' => ['areas.update', $area->id], 'method' => 'PUT']) !!}
                 @include('areas.partials.fields')
-                <button type="submit" class="btn btn-primary">Create area</button>
+                <button type="submit" class="btn btn-primary">Update area</button>
             {!! Form::close() !!}
         </div>
     </div>

@@ -21,7 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-
-Route::get('areas', 'AreasController@list');
-Route::get('areas/create', 'AreasController@create');
-Route::post('areas', 'AreasController@store');
+Route::resource('areas', 'AreasController');
