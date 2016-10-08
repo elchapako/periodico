@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index');
 Route::resource('areas', 'AreasController');
 
 Route::resource('sections', 'SectionsController');
+
+Route::resource('models', 'ModelsController');
