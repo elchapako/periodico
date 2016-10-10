@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use App\Model;
 use App\Http\Requests;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Session;
 
 class ModelsController extends Controller
 {
@@ -39,6 +42,12 @@ class ModelsController extends Controller
      */
     public function store()
     {
+        $this->validate(request(), [
+            'name' => ['required', 'max:50'],
+            'image' => ['required', 'image:jpg,png,jpeg']
+        ]);
+
+
         $file = Input::file('image');
         //Creamos una instancia de la libreria instalada
         $image = Image::make(Input::file('image'));
@@ -53,10 +62,10 @@ class ModelsController extends Controller
         $image->save($path.'thumb_'.$file->getClientOriginalName());
 
         //Guardamos nombre y nombreOriginal en la BD
-        $thumbnail = new Model();
-        $thumbnail->name = Input::get('name');
-        $thumbnail->image = $file->getClientOriginalName();
-        $thumbnail->save();
+        $model = new Model();
+        $model->name = Input::get('name');
+        $model->image = $file->getClientOriginalName();
+        $model->save();
 
         return redirect()->to('models');
     }
@@ -80,7 +89,8 @@ class ModelsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $model = Model::findOrFail($id);
+        return view('models.edit', compact('model'));
     }
 
     /**
@@ -92,7 +102,43 @@ class ModelsController extends Controller
      */
     public function update($id)
     {
-        //
+        $this->validate(request(), [
+            'name' => ['required', 'max:50']
+        ]);
+
+        $model = Model::findOrFail($id);
+        
+        If(Input::file('image') == null){
+            $model->fill(request()->only('name'));
+            $model->save();
+            return redirect()->to('models');
+        }else{
+
+            $name = $model->image;
+            File::delete(public_path().'/storage/'.$name);
+            File::delete(public_path().'/storage/'.'thumb_'.$name);
+
+            $file = Input::file('image');
+            //Creamos una instancia de la libreria instalada
+            $image = Image::make(Input::file('image'));
+            //Ruta donde queremos guardar las imagenes
+            $path = public_path().'/storage/';
+
+            // Guardar Original
+            $image->save($path.$file->getClientOriginalName());
+            // Cambiar de tamaño
+            $image->resize(240,200);
+            // Guardar
+            $image->save($path.'thumb_'.$file->getClientOriginalName());
+
+            //Guardamos nombre y nombreOriginal en la BD
+            $model->name = Input::get('name');
+            $model->image = $file->getClientOriginalName();
+            $model->save();
+
+            return redirect()->to('models');
+        }
+
     }
 
     /**
@@ -103,6 +149,14 @@ class ModelsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $model= Model::findOrFail($id);
+        $model->delete();
+
+        $name = $model->image;
+        File::delete(public_path().'/storage/'.$name);
+        File::delete(public_path().'/storage/'.'thumb_'.$name);
+
+        Session::flash('message', $model->name . ' fue eliminada');
+        return redirect()->route('models.index');
     }
 }
