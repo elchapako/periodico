@@ -11,8 +11,6 @@
 |
 */
 
-use App\Area;
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,3 +26,5 @@ Route::resource('sections', 'SectionsController');
 Route::resource('models', 'ModelsController');
 
 Route::resource('sizes', 'SizesController');
+
+Route::resource('clients', 'ClientsController');
