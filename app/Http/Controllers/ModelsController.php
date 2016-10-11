@@ -107,7 +107,7 @@ class ModelsController extends Controller
         ]);
 
         $model = Model::findOrFail($id);
-        
+
         If(Input::file('image') == null){
             $model->fill(request()->only('name'));
             $model->save();
