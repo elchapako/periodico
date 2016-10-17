@@ -45,6 +45,7 @@ class ClientsController extends Controller
             'phone' => ['integer'],
             'cellphone' => ['integer'],
             'ci' => ['required', 'max:12'],
+            'address' => ['required'],
             'email' => ['email']
         ]);
 
@@ -92,6 +93,7 @@ class ClientsController extends Controller
             'phone' => ['integer'],
             'cellphone' => ['integer'],
             'ci' => ['required', 'max:12'],
+            'address' => ['required'],
             'email' => ['email']
         ]);
 

@@ -17,9 +17,10 @@ class CreateClientsTable extends Migration
             $table->increments('id');
 
             $table->string('full_name');
-            $table->string('phone', 8);
-            $table->string('cellphone', 8);
+            $table->string('phone');
+            $table->string('cellphone');
             $table->string('ci', 10);
+            $table->string('address');
             $table->string('email');
 
             $table->timestamps();

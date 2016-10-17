@@ -18,6 +18,7 @@ class ClientsTest extends TestCase
             'phone' => '66-32525',
             'cellphone' => '71825656',
             'ci' => '5059076',
+            'address' => 'Barrio Juan XXIII calle boyan',
             'email' => 'nestor@tapia.com'
         ]);
 
@@ -28,6 +29,7 @@ class ClientsTest extends TestCase
             ->see('66-32525')
             ->see('71825656')
             ->see('5059076')
+            ->see('Barrio Juan XXIII calle boyan')
             ->see('nestor@tapia.com');
     }
 
@@ -41,6 +43,7 @@ class ClientsTest extends TestCase
             ->type('6632525', 'phone')
             ->type('71825656', 'cellphone')
             ->type('5059076', 'ci')
+            ->type('Barrio Juan XXIII calle boyan', 'address')
             ->type('nestor@tapia.com', 'email')
             ->press('Create client')
             ->seePageIs('clients')
@@ -48,12 +51,14 @@ class ClientsTest extends TestCase
             ->see('6632525')
             ->see('71825656')
             ->see('5059076')
+            ->see('Barrio Juan XXIII calle boyan')
             ->see('nestor@tapia.com')
             ->seeInDatabase('clients',[
                 'full_name' => 'Nestor Tapia Rivera',
                 'phone' => '6632525',
                 'cellphone' => '71825656',
                 'ci' => '5059076',
+                'address' => 'Barrio Juan XXIII calle boyan',
                 'email' => 'nestor@tapia.com'
             ]);
     }
@@ -65,6 +70,7 @@ class ClientsTest extends TestCase
             'phone' => '6632525',
             'cellphone' => '71825656',
             'ci' => '5059076',
+            'address' => 'Barrio Juan XXIII calle boyan',
             'email' => 'nestor@tapia.com'
         ]);
 
@@ -75,11 +81,13 @@ class ClientsTest extends TestCase
             ->see('6632525')
             ->see('71825656')
             ->see('5059076')
+            ->see('Barrio Juan XXIII calle boyan')
             ->see('nestor@tapia.com')
             ->type('Monica Arnal Mendoza', 'full_name')
             ->type('6632525', 'phone')
             ->type('71825656', 'cellphone')
             ->type('5059076', 'ci')
+            ->type('Barrio Juan XXIII calle boyana', 'address')
             ->type('monica@arnal.com', 'email')
             ->press('Update client')
             ->seePageIs('clients')
@@ -87,12 +95,14 @@ class ClientsTest extends TestCase
             ->see('6632525')
             ->see('71825656')
             ->see('5059076')
+            ->see('Barrio Juan XXIII calle boyana')
             ->see('monica@arnal.com')
             ->seeInDatabase('clients',[
                 'full_name' => 'Monica Arnal Mendoza',
                 'phone' => '6632525',
                 'cellphone' => '71825656',
                 'ci' => '5059076',
+                'address' => 'Barrio Juan XXIII calle boyana',
                 'email' => 'monica@arnal.com'
             ]);
     }
@@ -104,6 +114,7 @@ class ClientsTest extends TestCase
             'phone' => '6632525',
             'cellphone' => '71825656',
             'ci' => '5059076',
+            'address' => 'Barrio Juan XXIII calle boyan',
             'email' => 'nestor@tapia.com'
         ]);
 
@@ -111,11 +122,12 @@ class ClientsTest extends TestCase
             ->press('Delete')
             ->seePageIs('clients')
             ->dontSeeInDatabase('clients',[
-                'full_name' => 'Monica Arnal Mendoza',
+                'full_name' => 'Nestor Tapia Rivera',
                 'phone' => '6632525',
                 'cellphone' => '71825656',
                 'ci' => '5059076',
-                'email' => 'monica@arnal.com'
+                'address' => 'Barrio Juan XXIII calle boyan',
+                'email' => 'nestor@tapia.com'
             ]);
     }
 }

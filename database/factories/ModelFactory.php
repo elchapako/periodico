@@ -42,3 +42,21 @@ $factory->define(App\Section::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Size::class, function (Faker\Generator $faker) {
+
+    return [
+        'size' => $faker->postcode,
+    ];
+});
+
+$factory->define(App\Client::class, function (Faker\Generator $faker) {
+
+    return [
+        'full_name' => $faker->name,
+        'phone' => $faker->phoneNumber,
+        'cellphone' => $faker->phoneNumber,
+        'ci' => $faker->randomNumber(8),
+        'address' => $faker->address,
+        'email' => $faker->email,
+    ];
+});
