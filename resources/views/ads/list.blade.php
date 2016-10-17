@@ -6,7 +6,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">List of publicities
-                        <a href="{{url('ads')}}" class="btn-xs btn-primary pull-right" role="button">Add a publicity</a>
+                        <a href="{{url('ads/create')}}" class="btn-xs btn-primary pull-right" role="button">Add ad</a>
                     </div>
                     @include('partials/errors')
                     @if(Session::has('message'))

@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Ad;
+
 use App\Client;
+use App\Section;
+use App\Size;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
+
 
 class AdsController extends Controller
 {
@@ -19,8 +22,6 @@ class AdsController extends Controller
     public function index()
     {
         $ads = Ad::paginate(15);
-        //$ads = DB::table('ads')->paginate(15);
-
         return view('ads.list', compact('ads'));
     }
 
@@ -31,7 +32,10 @@ class AdsController extends Controller
      */
     public function create()
     {
-        //
+        $sections = Section::pluck('name', 'id');
+        $sizes = Size::pluck('size', 'id');
+        $clients = Client::pluck('full_name', 'id');
+        return view('ads.create', compact('sizes', 'sections', 'clients'));
     }
 
     /**
@@ -40,9 +44,21 @@ class AdsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $this->validate(request(), [
+            'name' => ['required', 'max:50'],
+            'color' => ['required'],
+            'section_id' => ['required'],
+            'size_id'=> ['required'],
+            'client_id' => ['required']
+        ]);
+
+        $ad = request()->all();
+
+        Ad::create($ad);
+
+        return redirect()->to('ads');
     }
 
     /**
