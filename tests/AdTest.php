@@ -67,4 +67,64 @@ class AdTest extends TestCase
                 'client_id' => $c->id
             ]);
     }
+
+    public function test_advertising_edit()
+    {
+        $c=factory(App\Client::class)->create();
+        $s=factory(App\Size::class)->create();
+        $sec=factory(App\Section::class)->create();
+
+        Ad::create([
+            'name' => 'Juancito Pinto',
+            'color' => 'Full Color',
+            'client_id' => $c->id,
+            'section_id' => $sec->id,
+            'size_id' => $s->id
+        ]);
+
+        $this->visit('ads')
+            ->click('Edit')
+            ->seePageIs('ads/1/edit')
+            ->see('Edit ad')
+            ->type('Ministerio de Economia', 'name')
+            ->select('B&W', 'color')
+            ->select($sec->id, 'section_id')
+            ->select($s->id, 'size_id')
+            ->select($c->id, 'client_id')
+            ->press('Update ad')
+            ->seePageIs('ads')
+            ->see('Ministerio de Economia')
+            ->see('B&W')
+            ->see($sec->name)
+            ->see($s->size)
+            ->see($c->full_name)
+            ->seeInDatabase('ads',[
+                'name' => 'Ministerio de Economia',
+                'color' => 'B&W',
+                'section_id' => $sec->id,
+                'size_id' => $s->id,
+                'client_id' => $c->id
+            ]);
+    }
+
+    public function test_advertising_delete()
+    {
+        $c=factory(App\Client::class)->create();
+        $s=factory(App\Size::class)->create();
+        $sec=factory(App\Section::class)->create();
+
+        Ad::create([
+            'name' => 'Juancito Pinto',
+            'color' => 'Full Color',
+            'client_id' => $c->id,
+            'section_id' => $sec->id,
+            'size_id' => $s->id
+        ]);
+
+        $this->visit('ads')
+            ->press('Delete')
+            ->seePageIs('ads')
+            ->dontSeeInDatabase('ads', [
+                'name' => 'Juancito Pinto']);
+    }
 }

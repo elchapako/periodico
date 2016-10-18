@@ -10,6 +10,7 @@ use App\Size;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
 
 
 class AdsController extends Controller
@@ -80,7 +81,13 @@ class AdsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ad = Ad::findOrFail($id);
+
+        $sections = Section::pluck('name', 'id');
+        $sizes = Size::pluck('size', 'id');
+        $clients = Client::pluck('full_name', 'id');
+
+        return view('ads.edit', compact('ad', 'sections', 'sizes', 'clients'));
     }
 
     /**
@@ -90,9 +97,21 @@ class AdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $this->validate(request(), [
+            'name' => ['required', 'max:50'],
+            'color' => ['required'],
+            'section_id' => ['required'],
+            'size_id'=> ['required'],
+            'client_id' => ['required']
+        ]);
+
+        $ad = Ad::findOrFail($id);
+        $ad->fill(request()->all());
+        $ad->save();
+        return redirect()->to('ads');
+
     }
 
     /**
@@ -103,6 +122,11 @@ class AdsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ad = Ad::findOrFail($id);
+        $ad->delete();
+
+        Session::flash('message', 'Advertising ' . $ad->name . ' fue eliminada');
+
+        return redirect()->route('ads.index');
     }
 }
