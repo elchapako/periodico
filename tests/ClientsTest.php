@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ClientsTest extends TestCase
 {
 
-    use DatabaseTransactions;
+    use DatabaseMigrations;
 
     public function test_clients_list()
     {

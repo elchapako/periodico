@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class AdTest extends TestCase
 {
-    use DatabaseTransactions;
+    use DatabaseMigrations;
 
     public function test_advertising_list()
     {

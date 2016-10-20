@@ -140,7 +140,8 @@ class AcachaAdminLTELaravelTest extends TestCase
         $user = factory(App\User::class)->create();
 
         $this->actingAs($user)
-            ->visit('/logout')
+            ->click($user->name)
+            ->click('Sign out')
             ->seePageIs('/');
     }
 
@@ -166,7 +167,6 @@ class AcachaAdminLTELaravelTest extends TestCase
         $this->visit('/register')
             ->type('Sergi Tur Badenas', 'name')
             ->type('sergiturbadenas@gmail.com', 'email')
-            ->check('terms')
             ->type('passw0RD', 'password')
             ->type('passw0RD', 'password_confirmation')
             ->press('Register')

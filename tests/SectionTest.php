@@ -7,7 +7,7 @@ use App\Section;
 
 class SectionTest extends TestCase
 {
-    use DatabaseTransactions;
+    use DatabaseMigrations;
 
     public function test_sections_list()
     {
