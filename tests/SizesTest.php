@@ -7,7 +7,7 @@ use App\Size;
 
 class SizesTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     public function test_sizes_list()
     {

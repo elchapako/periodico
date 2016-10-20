@@ -74,7 +74,11 @@ return [
             'engine' => null,
         ],
 
-
+        'sqlite' => [
+            'driver'   => 'sqlite',
+            'database' => database_path('database.sqlite'),
+            'prefix'   => '',
+        ],
     ],
 
     /*

@@ -182,6 +182,11 @@ return [
         Styde\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 
+        /*
+        * Acacha AdminLTE template provider
+        */
+        Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+
     ],
 
     /*
@@ -232,6 +237,10 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class,
 
+        /*
+        * Acacha AdminLTE template alias
+        */
+        'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
     ],
 
 ];

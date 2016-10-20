@@ -14,6 +14,7 @@
                     @endif
                     <div class="panel-body">
                     @include('clients.partials.table')
+                        {!! $clients->render() !!}
                     </div>
                 </div>
             </div>

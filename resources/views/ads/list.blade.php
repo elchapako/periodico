@@ -42,7 +42,7 @@
                                 </tr>
                             @endforeach
                         </table>
-
+                        {!! $ads->render() !!}
                     </div>
                 </div>
             </div>
