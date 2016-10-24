@@ -125,7 +125,7 @@ class AdsController extends Controller
         $ad = Ad::findOrFail($id);
         $ad->delete();
 
-        Session::flash('message', 'Advertising ' . $ad->name . ' fue eliminada');
+        Session::flash('message', 'Advertising '. $ad->name . ' fue eliminada');
 
         return redirect()->route('ads.index');
     }

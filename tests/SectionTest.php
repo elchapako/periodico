@@ -26,7 +26,7 @@ class SectionTest extends TestCase
         $this->visit('sections')
             ->click('Add a section')
             ->seePageIs('sections/create')
-            ->see('Create a section')
+            ->see('Create section')
             ->type('Sociales', 'name')
             ->press('Create section')
             ->seePageIs('sections')

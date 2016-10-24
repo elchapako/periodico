@@ -115,7 +115,7 @@ class ClientsController extends Controller
 
         $client->delete();
 
-        Session::flash('message', $client->full_name . ' fue eliminada');
+        Session::flash('message', 'Client '. $client->full_name . ' fue eliminada');
 
         return redirect()->route('clients.index');
     }

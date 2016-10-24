@@ -20,7 +20,7 @@ class ModelsController extends Controller
      */
     public function index()
     {
-        $models = Model::all();
+        $models = Model::paginate(15);
         return view('models.list', compact('models'));
     }
 
@@ -156,7 +156,7 @@ class ModelsController extends Controller
         File::delete(public_path().'/storage/'.$name);
         File::delete(public_path().'/storage/'.'thumb_'.$name);
 
-        Session::flash('message', $model->name . ' fue eliminada');
+        Session::flash('message', 'Model '. $model->name . ' fue eliminada');
         return redirect()->route('models.index');
     }
 }

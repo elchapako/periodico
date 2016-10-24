@@ -66,7 +66,7 @@ class AreasController extends Controller
 
         $area->delete();
 
-        Session::flash('message', $area->name . ' fue eliminada');
+        Session::flash('message', 'Area '. $area->name . ' fue eliminada');
 
         return redirect()->route('areas.index');
     }

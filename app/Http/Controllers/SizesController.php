@@ -100,7 +100,7 @@ class SizesController extends Controller
     {
         $size= Size::findOrFail($id);
         $size->delete();
-        Session::flash('message', $size->size . ' fue eliminada');
+        Session::flash('message', 'Size '. $size->size . ' fue eliminada');
         return redirect()->route('sizes.index');
     }
 }

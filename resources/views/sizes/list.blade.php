@@ -1,20 +1,32 @@
-@extends('layout')
+@extends('layouts.app')
 
-@section('content')
-    <div>
-        <h2>List of Sizes of publicity</h2>
-    </div>
-    @if(Session::has('message'))
-        <p class="alert alert-success">{{Session::get('message')}}</p>
-    @endif
+@section('htmlheader_title')
+    List of Sizes
+@endsection
+
+@section('contentheader_title')
+    List of Sizes
+@endsection
+
+@section('main-content')
     <div class="container">
-        <div>
-            <a href="{{route('sizes.create')}}" class="btn btn-primary">Add size</a>
-            <p>Hay {{ $sizes->total() }} sizes</p>
-        </div>
-        <div>
-            @include('sizes.partials.table')
-            {!! $sizes->render() !!}
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">List of Sizes
+                        <a href="{{url('sizes/create')}}" class="btn-xs btn-primary pull-right" role="button">Add size</a>
+                    </div>
+                    @include('partials/errors')
+                    @if(Session::has('message'))
+                        <p class="alert alert-success">{{Session::get('message')}}</p>
+                    @endif
+                    <div class="panel-body">
+                        <p>Hay {{ $sizes->total() }} sizes</p>
+                        @include('sizes.partials.table')
+                        {!! $sizes->render() !!}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

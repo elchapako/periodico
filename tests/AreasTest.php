@@ -28,7 +28,7 @@ class AreasTest extends TestCase
         $this->visit('areas')
             ->click('Add an area')
             ->seePageIs('areas/create')
-            ->see('Create an area')
+            ->see('Create area')
             ->type('Internacional', 'name')
             ->press('Create area')
             ->seePageIs('areas')

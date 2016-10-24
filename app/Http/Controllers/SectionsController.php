@@ -103,7 +103,7 @@ class SectionsController extends Controller
     {
         $section= Section::findOrFail($id);
         $section->delete();
-        Session::flash('message', $section->name . ' fue eliminada');
+        Session::flash('message', 'Section '. $section->name . ' fue eliminada');
         return redirect()->route('sections.index');
     }
 }
