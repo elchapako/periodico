@@ -187,6 +187,8 @@ return [
         */
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
 
+        Silber\Bouncer\BouncerServiceProvider::class,
+
     ],
 
     /*
@@ -241,6 +243,8 @@ return [
         * Acacha AdminLTE template alias
         */
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+
+        'Bouncer' => Silber\Bouncer\BouncerFacade::class,
     ],
 
 ];
