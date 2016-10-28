@@ -11,7 +11,8 @@
         "barryvdh/laravel-debugbar": "^2.3",
         "styde/html": "~1.0",
         "intervention/image": "^2.3",
-        "acacha/admin-lte-template-laravel": "2.*"
+        "acacha/admin-lte-template-laravel": "2.*",
+        "silber/bouncer": "dev-master"
 
     },
     "require-dev": {
