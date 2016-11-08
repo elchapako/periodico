@@ -2,8 +2,8 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        <a href="https://github.com/acacha/adminlte-laravel"></a><b>admin-lte-laravel</b></a>. {{ trans('adminlte_lang::message.descriptionpackage') }}
+        <b>Periódico El País EN</b></a>. Sistema de Gestión de procesos
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2015 <a href="http://acacha.org">Acacha.org</a>.</strong> {{ trans('adminlte_lang::message.createdby') }} <a href="http://acacha.org/sergitur">Sergi Tur Badenas</a>. {{ trans('adminlte_lang::message.seecode') }} <a href="https://github.com/acacha/adminlte-laravel">Github</a>
+    <strong>Copyright &copy; 2016. </strong> {{ trans('adminlte_lang::message.createdby') }} <a href="https://www.facebook.com/edwin.rimendieta">Edwin R. Ibañez M.</a> {{ trans('adminlte_lang::message.seecode') }} <a href="https://github.com/elchapako/periodico">Github</a>
 </footer>

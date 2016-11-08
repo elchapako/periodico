@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    List of Models
+    {{ trans('validation.attributes.list_of_models') }}
 @endsection
 
 @section('contentheader_title')
-    List of Models
+    {{ trans('validation.attributes.list_of_models') }}
 @endsection
 
 @section('main-content')
@@ -13,10 +13,9 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">List of Models
-                        <a href="{{url('models/create')}}" class="btn-xs btn-primary pull-right" role="button">Agregar</a>
+                    <div class="panel-heading">{{ trans('validation.attributes.list_of_models') }}
+                        <a href="{{url('models/create')}}" class="btn-xs btn-primary pull-right" role="button">{{ trans('validation.attributes.add_model') }}</a>
                     </div>
-                    @include('partials/errors')
                     @if(Session::has('message'))
                         <p class="alert alert-success">{{Session::get('message')}}</p>
                     @endif
@@ -35,9 +34,9 @@
                                                     </tr>
                                                     <tr>
                                                         <td><h4>{{$model->name}} : </h4></td>
-                                                        <td><a href="{{route('models.edit', $model->id)}}" class="btn btn-primary">Edit</a></td>
+                                                        <td><a href="{{route('models.edit', $model->id)}}" class="btn btn-primary">{{ trans('validation.attributes.edit') }}</a></td>
                                                         <td>{!! Form::open(['route' => ['models.destroy', $model->id], 'method' => 'DELETE']) !!}
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                            <button type="submit" class="btn btn-danger">{{ trans('validation.attributes.delete') }}</button>
                                                             {!! Form::close() !!}</td>
                                                     </tr>
                                                 </table>

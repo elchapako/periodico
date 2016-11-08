@@ -32,4 +32,5 @@
     <script src="{{asset('datePicker/js/bootstrap-datepicker.js')}}"></script>
     <!-- Languaje -->
     <script src="{{asset('datePicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
+    @yield('css')
 </head>

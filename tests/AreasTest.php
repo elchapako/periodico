@@ -8,7 +8,7 @@ use App\Area;
 
 class AreasTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseMigrations, WithoutMiddleware;
 
     public function test_areas_list()
     {

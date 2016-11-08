@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    Edit Model
+    {{ trans('validation.attributes.edit_model') }}
 @endsection
 
 @section('contentheader_title')
-    Edit Model
+    {{ trans('validation.attributes.edit_model') }}
 @endsection
 
 @section('main-content')
@@ -13,8 +13,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Edit Model
-                        @include('partials/errors')
+                    <div class="panel-heading">{{ trans('validation.attributes.edit_model') }}
                         @if(Session::has('message'))
                             <p class="alert alert-success">{{Session::get('message')}}</p>
                         @endif
@@ -22,7 +21,7 @@
                     <div class="panel-body">
                         {!! Form::model($model, ['route' => ['models.update', $model->id], 'method' => 'PUT', 'files' => 'true'] ) !!}
                         <div class="form-group">
-                            {!! Form::label('name','Name')!!}
+                            {!! Form::label('name', trans('validation.attributes.model_name'))!!}
                             {!! Form::text('name',null,['class' => 'form-control']) !!}
                         </div>
 
@@ -36,7 +35,7 @@
                             {!! Form::label('image','Imagen')!!}
                             {!! Form::file('image',null,['class' => 'form-control']) !!}
                         </div>
-                        <button type="submit" class="btn btn-primary">Update model</button>
+                        <button type="submit" class="btn btn-primary">{{ trans('validation.attributes.update_model') }}</button>
                         {!! Form::close() !!}
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    List of Publicities
+    {{ trans('validation.attributes.list_of_ads') }}
 @endsection
 
 @section('contentheader_title')
-    List of Publicities
+    {{ trans('validation.attributes.list_of_ads') }}
 @endsection
 
 @section('main-content')
@@ -13,10 +13,9 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">List of Publicities
-                        <a href="{{url('ads/create')}}" class="btn-xs btn-primary pull-right" role="button">Add ad</a>
+                    <div class="panel-heading">{{ trans('validation.attributes.list_of_ads') }}
+                        <a href="{{url('ads/create')}}" class="btn-xs btn-primary pull-right" role="button">{{ trans('validation.attributes.add_ad') }}</a>
                     </div>
-                    @include('partials/errors')
                     @if(Session::has('message'))
                         <p class="alert alert-success">{{Session::get('message')}}</p>
                     @endif

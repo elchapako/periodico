@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    Add Area
+    {{ trans('validation.attributes.add_area') }}
 @endsection
 
 @section('contentheader_title')
-    Add Area
+    {{ trans('validation.attributes.add_area') }}
 @endsection
 
 @section('main-content')
@@ -13,8 +13,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Add Area
-                        @include('partials/errors')
+                    <div class="panel-heading">{{ trans('validation.attributes.add_area') }}
                         @if(Session::has('message'))
                             <p class="alert alert-success">{{Session::get('message')}}</p>
                         @endif
@@ -22,7 +21,7 @@
                     <div class="panel-body">
                         {!! Form::open(['route' => 'areas.store', 'method' => 'POST']) !!}
                         @include('areas.partials.fields')
-                        <button type="submit" class="btn btn-primary">Create area</button>
+                        <button type="submit" class="btn btn-primary">{{ trans('validation.attributes.create_area') }}</button>
                         {!! Form::close() !!}
                     </div>
                 </div>

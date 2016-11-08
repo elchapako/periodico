@@ -14,30 +14,39 @@
                 <br><br><br>
             </div>
             <div class="col-lg-4 col-lg-offset-2">
-                <p class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>
-                @include('errors.errors')
+                <p class="login-box-msg"> {{ trans('message.siginsession') }} </p>
                 <form action="{{ url('/login') }}" method="post">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="form-group has-feedback">
-                        <input type="email" class="form-control" placeholder="{{ trans('adminlte_lang::message.email') }}" name="email"/>
+                    {{ csrf_field() }}
+                    <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <input id="email" type="email" class="form-control" placeholder="{{ trans('message.email') }}" name="email" value="{{ old('email') }}" required autofocus>
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        @if ($errors->has('email'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
                     </div>
-                    <div class="form-group has-feedback">
-                        <input type="password" class="form-control" placeholder="{{ trans('adminlte_lang::message.password') }}" name="password"/>
+                    <div class="form-group has-feedback {{ $errors->has('password') ? ' has-error' : '' }}">
+                        <input type="password" class="form-control" placeholder="{{ trans('message.password') }}" name="password" required/>
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        @if ($errors->has('password'))
+                            <span class="help-block">
+                                 <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="row">
                         <div class="col-xs-8">
                             <div class="checkbox icheck">
                                 <label>
-                                    <input type="checkbox" name="remember"> {{ trans('adminlte_lang::message.remember') }} <br>
-                                    <a href="{{ url('/password/reset') }}">{{ trans('adminlte_lang::message.forgotpassword') }}</a><br>
-                                <!-- <a href="{{ url('/register') }}" class="text-center">{{ trans('adminlte_lang::message.registermember') }}</a> -->
+                                    <input type="checkbox" name="remember"> {{ trans('message.remember') }} <br>
+                                    <a href="{{ url('/password/reset') }}">{{ trans('message.forgotpassword') }}</a><br>
+                                <!-- <a href="{{ url('/register') }}" class="text-center">{{ trans('message.registermember') }}</a> -->
                                 </label>
                             </div>
                         </div><!-- /.col -->
                         <div class="col-xs-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('adminlte_lang::message.buttonsign') }}</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('message.buttonsign') }}</button>
                         </div><!-- /.col -->
                     </div>
                 </form>
@@ -56,5 +65,6 @@
             });
         });
     </script>
-
 @endsection
+
+
