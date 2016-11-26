@@ -7,15 +7,23 @@ use App\Section;
 
 class SectionTest extends TestCase
 {
-    use DatabaseMigrations, WithoutMiddleware;
+    use DatabaseTransactions, WithoutMiddleware;
 
     public function test_sections_list()
     {
+        $useradmin = factory(App\User::class)->create([
+            'name' => 'Edwin',
+            'email' => 'el.chapako@gmail.com',
+            'password' => bcrypt('admin')
+        ]);
+        $useradmin->assign('admin');
+
         //having
             Section::create(['name' => 'Cronica']);
             Section::create(['name' => 'Deportivo']);
 	    //when
-	        $this->visit('sections')
+	        $this->actingAs($useradmin)
+            ->visit('sections')
 	    //then
             ->see('Cronica')
             ->see('Deportivo');
@@ -23,12 +31,20 @@ class SectionTest extends TestCase
 
     public function test_create_sections()
     {
-        $this->visit('sections')
-            ->click('Add a section')
+        $useradmin = factory(App\User::class)->create([
+            'name' => 'Edwin',
+            'email' => 'el.chapako@gmail.com',
+            'password' => bcrypt('admin')
+        ]);
+        $useradmin->assign('admin');
+
+        $this->actingAs($useradmin)
+            ->visit('sections')
+            ->click('Agregar Seccion')
             ->seePageIs('sections/create')
-            ->see('Create section')
+            ->see('Agregar Seccion')
             ->type('Sociales', 'name')
-            ->press('Create section')
+            ->press('Crear Seccion')
             ->seePageIs('sections')
             ->see('Sociales')
             ->seeInDatabase('sections',[
@@ -38,14 +54,22 @@ class SectionTest extends TestCase
 
     public function test_update_sections()
     {
+        $useradmin = factory(App\User::class)->create([
+            'name' => 'Edwin',
+            'email' => 'el.chapako@gmail.com',
+            'password' => bcrypt('admin')
+        ]);
+        $useradmin->assign('admin');
+
         Section::create(['name' => 'Cronica']);
 
-        $this->visit('sections')
-            ->click('Edit')
-            ->seePageIs('sections/1/edit')
+        $this->actingAs($useradmin)
+            ->visit('sections')
+            ->click('Editar')
+            //->seePageIs('sections/1/edit')
             ->see('Cronica')
             ->type('Deportivo', 'name')
-            ->press('Update section')
+            ->press('Actualizar Seccion')
             ->seePageIs('sections')
             ->see('Deportivo')
             ->seeInDatabase('sections',[
@@ -55,13 +79,21 @@ class SectionTest extends TestCase
 
     public function test_delete_section()
     {
+        $useradmin = factory(App\User::class)->create([
+            'name' => 'Edwin',
+            'email' => 'el.chapako@gmail.com',
+            'password' => bcrypt('admin')
+        ]);
+        $useradmin->assign('admin');
+
         $section = Section::create(['name' => 'Deportivo']);
 
-        $this->visit('sections')
-            ->press('Delete')
+        $this->actingAs($useradmin)
+            ->visit('sections')
+            ->press('Eliminar')
             ->seePageIs('sections')
             ->dontSeeInDatabase('sections', [
-                'name' => $section->name]);
+                'name' => 'Deportivo']);
     }
 
 }

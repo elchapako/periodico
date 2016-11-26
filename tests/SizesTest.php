@@ -7,16 +7,24 @@ use App\Size;
 
 class SizesTest extends TestCase
 {
-    use DatabaseMigrations, WithoutMiddleware;
+    use DatabaseTransactions, WithoutMiddleware;
 
     public function test_sizes_list()
     {
+        $useradmin = factory(App\User::class)->create([
+            'name' => 'Edwin',
+            'email' => 'el.chapako@gmail.com',
+            'password' => bcrypt('admin')
+        ]);
+        $useradmin->assign('admin');
+
         //having
         Size::create(['size' => '1/4']);
         Size::create(['size' => '3x4']);
 
         //when
-        $this->visit('sizes')
+        $this->actingAs($useradmin)
+            ->visit('sizes')
             //then
             ->see('1/4')
             ->see('3x4');
@@ -24,12 +32,20 @@ class SizesTest extends TestCase
 
     public function test_create_size()
     {
-        $this->visit('sizes')
-            ->click('Add size')
+        $useradmin = factory(App\User::class)->create([
+            'name' => 'Edwin',
+            'email' => 'el.chapako@gmail.com',
+            'password' => bcrypt('admin')
+        ]);
+        $useradmin->assign('admin');
+
+        $this->actingAs($useradmin)
+            ->visit('sizes')
+            ->click('Agregar Tamaño')
             ->seePageIs('sizes/create')
-            ->see('Create size')
+            ->see('Agregar Tamaño')
             ->type('2x4', 'size')
-            ->press('Create size')
+            ->press('Crear Tamaño')
             ->seePageIs('sizes')
             ->see('2x4')
             ->seeInDatabase('sizes',[
@@ -39,14 +55,22 @@ class SizesTest extends TestCase
 
     public function test_update_size()
     {
+        $useradmin = factory(App\User::class)->create([
+            'name' => 'Edwin',
+            'email' => 'el.chapako@gmail.com',
+            'password' => bcrypt('admin')
+        ]);
+        $useradmin->assign('admin');
+
         Size::create(['size' => '3x4']);
 
-        $this->visit('sizes')
-            ->click('Edit')
-            ->seePageIs('sizes/1/edit')
+        $this->actingAs($useradmin)
+            ->visit('sizes')
+            ->click('Editar')
+            //->seePageIs('sizes/1/edit')
             ->see('3x4')
             ->type('1/4', 'size')
-            ->press('Update size')
+            ->press('Actualizar Tamaño')
             ->seePageIs('sizes')
             ->see('1/4')
             ->seeInDatabase('sizes',[
@@ -56,12 +80,20 @@ class SizesTest extends TestCase
 
     public function test_delete_size()
     {
-        $size = Size::create(['size' => '1/2']);
+        $useradmin = factory(App\User::class)->create([
+            'name' => 'Edwin',
+            'email' => 'el.chapako@gmail.com',
+            'password' => bcrypt('admin')
+        ]);
+        $useradmin->assign('admin');
 
-        $this->visit('sizes')
-            ->press('Delete')
+        Size::create(['size' => '1/2']);
+
+        $this->actingAs($useradmin)
+            ->visit('sizes')
+            ->press('Eliminar')
             ->seePageIs('sizes')
             ->dontSeeInDatabase('sizes', [
-                'size' => $size->size]);
+                'size' => '1/2']);
     }
 }

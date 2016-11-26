@@ -8,14 +8,26 @@ use Illuminate\Support\Facades\DB;
 
 class AdTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     public function test_advertising_list()
     {
+        $useradmin = factory(App\User::class)->create([
+            'name' => 'Edwin',
+            'email' => 'el.chapako@gmail.com',
+            'password' => bcrypt('admin')
+        ]);
+        $useradmin->assign('admin');
         //having
-        $c=factory(App\Client::class)->create();
-        $s=factory(App\Size::class)->create();
-        $sec=factory(App\Section::class)->create();
+        $c=factory(App\Client::class)->create([
+            'full_name' => 'Gobernacion Tarija'
+        ]);
+        $s=factory(App\Size::class)->create([
+            'size' => '1/4'
+        ]);
+        $sec=factory(App\Section::class)->create([
+            'name' => 'Edicion Central'
+        ]);
 
         Ad::create([
             'name' => 'Juancito Pinto',
@@ -27,38 +39,53 @@ class AdTest extends TestCase
 
 
         //when
-        $this->visit('ads')
+        $this->actingAs($useradmin)
+            ->visit('ads')
             //then
             ->see('Juancito Pinto')
             ->see('Full Color')
-            ->see($sec->name)
-            ->see($s->size)
-            ->see($c->full_name);
+            ->see('Edicion Central')
+            ->see('1/4')
+            ->see('Gobernacion Tarija');
 
     }
 
     public function test_advertising_create()
     {
-        $c=factory(App\Client::class)->create();
-        $s=factory(App\Size::class)->create();
-        $sec=factory(App\Section::class)->create();
+        $useradmin = factory(App\User::class)->create([
+            'name' => 'Edwin',
+            'email' => 'el.chapako@gmail.com',
+            'password' => bcrypt('admin')
+        ]);
+        $useradmin->assign('admin');
 
-        $this->visit('ads')
-            ->click('Add ad')
+        $c=factory(App\Client::class)->create([
+            'full_name' => 'Gobernacion Tarija'
+        ]);
+        $s=factory(App\Size::class)->create([
+            'size' => '1/4'
+        ]);
+        $sec=factory(App\Section::class)->create([
+            'name' => 'Edicion Central'
+        ]);
+
+        $this->actingAs($useradmin)
+            ->visit('ads')
+            ->click('Agregar Publicidad')
             ->seePageIs('ads/create')
-            ->see('Create ad')
+            ->see('Agregar publicidad')
             ->type('Juancito Pinto', 'name')
             ->select('Full Color', 'color')
             ->select($sec->id, 'section_id')
             ->select($s->id, 'size_id')
             ->select($c->id, 'client_id')
-            ->press('Create ad')
+            ->press('Crear publicidad')
             ->seePageIs('ads')
             ->see('Juancito Pinto')
             ->see('Full Color')
-            ->see($sec->name)
-            ->see($s->size)
-            ->see($c->full_name)
+            ->see('Edicion Central')
+            ->see('1/4')
+            ->see('Gobernacion Tarija')
             ->seeInDatabase('ads',[
                 'name' => 'Juancito Pinto',
                 'color' => 'Full color',
@@ -70,9 +97,22 @@ class AdTest extends TestCase
 
     public function test_advertising_edit()
     {
-        $c=factory(App\Client::class)->create();
-        $s=factory(App\Size::class)->create();
-        $sec=factory(App\Section::class)->create();
+        $useradmin = factory(App\User::class)->create([
+            'name' => 'Edwin',
+            'email' => 'el.chapako@gmail.com',
+            'password' => bcrypt('admin')
+        ]);
+        $useradmin->assign('admin');
+
+        $c=factory(App\Client::class)->create([
+            'full_name' => 'Gobernacion Tarija'
+        ]);
+        $s=factory(App\Size::class)->create([
+            'size' => '1/4'
+        ]);
+        $sec=factory(App\Section::class)->create([
+            'name' => 'Edicion Central'
+        ]);
 
         Ad::create([
             'name' => 'Juancito Pinto',
@@ -82,22 +122,23 @@ class AdTest extends TestCase
             'size_id' => $s->id
         ]);
 
-        $this->visit('ads')
-            ->click('Edit')
-            ->seePageIs('ads/1/edit')
-            ->see('Edit ad')
+        $this->actingAs($useradmin)
+            ->visit('ads')
+            ->click('Editar')
+            //->seePageIs('ads/1/edit')
+            ->see('Editar publicidad')
             ->type('Ministerio de Economia', 'name')
             ->select('B&W', 'color')
             ->select($sec->id, 'section_id')
             ->select($s->id, 'size_id')
             ->select($c->id, 'client_id')
-            ->press('Update ad')
+            ->press('Actualizar publicidad')
             ->seePageIs('ads')
             ->see('Ministerio de Economia')
             ->see('B&W')
-            ->see($sec->name)
-            ->see($s->size)
-            ->see($c->full_name)
+            ->see('Edicion Central')
+            ->see('1/4')
+            ->see('Gobernacion Tarija')
             ->seeInDatabase('ads',[
                 'name' => 'Ministerio de Economia',
                 'color' => 'B&W',
@@ -109,9 +150,22 @@ class AdTest extends TestCase
 
     public function test_advertising_delete()
     {
-        $c=factory(App\Client::class)->create();
-        $s=factory(App\Size::class)->create();
-        $sec=factory(App\Section::class)->create();
+        $useradmin = factory(App\User::class)->create([
+            'name' => 'Edwin',
+            'email' => 'el.chapako@gmail.com',
+            'password' => bcrypt('admin')
+        ]);
+        $useradmin->assign('admin');
+
+        $c=factory(App\Client::class)->create([
+            'full_name' => 'Gobernacion Tarija'
+        ]);
+        $s=factory(App\Size::class)->create([
+            'size' => '1/4'
+        ]);
+        $sec=factory(App\Section::class)->create([
+            'name' => 'Edicion Central'
+        ]);
 
         Ad::create([
             'name' => 'Juancito Pinto',
@@ -121,8 +175,9 @@ class AdTest extends TestCase
             'size_id' => $s->id
         ]);
 
-        $this->visit('ads')
-            ->press('Delete')
+        $this->actingAs($useradmin)
+            ->visit('ads')
+            ->press('Eliminar')
             ->seePageIs('ads')
             ->dontSeeInDatabase('ads', [
                 'name' => 'Juancito Pinto']);
