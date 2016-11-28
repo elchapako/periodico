@@ -23,6 +23,7 @@
                         @include('clients.partials.fields')
                         <button type="submit" class="btn btn-primary">{{ trans('validation.attributes.create_client') }}</button>
                         {!! Form::close() !!}
+                        <a href="{{route('clients.index')}}" class="btn btn-primary">{{ trans('validation.attributes.back') }}</a>
                     </div>
                 </div>
             </div>

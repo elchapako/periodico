@@ -179,5 +179,6 @@ return [
         'section'               => 'Sección',
         'client'                => 'Cliente',
         'ad_name'               => 'Nombre de Publicidad',
+        'back'                  => 'Volver'
     ],
 ];

@@ -157,6 +157,7 @@ return [
         'section'               => 'Section',
         'client'                => 'Client',
         'ad_name'               => 'Advertising Name',
+        'back'                  => 'Back',
     ],
 
 ];

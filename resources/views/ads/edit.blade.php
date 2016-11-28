@@ -23,6 +23,7 @@
                         @include('ads.partials.fields')
                         <button type="submit" class="btn btn-primary">{{ trans('validation.attributes.update_ad') }}</button>
                         {!! Form::close() !!}
+                        <a href="{{route('ads.index')}}" class="btn btn-primary">{{ trans('validation.attributes.back') }}</a>
                     </div>
                 </div>
             </div>

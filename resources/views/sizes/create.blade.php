@@ -23,6 +23,7 @@
                         @include('sizes.partials.fields')
                         <button type="submit" class="btn btn-primary">{{ trans('validation.attributes.create_size') }}</button>
                         {!! Form::close() !!}
+                        <a href="{{route('sizes.index')}}" class="btn btn-primary">{{ trans('validation.attributes.back') }}</a>
                     </div>
                 </div>
             </div>

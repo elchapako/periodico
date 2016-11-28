@@ -30,6 +30,7 @@
                         </div>
                         <button type="submit" class="btn btn-default">{{ trans('validation.attributes.create_model') }}</button>
                         {!! Form::close() !!}
+                        <a href="{{route('models.index')}}" class="btn btn-primary">{{ trans('validation.attributes.back') }}</a>
                     </div>
                 </div>
             </div>
