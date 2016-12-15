@@ -1,23 +1,12 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Size;
 
-class SizesTest extends TestCase
+class SizesTest extends FeatureTestCase
 {
-    use DatabaseTransactions, WithoutMiddleware;
-
-    public function test_sizes_list()
+    function test_sizes_list()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
-
+        $useradmin = $this->defaultUser();
         //having
         Size::create(['size' => '1/4']);
         Size::create(['size' => '3x4']);
@@ -30,14 +19,9 @@ class SizesTest extends TestCase
             ->see('3x4');
     }
 
-    public function test_create_size()
+    function test_create_size()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         $this->actingAs($useradmin)
             ->visit('sizes')
@@ -53,14 +37,9 @@ class SizesTest extends TestCase
             ]);
     }
 
-    public function test_update_size()
+    function test_update_size()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         Size::create(['size' => '3x4']);
 
@@ -78,14 +57,9 @@ class SizesTest extends TestCase
             ]);
     }
 
-    public function test_delete_size()
+    function test_delete_size()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         Size::create(['size' => '1/2']);
 

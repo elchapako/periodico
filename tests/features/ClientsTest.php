@@ -1,24 +1,11 @@
 <?php
-
 use App\Client;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ClientsTest extends TestCase
+class ClientsTest extends FeatureTestCase
 {
-
-    use DatabaseTransactions, WithoutMiddleware;
-
-    public function test_clients_list()
+    function test_clients_list()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
-
+        $useradmin = $this->defaultUser();
         //having
         Client::create([
             'full_name' => 'Nestor Tapia Rivera',
@@ -41,14 +28,9 @@ class ClientsTest extends TestCase
             ->see('nestor@tapia.com');
     }
 
-    public function test_create_clients()
+    function test_create_clients()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         $this->actingAs($useradmin)
             ->visit('clients')
@@ -79,13 +61,9 @@ class ClientsTest extends TestCase
             ]);
     }
 
-    public function test_update_clients()
+    function test_update_clients()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
+        $useradmin = $this->defaultUser();
         $useradmin->assign('admin');
 
         Client::create([
@@ -131,14 +109,9 @@ class ClientsTest extends TestCase
             ]);
     }
 
-    public function test_delete_client()
+    function test_delete_client()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         Client::create([
             'full_name' => 'Nestor Tapia Rivera',

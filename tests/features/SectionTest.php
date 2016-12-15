@@ -1,23 +1,11 @@
 <?php
-
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Section;
 
-class SectionTest extends TestCase
+class SectionTest extends FeatureTestCase
 {
-    use DatabaseTransactions, WithoutMiddleware;
-
-    public function test_sections_list()
+    function test_sections_list()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
-
+        $useradmin = $this->defaultUser();
         //having
             Section::create(['name' => 'Cronica']);
             Section::create(['name' => 'Deportivo']);
@@ -29,14 +17,9 @@ class SectionTest extends TestCase
             ->see('Deportivo');
     }
 
-    public function test_create_sections()
+    function test_create_sections()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         $this->actingAs($useradmin)
             ->visit('sections')
@@ -52,14 +35,9 @@ class SectionTest extends TestCase
             ]);
     }
 
-    public function test_update_sections()
+    function test_update_sections()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         Section::create(['name' => 'Cronica']);
 
@@ -77,16 +55,11 @@ class SectionTest extends TestCase
             ]);
     }
 
-    public function test_delete_section()
+    function test_delete_section()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
-        $section = Section::create(['name' => 'Deportivo']);
+        Section::create(['name' => 'Deportivo']);
 
         $this->actingAs($useradmin)
             ->visit('sections')

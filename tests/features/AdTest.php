@@ -1,23 +1,11 @@
 <?php
-
 use App\Ad;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Support\Facades\DB;
 
-class AdTest extends TestCase
+class AdTest extends FeatureTestCase
 {
-    use DatabaseTransactions;
-
-    public function test_advertising_list()
+    function test_advertising_list()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
         //having
         $c=factory(App\Client::class)->create([
             'full_name' => 'Gobernacion Tarija'
@@ -50,14 +38,9 @@ class AdTest extends TestCase
 
     }
 
-    public function test_advertising_create()
+    function test_advertising_create()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         $c=factory(App\Client::class)->create([
             'full_name' => 'Gobernacion Tarija'
@@ -95,14 +78,9 @@ class AdTest extends TestCase
             ]);
     }
 
-    public function test_advertising_edit()
+    function test_advertising_edit()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         $c=factory(App\Client::class)->create([
             'full_name' => 'Gobernacion Tarija'
@@ -148,14 +126,9 @@ class AdTest extends TestCase
             ]);
     }
 
-    public function test_advertising_delete()
+    function test_advertising_delete()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         $c=factory(App\Client::class)->create([
             'full_name' => 'Gobernacion Tarija'

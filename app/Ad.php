@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Ad extends Model
 {
     protected $fillable = ['name', 'color', 'section_id', 'size_id', 'client_id'];

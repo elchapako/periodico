@@ -1,23 +1,11 @@
 <?php
-
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-
 use App\Area;
 
-class AreasTest extends TestCase
+class AreasTest extends FeatureTestCase
 {
-    use DatabaseTransactions, WithoutMiddleware;
-
-    public function test_areas_list()
+    function test_areas_list()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
         //having
         Area::create(['name' => 'Local']);
         Area::create(['name' => 'Nacional']);
@@ -30,14 +18,9 @@ class AreasTest extends TestCase
             ->see('Nacional');
     }
 
-    public function test_create_area()
+    function test_create_area()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         $this->actingAs($useradmin)
             ->visit('areas')
@@ -53,14 +36,9 @@ class AreasTest extends TestCase
             ]);
     }
 
-    public function test_update_area()
+    function test_update_area()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         Area::create(['name' => 'local']);
 
@@ -78,14 +56,9 @@ class AreasTest extends TestCase
             ]);
     }
 
-    public function test_delete_area()
+    function test_delete_area()
     {
-        $useradmin = factory(App\User::class)->create([
-            'name' => 'Edwin',
-            'email' => 'el.chapako@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
-        $useradmin->assign('admin');
+        $useradmin = $this->defaultUser();
 
         $area = Area::create(['name' => 'local']);
 
