@@ -2,44 +2,14 @@
 
 class AcachaAdminLTELaravelTest extends FeatureTestCase
 {
-    /**
-     * Test Landing Page.
-     *
-     * @return void
-     */
-
-
-
-    function testLandingPage()
-    {
-        $this->visit('/')
-             ->see('Login');
-    }
-     
-    /**
-     * Test Login Page.
-     *
-     * @return void
-     */
-    /**
-
 
     function testLoginPage()
     {
         $this->visit('/login')
             ->see('Inicia sesión para acceder');
     }
-     */
-    /**
-     * Test Login.
-     *
-     * @return void
-     */
 
-    /**
-
-
-    public function testLogin()
+    public function test_user_can_login()
     {
         $user = factory(App\User::class)->create(['password' => Hash::make('passw0RD')]);
 
@@ -50,16 +20,6 @@ class AcachaAdminLTELaravelTest extends FeatureTestCase
             ->seePageIs('/')
             ->see($user->name);
     }
-     *
-     */
-
-    /**
-     * Test Login.
-     *
-     * @return void
-     */
-    /**
-
 
     function testLoginRequiredFields()
     {
@@ -70,27 +30,12 @@ class AcachaAdminLTELaravelTest extends FeatureTestCase
             ->see('El campo correo electrónico es obligatorio')
             ->see('El campo contraseña es obligatorio');
     }
-     */
-    /**
-     * Test Register Page.
-     *
-     * @return void
-     */
-    /**
-
 
     function testRegisterPage()
     {
         $this->visit('/register')
             ->see('Registar un nuevo miembro');
     }
-     */
-    /**
-     * Test Password reset Page.
-     *
-     * @return void
-     */
-    /**
 
 
     function testPasswordResetPage()
@@ -98,13 +43,6 @@ class AcachaAdminLTELaravelTest extends FeatureTestCase
         $this->visit('/password/reset')
             ->see('Restablecer la contraseña');
     }
-     */
-    /**
-     * Test home page is only for authorized Users.
-     *
-     * @return void
-     */
-    /**
 
 
     function testHomePageForUnauthenticatedUsers()
@@ -112,15 +50,6 @@ class AcachaAdminLTELaravelTest extends FeatureTestCase
         $this->visit('/home')
             ->seePageIs('/login');
     }
-     */
-    /**
-     * Test home page works with Authenticated Users.
-     *
-     * @return void
-     */
-
-    /**
-
 
     public function testHomePageForAuthenticatedUsers()
     {
@@ -130,87 +59,26 @@ class AcachaAdminLTELaravelTest extends FeatureTestCase
             ->visit('/home')
             ->see($user->name);
     }
-     */
 
-
-    /**
-     * Test log out.
-     *
-     * @return void
-     */
-    /** public function testLogout()
+    public function testLogout()
     {
         $user = factory(App\User::class)->create();
 
-        $this->actingAs($user)
-            ->click($user->name)
-            ->click('Sign out')
-            ->seePageIs('/');
-    }  */
+        $form = $this->actingAs($user)->visit('/')->getForm('logout');
 
-    /**
-     * Test 404 Error page.
-     *
-     * @return void
-     */
-    /**
+        $this->actingAs($user)
+            ->visit('/')
+            ->makeRequestUsingForm($form)
+            ->seePageIs('/login');
+    }
 
 
     function test404Page()
     {
         $this->get('asdasdjlapmnnk')
-           ->seeStatusCode(404)
+            ->seeStatusCode(404)
             ->see('404');
     }
-     */
-    /**
-     * Test user registration.
-     *
-     * @return void
-     */
-
-    /**
-
-
-    public function testNewUserRegistration()
-    {
-        $this->visit('/register')
-            ->type('Sergi Tur Badenas', 'name')
-            ->type('sergiturbadenas@gmail.com', 'email')
-            ->type('passw0RD', 'password')
-            ->type('passw0RD', 'password_confirmation')
-            ->press('Registrar')
-            ->seePageIs('/')
-            ->seeInDatabase('users', ['email' => 'sergiturbadenas@gmail.com',
-                                      'name'  => 'Sergi Tur Badenas', ]);
-    }
-     *
-     */
-    /**
-     * Test required fields on registration page.
-     *
-     * @return void
-     */
-    /**
-
-
-    function testRequiredFieldsOnRegistrationPage()
-    {
-        $this->visit('/register')
-            ->press('Registrar')
-            ->see('El campo nombre es obligatorio')
-            ->see('El campo correo electrónico es obligatorio')
-            ->see('El campo contraseña es obligatorio');
-    }
-     */
-    /**
-     * Test send password reset.
-     *
-     * @return void
-     */
-
-    /**
-
 
     function testSendPasswordReset()
     {
@@ -221,14 +89,6 @@ class AcachaAdminLTELaravelTest extends FeatureTestCase
             ->press('Enviar el enlace')
             ->see('¡Te hemos enviado por correo el enlace para restablecer tu contraseña!');
     }
-     */
-    /**
-     * Test send password reset user not exists.
-     *
-     * @return void
-     */
-    /**
-
 
     function testSendPasswordResetUserNotExists()
     {
@@ -237,5 +97,4 @@ class AcachaAdminLTELaravelTest extends FeatureTestCase
             ->press('Enviar el enlace')
             ->see('Hay algunos problemas con su entrada.');
     }
-     * */
 }
