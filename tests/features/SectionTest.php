@@ -5,7 +5,7 @@ class SectionTest extends FeatureTestCase
 {
     function test_sections_list()
     {
-        $useradmin = $this->defaultUser();
+        $useradmin = $this->adminUser();
         //having
             Section::create(['name' => 'Cronica']);
             Section::create(['name' => 'Deportivo']);
@@ -17,27 +17,9 @@ class SectionTest extends FeatureTestCase
             ->see('Deportivo');
     }
 
-    function test_create_sections()
-    {
-        $useradmin = $this->defaultUser();
-
-        $this->actingAs($useradmin)
-            ->visit('sections')
-            ->click('Agregar Seccion')
-            ->seePageIs('sections/create')
-            ->see('Agregar Seccion')
-            ->type('Sociales', 'name')
-            ->press('Crear Seccion')
-            ->seePageIs('sections')
-            ->see('Sociales')
-            ->seeInDatabase('sections',[
-                'name' => 'Sociales'
-            ]);
-    }
-
     function test_update_sections()
     {
-        $useradmin = $this->defaultUser();
+        $useradmin = $this->adminUser();
 
         Section::create(['name' => 'Cronica']);
 
@@ -57,7 +39,7 @@ class SectionTest extends FeatureTestCase
 
     function test_delete_section()
     {
-        $useradmin = $this->defaultUser();
+        $useradmin = $this->adminUser();
 
         Section::create(['name' => 'Deportivo']);
 

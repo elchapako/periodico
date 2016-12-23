@@ -5,7 +5,7 @@ class AreasTest extends FeatureTestCase
 {
     function test_areas_list()
     {
-        $useradmin = $this->defaultUser();
+        $useradmin = $this->adminUser();
         //having
         Area::create(['name' => 'Local']);
         Area::create(['name' => 'Nacional']);
@@ -18,27 +18,9 @@ class AreasTest extends FeatureTestCase
             ->see('Nacional');
     }
 
-    function test_create_area()
-    {
-        $useradmin = $this->defaultUser();
-
-        $this->actingAs($useradmin)
-            ->visit('areas')
-            ->click('Agregar Area')
-            ->seePageIs('areas/create')
-            ->see('Agregar Area')
-            ->type('Internacional', 'name')
-            ->press('Crear Area')
-            ->seePageIs('areas')
-            ->see('Internacional')
-            ->seeInDatabase('areas',[
-                'name' => 'Internacional'
-            ]);
-    }
-
     function test_update_area()
     {
-        $useradmin = $this->defaultUser();
+        $useradmin = $this->adminUser();
 
         Area::create(['name' => 'local']);
 
@@ -58,7 +40,7 @@ class AreasTest extends FeatureTestCase
 
     function test_delete_area()
     {
-        $useradmin = $this->defaultUser();
+        $useradmin = $this->adminUser();
 
         $area = Area::create(['name' => 'local']);
 

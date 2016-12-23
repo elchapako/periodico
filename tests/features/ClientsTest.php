@@ -5,7 +5,7 @@ class ClientsTest extends FeatureTestCase
 {
     function test_clients_list()
     {
-        $useradmin = $this->defaultUser();
+        $useradmin = $this->adminUser();
         //having
         Client::create([
             'full_name' => 'Nestor Tapia Rivera',
@@ -28,42 +28,9 @@ class ClientsTest extends FeatureTestCase
             ->see('nestor@tapia.com');
     }
 
-    function test_create_clients()
-    {
-        $useradmin = $this->defaultUser();
-
-        $this->actingAs($useradmin)
-            ->visit('clients')
-            ->click('Agregar Cliente')
-            ->seePageIs('clients/create')
-            ->see('Agregar Cliente')
-            ->type('Nestor Tapia Rivera', 'full_name')
-            ->type('6632525', 'phone')
-            ->type('71825656', 'cellphone')
-            ->type('5059076', 'ci')
-            ->type('Barrio Juan XXIII calle boyan', 'address')
-            ->type('nestor@tapia.com', 'email')
-            ->press('Crear Cliente')
-            ->seePageIs('clients')
-            ->see('Nestor Tapia Rivera')
-            ->see('6632525')
-            ->see('71825656')
-            ->see('5059076')
-            ->see('Barrio Juan XXIII calle boyan')
-            ->see('nestor@tapia.com')
-            ->seeInDatabase('clients',[
-                'full_name' => 'Nestor Tapia Rivera',
-                'phone' => '6632525',
-                'cellphone' => '71825656',
-                'ci' => '5059076',
-                'address' => 'Barrio Juan XXIII calle boyan',
-                'email' => 'nestor@tapia.com'
-            ]);
-    }
-
     function test_update_clients()
     {
-        $useradmin = $this->defaultUser();
+        $useradmin = $this->adminUser();
         $useradmin->assign('admin');
 
         Client::create([
@@ -111,7 +78,7 @@ class ClientsTest extends FeatureTestCase
 
     function test_delete_client()
     {
-        $useradmin = $this->defaultUser();
+        $useradmin = $this->adminUser();
 
         Client::create([
             'full_name' => 'Nestor Tapia Rivera',

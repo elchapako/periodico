@@ -42,11 +42,11 @@ class ClientsController extends Controller
     {
         $this->validate(request(), [
             'full_name' => ['required', 'max:50'],
-            'phone' => ['integer'],
-            'cellphone' => ['integer'],
+            'phone' => ['required', 'integer'],
+            'cellphone' => ['required', 'integer'],
             'ci' => ['required', 'max:12'],
-            'address' => ['required'],
-            'email' => ['email']
+            'address' => ['required', 'max:100'],
+            'email' => ['required', 'email']
         ]);
 
         $client = request()->all();

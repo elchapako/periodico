@@ -13,7 +13,7 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
      * @var \App\User
      */
 
-    protected $defaultUser;
+    protected $adminUser;
 
     /**
      * Creates the application.
@@ -29,12 +29,12 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         return $app;
     }
 
-    public function defaultUser()
+    public function adminUser()
     {
-        if ($this->defaultUser){
-            return $this->defaultUser;
+        if ($this->adminUser){
+            return $this->adminUser;
         }
-        return $this->defaultUser = factory(User::class)->create([
+        return $this->adminUser = factory(User::class)->create([
             'name' => 'Edwin',
             'email' => 'el.chapako@gmail.com',
             'password' => bcrypt('admin')
