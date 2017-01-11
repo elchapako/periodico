@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
+    }
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -34,4 +38,6 @@ class User extends Authenticatable
     {
         return $this->roles()->first()->name;
     }
+
+
 }

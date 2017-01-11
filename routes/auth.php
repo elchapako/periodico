@@ -11,3 +11,5 @@ Route::resource('sizes', 'SizesController');
 Route::resource('clients', 'ClientsController');
 
 Route::resource('ads', 'AdsController');
+
+Route::resource('notes', 'NotesController');

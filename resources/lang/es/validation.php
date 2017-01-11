@@ -181,6 +181,12 @@ return [
         'section'               => 'Sección',
         'client'                => 'Cliente',
         'ad_name'               => 'Nombre de Publicidad',
-        'back'                  => 'Volver'
+        'back'                  => 'Volver',
+        'list_of_notes'         => 'Lista de Noticias',
+        'add_note'              => 'Agregar Noticia',
+        'create_note'           => 'Crear Noticia',
+        'notes'                 => 'Noticias',
+        'area'                  => 'Area',
+        'reporter'              => 'Periodista',
     ],
 ];
