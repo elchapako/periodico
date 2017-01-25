@@ -13,3 +13,5 @@ Route::resource('clients', 'ClientsController');
 Route::resource('ads', 'AdsController');
 
 Route::resource('notes', 'NotesController');
+
+Route::resource('assigned-notes', 'AssignedNotesController');

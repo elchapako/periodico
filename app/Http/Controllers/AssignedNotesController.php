@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Area;
 use App\Note;
-use App\Notifications\NoteAssigned;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Auth;
 
-class NotesController extends Controller
+class AssignedNotesController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $notes = Note::paginate(15);
-        return view('notes.list', compact('notes'));
+        $id = Auth::id();
+        $notes = Note::where('reporter_id', $id)
+                ->get();
+        return view('assigned-notes.list', compact('notes'));
     }
 
     /**
@@ -24,9 +29,7 @@ class NotesController extends Controller
      */
     public function create()
     {
-        $areas = Area::pluck('name', 'id');
-        $users = User::pluck('name', 'id');
-        return view('notes.create', compact('areas', 'users'));
+        //
     }
 
     /**
@@ -35,18 +38,9 @@ class NotesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        $this->validate(request(), [
-            'title' => ['required', 'max:60'],
-            'area_id' => ['required'],
-            'reporter_id'=> ['required'],
-        ]);
-
-        $note = request()->all();
-        Note::create($note);
-
-        return redirect()->to('notes');
+        //
     }
 
     /**
