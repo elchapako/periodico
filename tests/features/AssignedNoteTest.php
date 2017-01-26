@@ -17,8 +17,14 @@ class AssignedNoteTest extends FeatureTestCase
             'name' => 'Local'
         ]);
 
-        $reporter = $this->defaultUser([
-            'name' => 'Jesus Vargas'
+        $reporter = factory(App\User::class)->create([
+            'name' => 'Jesus Vargas',
+            'email' => 'jesus@gmail.com'
+        ])->assign('reporter');
+
+        $reporter2 = factory(App\User::class)->create([
+           'name' => 'Danitza Montaño',
+            'email' => 'danitza@gmail.com'
         ])->assign('reporter');
 
         $this->actingAs($ji);
@@ -27,10 +33,15 @@ class AssignedNoteTest extends FeatureTestCase
             'area_id' => $area->id,
             'reporter_id' => $reporter->id
         ]);
+        $note2 = factory(App\Note::class)->create([
+            'area_id' => $area->id,
+            'reporter_id' => $reporter2->id
+        ]);
 
         $this->actingAs($reporter);
         $this->visit('assigned-notes')
             ->see($note->title)
-            ->see('Local');
+            ->see('Local')
+            ->dontSee($note2->title);
     }
 }
