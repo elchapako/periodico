@@ -12,6 +12,22 @@ Route::resource('clients', 'ClientsController');
 
 Route::resource('ads', 'AdsController');
 
-Route::resource('notes', 'NotesController');
+Route::get('notes', [
+    'uses' => 'NotesController@index',
+    'as' => 'notes.index'
+]);
 
-Route::resource('assigned-notes', 'AssignedNotesController');
+Route::get('notes/create', [
+   'uses' => 'NotesController@create',
+   'as' => 'notes/create'
+]);
+
+Route::post('notes.store', [
+    'uses' => 'NotesController@store',
+    'as' => 'notes.store'
+]);
+
+Route::get('assigned-notes', [
+    'uses' => 'AssignedNotesController@index',
+    'as' => 'assigned-notes'
+]);

@@ -23,15 +23,14 @@ class AssignedNoteTest extends FeatureTestCase
 
         $this->actingAs($ji);
 
-        $note = Note::create([
-            'title' => 'Lino condori y su cama',
+        $note = factory(App\Note::class)->create([
             'area_id' => $area->id,
             'reporter_id' => $reporter->id
         ]);
 
         $this->actingAs($reporter);
         $this->visit('assigned-notes')
-            ->see('Lino condori y su cama')
+            ->see($note->title)
             ->see('Local');
     }
 }

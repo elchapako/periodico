@@ -40,7 +40,7 @@ class CreateNotesTest extends FeatureTestCase
 
     function test_creating_a_note_requires_authentication()
     {
-        $this->visit(route('notes.create'))
+        $this->visit(route('notes/create'))
             ->seePageIs(route('login'));
     }
 
@@ -49,9 +49,9 @@ class CreateNotesTest extends FeatureTestCase
         $useradmin = $this->adminUser();
 
         $this->actingAs($useradmin)
-            ->visit(route('notes.create'))
+            ->visit(route('notes/create'))
             ->press('Crear Noticia')
-            ->seePageIs(route('notes.create'))
+            ->seePageIs(route('notes/create'))
             ->see('El campo título es obligatorio')
             ->see('El campo area id es obligatorio')
             ->see('El campo reporter id es obligatorio');

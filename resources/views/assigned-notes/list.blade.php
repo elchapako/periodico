@@ -21,9 +21,9 @@
                         <p class="alert alert-success">{{Session::get('message')}}</p>
                     @endif
                     <div class="panel-body">
-
+                        <p>Hay {{ $notes->total() }} notas</p>
                         @include('assigned-notes.partials.table')
-
+                        {!! $notes->render() !!}
                     </div>
                 </div>
             </div>

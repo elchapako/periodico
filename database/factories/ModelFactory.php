@@ -53,3 +53,9 @@ $factory->define(App\Client::class, function (Faker\Generator $faker) {
         'email' => $faker->email,
     ];
 });
+
+$factory->define(App\Note::class, function (Faker\Generator $faker){
+   return[
+        'title' => $faker->title,
+   ];
+});

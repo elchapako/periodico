@@ -11,12 +11,8 @@
             <td>{{$note->id}}</td>
             <td>{{$note->title}}</td>
             <td>{{$note->area->name}}</td>
-            <td><a href="{{route('assigned-notes.edit', $note->id)}}" class="btn btn-primary">{{ trans('validation.attributes.edit') }}</a></td>
-            <td>
-                {!! Form::open(['route' => ['assigned-notes.destroy', $note->id], 'method' => 'DELETE']) !!}
-                <button type="submit" class="btn btn-danger">{{ trans('validation.attributes.delete') }}</button>
-                {!! Form::close() !!}
-            </td>
+            <td></td>
+            <td></td>
         </tr>
     @endforeach
 </table>
