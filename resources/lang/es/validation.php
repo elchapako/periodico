@@ -188,5 +188,8 @@ return [
         'notes'                 => 'Noticias',
         'area'                  => 'Area',
         'reporter'              => 'Periodista',
+        'create_new_edition'    => 'Crear Nueva Edición',
+        'create_edition'        => 'Crear Edición',
+        'number_of_edition'     => 'Numero de Edición'
     ],
 ];

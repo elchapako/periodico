@@ -31,3 +31,13 @@ Route::get('assigned-notes', [
     'uses' => 'AssignedNotesController@index',
     'as' => 'assigned-notes'
 ]);
+
+Route::get('editions', [
+    'uses' => 'EditionsController@index',
+    'as' => 'editions.index'
+]);
+
+Route::post('editions.store', [
+   'uses' => 'EditionsController@store',
+   'as' => 'editions.store'
+]);

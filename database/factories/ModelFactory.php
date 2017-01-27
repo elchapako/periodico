@@ -59,3 +59,10 @@ $factory->define(App\Note::class, function (Faker\Generator $faker){
         'title' => $faker->title,
    ];
 });
+
+$factory->define(App\Edition::class, function (Faker\Generator $faker){
+   return[
+       'date'  => $faker->date(),
+       'number_of_edition' => $faker->randomNumber(4),
+   ];
+});
