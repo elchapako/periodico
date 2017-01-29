@@ -27,10 +27,12 @@ class AssignedNoteTest extends FeatureTestCase
         $this->actingAs($ji);
 
         $note = factory(App\Note::class)->create([
+            'title' => 'titulo uno',
             'area_id' => $area->id,
             'reporter_id' => $reporter->id
         ]);
         $note2 = factory(App\Note::class)->create([
+            'title' => 'titulo dos',
             'area_id' => $area->id,
             'reporter_id' => $reporter2->id
         ]);
