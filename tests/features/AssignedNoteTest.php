@@ -6,10 +6,6 @@ class AssignedNoteTest extends FeatureTestCase
 {
     public function test_list_of_notes_assigned_to_reporter()
     {
-        $ji = $this->defaultUser([
-            'name' => 'Edwin Ibañez'
-        ])->assign('info-manager');
-
         $area= factory(App\Area::class)->create([
             'name' => 'Local'
         ]);
@@ -23,8 +19,6 @@ class AssignedNoteTest extends FeatureTestCase
            'name' => 'Danitza Montaño',
             'email' => 'danitza@gmail.com'
         ])->assign('reporter');
-
-        $this->actingAs($ji);
 
         $note = factory(App\Note::class)->create([
             'title' => 'titulo uno',

@@ -11,16 +11,17 @@ class EditionTest extends FeatureTestCase
             'name' => 'Edwin Ibañez'
         ])->assign('editor');
 
-        $date = '2017/01/27';
+        $date = Carbon::now();
         $editions_number = 8459;
-        $date= new Carbon($date);
+
+
 
         factory(App\Edition::class)->create([
             'date' => $date,
             'number_of_edition' => $editions_number
         ]);
 
-        $date->addDay();
+        $date = Carbon::tomorrow();
 
         $this->actingAs($editor)
             ->visit('editions')

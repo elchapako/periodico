@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class EditionsTableSeeder extends Seeder
@@ -12,7 +13,7 @@ class EditionsTableSeeder extends Seeder
     public function run()
     {
         factory(App\Edition::class)->create([
-           'date' => '2017/01/26',
+           'date' => Carbon::today(),
            'number_of_edition' => '8459'
         ]);
     }

@@ -13,7 +13,7 @@ return [
     */
 
     'name' => 'Laravel',
-
+    'edition_number' => '8568',
     /*
     |--------------------------------------------------------------------------
     | Application Environment

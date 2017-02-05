@@ -20,13 +20,10 @@
                         <p class="alert alert-success">{{Session::get('message')}}</p>
                     @endif
                     <div class="panel-body">
-                            @foreach($fields as $ed)
+                        @include('editions.partials.table')
                                 {!! Form::open(['route' => 'editions.store', 'method' => 'POST']) !!}
-                                    <input class="hidden" name="date" value="{{$ed->date}}">
-                                    <input class="hidden" name="number_of_edition" value="{{$ed->number_of_edition}}">
                                 <button type="submit" class="btn btn-primary">{{ trans('validation.attributes.create_edition') }}</button>
                                 {!! Form::close() !!}
-                            @endforeach
                     </div>
                 </div>
             </div>

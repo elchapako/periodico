@@ -17,7 +17,7 @@ class CreateEditionsTable extends Migration
             $table->increments('id');
 
             $table->date('date');
-            $table->integer('number_of_edition');
+            $table->integer('number_of_edition')->unique();
 
             $table->timestamps();
         });
