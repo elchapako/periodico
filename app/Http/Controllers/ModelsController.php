@@ -67,7 +67,7 @@ class ModelsController extends Controller
         $model->image = $file->getClientOriginalName();
         $model->save();
 
-        return redirect()->to('models');
+        return redirect()->route('models.index');
     }
 
     /**
@@ -111,7 +111,7 @@ class ModelsController extends Controller
         If(Input::file('image') == null){
             $model->fill(request()->only('name'));
             $model->save();
-            return redirect()->to('models');
+            return redirect()->route('models.index');
         }else{
 
             $name = $model->image;
@@ -136,7 +136,7 @@ class ModelsController extends Controller
             $model->image = $file->getClientOriginalName();
             $model->save();
 
-            return redirect()->to('models');
+            return redirect()->route('models.index');
         }
 
     }

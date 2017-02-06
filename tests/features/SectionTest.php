@@ -11,7 +11,7 @@ class SectionTest extends FeatureTestCase
             Section::create(['name' => 'Deportivo']);
 	    //when
 	        $this->actingAs($useradmin)
-            ->visit('sections')
+            ->visit(route('sections.index'))
 	    //then
             ->see('Cronica')
             ->see('Deportivo');
@@ -24,13 +24,13 @@ class SectionTest extends FeatureTestCase
         Section::create(['name' => 'Cronica']);
 
         $this->actingAs($useradmin)
-            ->visit('sections')
+            ->visit(route('sections.index'))
             ->click('Editar')
             //->seePageIs('sections/1/edit')
             ->see('Cronica')
             ->type('Deportivo', 'name')
             ->press('Actualizar Seccion')
-            ->seePageIs('sections')
+            ->seePageIs(route('sections.index'))
             ->see('Deportivo')
             ->seeInDatabase('sections',[
                 'name' => 'Deportivo'
@@ -44,9 +44,9 @@ class SectionTest extends FeatureTestCase
         Section::create(['name' => 'Deportivo']);
 
         $this->actingAs($useradmin)
-            ->visit('sections')
+            ->visit(route('sections.index'))
             ->press('Eliminar')
-            ->seePageIs('sections')
+            ->seePageIs(route('sections.index'))
             ->dontSeeInDatabase('sections', [
                 'name' => 'Deportivo']);
     }

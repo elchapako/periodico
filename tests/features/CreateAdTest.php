@@ -17,9 +17,9 @@ class CreateAdTest extends FeatureTestCase
         ]);
 
         $this->actingAs($useradmin)
-            ->visit('ads')
+            ->visit(route('ads.index'))
             ->click('Agregar Publicidad')
-            ->seePageIs('ads/create')
+            ->seePageIs(route('ads.create'))
             ->see('Agregar publicidad')
             ->type('Juancito Pinto', 'name')
             ->select('Full Color', 'color')
@@ -27,7 +27,7 @@ class CreateAdTest extends FeatureTestCase
             ->select($s->id, 'size_id')
             ->select($c->id, 'client_id')
             ->press('Crear publicidad')
-            ->seePageIs('ads')
+            ->seePageIs(route('ads.index'))
             ->see('Juancito Pinto')
             ->see('Full Color')
             ->see('Edicion Central')

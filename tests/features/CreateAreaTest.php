@@ -7,13 +7,13 @@ class CreateAreaTest extends FeatureTestCase
         $useradmin = $this->adminUser();
 
         $this->actingAs($useradmin)
-            ->visit('areas')
+            ->visit(route('areas.index'))
             ->click('Agregar Area')
-            ->seePageIs('areas/create')
+            ->seePageIs(route('areas.create'))
             ->see('Agregar Area')
             ->type('Internacional', 'name')
             ->press('Crear Area')
-            ->seePageIs('areas')
+            ->seePageIs(route('areas.index'))
             ->see('Internacional')
             ->seeInDatabase('areas',[
                 'name' => 'Internacional'

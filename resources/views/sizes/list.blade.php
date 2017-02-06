@@ -15,7 +15,7 @@
                 @include('partials/errors')
                 <div class="panel panel-default">
                     <div class="panel-heading">{{ trans('validation.attributes.list_of_sizes') }}
-                        <a href="{{url('sizes/create')}}" class="btn-xs btn-primary pull-right" role="button">{{ trans('validation.attributes.add_size') }}</a>
+                        <a href="{{route('sizes.create')}}" class="btn-xs btn-primary pull-right" role="button">{{ trans('validation.attributes.add_size') }}</a>
                     </div>
                     @if(Session::has('message'))
                         <p class="alert alert-success">{{Session::get('message')}}</p>

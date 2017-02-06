@@ -13,7 +13,7 @@ class SizesTest extends FeatureTestCase
 
         //when
         $this->actingAs($useradmin)
-            ->visit('sizes')
+            ->visit(route('sizes.index'))
             //then
             ->see('1/4')
             ->see('3x4');
@@ -26,13 +26,13 @@ class SizesTest extends FeatureTestCase
         Size::create(['size' => '3x4']);
 
         $this->actingAs($useradmin)
-            ->visit('sizes')
+            ->visit(route('sizes.index'))
             ->click('Editar')
             //->seePageIs('sizes/1/edit')
             ->see('3x4')
             ->type('1/4', 'size')
             ->press('Actualizar Tamaño')
-            ->seePageIs('sizes')
+            ->seePageIs(route('sizes.index'))
             ->see('1/4')
             ->seeInDatabase('sizes',[
                 'size' => '1/4'
@@ -46,9 +46,9 @@ class SizesTest extends FeatureTestCase
         Size::create(['size' => '1/2']);
 
         $this->actingAs($useradmin)
-            ->visit('sizes')
+            ->visit(route('sizes.index'))
             ->press('Eliminar')
-            ->seePageIs('sizes')
+            ->seePageIs(route('sizes.index'))
             ->dontSeeInDatabase('sizes', [
                 'size' => '1/2']);
     }

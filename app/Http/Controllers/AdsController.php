@@ -7,7 +7,7 @@ use App\Ad;
 use App\Client;
 use App\Section;
 use App\Size;
-use Illuminate\Http\Request;
+
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
@@ -59,7 +59,7 @@ class AdsController extends Controller
 
         Ad::create($ad);
 
-        return redirect()->to('ads');
+        return redirect()->route('ads.index');
     }
 
     /**
@@ -110,7 +110,7 @@ class AdsController extends Controller
         $ad = Ad::findOrFail($id);
         $ad->fill(request()->all());
         $ad->save();
-        return redirect()->to('ads');
+        return redirect()->route('ads.index');
 
     }
 

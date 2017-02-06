@@ -7,13 +7,13 @@ class CreateSectionTest extends FeatureTestCase
         $useradmin = $this->adminUser();
 
         $this->actingAs($useradmin)
-            ->visit('sections')
+            ->visit(route('sections.index'))
             ->click('Agregar Seccion')
-            ->seePageIs('sections/create')
+            ->seePageIs(route('sections.create'))
             ->see('Agregar Seccion')
             ->type('Sociales', 'name')
             ->press('Crear Seccion')
-            ->seePageIs('sections')
+            ->seePageIs(route('sections.index'))
             ->see('Sociales')
             ->seeInDatabase('sections',[
                 'name' => 'Sociales'

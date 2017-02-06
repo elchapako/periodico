@@ -7,7 +7,6 @@ use App\Client;
 use Illuminate\Support\Facades\Session;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
 
 class ClientsController extends Controller
 {
@@ -18,7 +17,7 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        $clients = DB::table('clients')->paginate(15);
+        $clients = Client::paginate(15);
         return view('clients.list', compact('clients'));
     }
 
@@ -53,7 +52,7 @@ class ClientsController extends Controller
 
         Client::create($client);
 
-        return redirect()->to('clients');
+        return redirect()->route('clients.index');
     }
 
     /**
@@ -100,7 +99,7 @@ class ClientsController extends Controller
         $client= Client::findOrFail($id);
         $client->fill(request()->all());
         $client->save();
-        return redirect()->to('clients');
+        return redirect()->route('clients.index');
     }
 
     /**

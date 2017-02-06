@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Size;
-use Illuminate\Http\Request;
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class SizesController extends Controller
@@ -17,7 +15,7 @@ class SizesController extends Controller
      */
     public function index()
     {
-        $sizes = DB::table('sizes')->paginate(15);
+        $sizes = Size::paginate(15);
         return view('sizes.list', compact('sizes'));
     }
 
@@ -46,7 +44,7 @@ class SizesController extends Controller
         $size = request()->all();
         Size::create($size);
 
-        return redirect()->to('sizes');
+        return redirect()->route('sizes.index');
     }
 
     /**
@@ -87,7 +85,7 @@ class SizesController extends Controller
         $size= Size::findOrFail($id);
         $size->fill(request()->all());
         $size->save();
-        return redirect()->to('sizes');
+        return redirect()->route('sizes.index');
     }
 
     /**

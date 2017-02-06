@@ -7,9 +7,9 @@ class CreateClientTest extends FeatureTestCase
         $useradmin = $this->adminUser();
 
         $this->actingAs($useradmin)
-            ->visit('clients')
+            ->visit(route('clients.index'))
             ->click('Agregar Cliente')
-            ->seePageIs('clients/create')
+            ->seePageIs(route('clients.create'))
             ->see('Agregar Cliente')
             ->type('Nestor Tapia Rivera', 'full_name')
             ->type('6632525', 'phone')
@@ -18,7 +18,7 @@ class CreateClientTest extends FeatureTestCase
             ->type('Barrio Juan XXIII calle boyan', 'address')
             ->type('nestor@tapia.com', 'email')
             ->press('Crear Cliente')
-            ->seePageIs('clients')
+            ->seePageIs(route('clients.index'))
             ->see('Nestor Tapia Rivera')
             ->see('6632525')
             ->see('71825656')

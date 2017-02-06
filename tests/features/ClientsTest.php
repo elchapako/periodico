@@ -18,7 +18,7 @@ class ClientsTest extends FeatureTestCase
 
         //when
         $this->actingAs($useradmin)
-            ->visit('clients')
+            ->visit(route('clients.index'))
             //then
             ->see('Nestor Tapia Rivera')
             ->see('66-32525')
@@ -43,7 +43,7 @@ class ClientsTest extends FeatureTestCase
         ]);
 
         $this->actingAs($useradmin)
-            ->visit('clients')
+            ->visit(route('clients.index'))
             ->click('Editar')
             //->seePageIs('clients/1/edit')
             ->see('Nestor Tapia Rivera')
@@ -59,7 +59,7 @@ class ClientsTest extends FeatureTestCase
             ->type('Barrio Juan XXIII calle boyana', 'address')
             ->type('monica@arnal.com', 'email')
             ->press('Actualizar Cliente')
-            ->seePageIs('clients')
+            ->seePageIs(route('clients.index'))
             ->see('Monica Arnal Mendoza')
             ->see('6632525')
             ->see('71825656')
@@ -90,9 +90,9 @@ class ClientsTest extends FeatureTestCase
         ]);
 
         $this->actingAs($useradmin)
-            ->visit('clients')
+            ->visit(route('clients.index'))
             ->press('Eliminar')
-            ->seePageIs('clients')
+            ->seePageIs(route('clients.index'))
             ->dontSeeInDatabase('clients',[
                 'full_name' => 'Nestor Tapia Rivera',
                 'phone' => '6632525',

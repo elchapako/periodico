@@ -28,7 +28,7 @@ class AdTest extends FeatureTestCase
 
         //when
         $this->actingAs($useradmin)
-            ->visit('ads')
+            ->visit(route('ads.index'))
             //then
             ->see('Juancito Pinto')
             ->see('Full Color')
@@ -61,7 +61,7 @@ class AdTest extends FeatureTestCase
         ]);
 
         $this->actingAs($useradmin)
-            ->visit('ads')
+            ->visit(route('ads.index'))
             ->click('Editar')
             //->seePageIs('ads/1/edit')
             ->see('Editar publicidad')
@@ -71,7 +71,7 @@ class AdTest extends FeatureTestCase
             ->select($s->id, 'size_id')
             ->select($c->id, 'client_id')
             ->press('Actualizar publicidad')
-            ->seePageIs('ads')
+            ->seePageIs(route('ads.index'))
             ->see('Ministerio de Economia')
             ->see('B&W')
             ->see('Edicion Central')
@@ -109,9 +109,9 @@ class AdTest extends FeatureTestCase
         ]);
 
         $this->actingAs($useradmin)
-            ->visit('ads')
+            ->visit(route('ads.index'))
             ->press('Eliminar')
-            ->seePageIs('ads')
+            ->seePageIs(route('ads.index'))
             ->dontSeeInDatabase('ads', [
                 'name' => 'Juancito Pinto']);
     }

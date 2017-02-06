@@ -7,13 +7,13 @@ class CreateSizeTest extends FeatureTestCase
         $useradmin = $this->adminUser();
 
         $this->actingAs($useradmin)
-            ->visit('sizes')
+            ->visit(route('sizes.index'))
             ->click('Agregar Tamaño')
-            ->seePageIs('sizes/create')
+            ->seePageIs(route('sizes.create'))
             ->see('Agregar Tamaño')
             ->type('2x4', 'size')
             ->press('Crear Tamaño')
-            ->seePageIs('sizes')
+            ->seePageIs(route('sizes.index'))
             ->see('2x4')
             ->seeInDatabase('sizes',[
                 'size' => '2x4'

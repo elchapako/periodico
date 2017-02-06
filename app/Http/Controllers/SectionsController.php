@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Section;
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 
@@ -19,7 +16,7 @@ class SectionsController extends Controller
      */
     public function index()
     {
-        $sections = DB::table('sections')->paginate(15);
+        $sections = Section::paginate(15);
         return view('sections.list', compact('sections'));
     }
 
@@ -48,7 +45,7 @@ class SectionsController extends Controller
         $section = request()->all();
         Section::create($section);
 
-        return redirect()->to('sections');
+        return redirect()->route('sections.index');
 
     }
 
@@ -90,7 +87,7 @@ class SectionsController extends Controller
         $section= Section::findOrFail($id);
         $section->fill(request()->all());
         $section->save();
-        return redirect()->to('sections');
+        return redirect()->route('sections.index');
     }
 
     /**

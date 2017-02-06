@@ -12,7 +12,7 @@ class AreasTest extends FeatureTestCase
 
         //when
         $this->actingAs($useradmin)
-            ->visit('areas')
+            ->visit(route('areas.index'))
             //then
             ->see('Local')
             ->see('Nacional');
@@ -25,13 +25,13 @@ class AreasTest extends FeatureTestCase
         Area::create(['name' => 'local']);
 
         $this->actingAs($useradmin)
-            ->visit('areas')
+            ->visit(route('areas.index'))
             ->click('Editar')
             //->seePageIs('areas/1/edit')
             ->see('local')
             ->type('Local-Provincias', 'name')
             ->press('Actualizar Area')
-            ->seePageIs('areas')
+            ->seePageIs(route('areas.index'))
             ->see('Local-Provincias')
             ->seeInDatabase('areas',[
                 'name' => 'Local-Provincias'
@@ -45,9 +45,9 @@ class AreasTest extends FeatureTestCase
         $area = Area::create(['name' => 'local']);
 
         $this->actingAs($useradmin)
-            ->visit('areas')
+            ->visit(route('areas.index'))
             ->press('Eliminar')
-            ->seePageIs('areas')
+            ->seePageIs(route('areas.index'))
             ->dontSeeInDatabase('areas', [
                 'name' => 'local']);
     }

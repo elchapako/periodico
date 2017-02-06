@@ -15,7 +15,7 @@
                 @include('partials/errors')
                 <div class="panel panel-default">
                     <div class="panel-heading">{{ trans('validation.attributes.list_of_notes') }}
-                        <a href="{{url('assigned-notes/create')}}" class="btn-xs btn-primary pull-right" role="button">{{ trans('validation.attributes.add_ad') }}</a>
+
                     </div>
                     @if(Session::has('message'))
                         <p class="alert alert-success">{{Session::get('message')}}</p>

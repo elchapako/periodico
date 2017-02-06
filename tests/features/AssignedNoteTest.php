@@ -32,7 +32,7 @@ class AssignedNoteTest extends FeatureTestCase
         ]);
 
         $this->actingAs($reporter);
-        $this->visit('assigned-notes')
+        $this->visit(route('assigned-notes.index'))
             ->see($note->title)
             ->see('Local')
             ->dontSee($note2->title);

@@ -28,7 +28,7 @@ class NotesTest extends FeatureTestCase
 
         //when
         $this->actingAs($ji)
-            ->visit('notes')
+            ->visit(route('notes.index'))
             //then
             ->see('Lino Condori y la cama en su despacho')
             ->see('Local')

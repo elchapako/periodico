@@ -1,25 +1,55 @@
 <?php
 
-Route::resource('areas', 'AreasController');
+Route::resource('areas', 'AreasController', [
+    'names' => 'areas',
+    'parameters' => [
+        'areas' => 'area'
+    ]
+]);
 
-Route::resource('sections', 'SectionsController');
+Route::resource('secciones', 'SectionsController', [
+    'names' => 'sections',
+    'parameters' => [
+        'secciones' => 'seccion'
+    ]
+]);
 
-Route::resource('models', 'ModelsController');
+Route::resource('modelos', 'ModelsController', [
+    'names' => 'models',
+    'parameters' => [
+        'modelos' => 'modelo'
+    ]
+]);
 
-Route::resource('sizes', 'SizesController');
+Route::resource('tamanos', 'SizesController', [
+    'names' => 'sizes',
+    'parameters' => [
+        'tamanos' => 'tamano'
+    ]
+]);
 
-Route::resource('clients', 'ClientsController');
+Route::resource('clientes', 'ClientsController', [
+    'names' => 'clients',
+    'parameters' => [
+        'clientes' => 'cliente'
+    ]
+]);
 
-Route::resource('ads', 'AdsController');
+Route::resource('publicidades', 'AdsController', [
+    'names' => 'ads',
+    'parameters' => [
+        'publicidades' => 'publicidad'
+    ]
+]);
 
 Route::get('notes', [
     'uses' => 'NotesController@index',
     'as' => 'notes.index'
 ]);
 
-Route::get('notes/create', [
+Route::get('notes.create', [
    'uses' => 'NotesController@create',
-   'as' => 'notes/create'
+   'as' => 'notes.create'
 ]);
 
 Route::post('notes.store', [
@@ -29,7 +59,7 @@ Route::post('notes.store', [
 
 Route::get('assigned-notes', [
     'uses' => 'AssignedNotesController@index',
-    'as' => 'assigned-notes'
+    'as' => 'assigned-notes.index'
 ]);
 
 Route::get('editions', [
