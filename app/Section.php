@@ -12,4 +12,9 @@ class Section extends Model
     {
         return $this->hasMany(Ad::class);
     }
+
+    public function pages()
+    {
+        return $this->hasMany(Page::class);
+    }
 }

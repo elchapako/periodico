@@ -12,4 +12,9 @@ class Area extends Model
     {
         return $this->hasMany(Note::class);
     }
+
+    public function pages()
+    {
+        return $this->hasMany(Page::class);
+    }
 }

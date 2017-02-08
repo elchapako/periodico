@@ -5,7 +5,7 @@ return[
         'areas'         => [
             'route' => 'areas.index',
             'logged' =>true,
-            'roles' =>'Admin'
+            'roles' => 'Admin',
         ],
         'sections'      => [
             'route' => 'sections.index',
@@ -14,6 +14,22 @@ return[
         'models'        => [
             'route' => 'models.index',
             'logged' =>true
+        ],
+        'editions'      => [
+            'route' => 'editions.index',
+            'logged' =>true
+        ],
+        'assigned notes' => [
+            'route' => 'assigned-notes.index',
+            'logged' =>true
+        ],
+        'notes'         => [
+            'route' => 'notes.index',
+            'logged' =>true
+        ],
+        'pages'         => [
+            'route' => 'pages.index',
+            'logged' => true
         ],
         'publicity'     => [
             'submenu' => [

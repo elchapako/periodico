@@ -71,3 +71,18 @@ Route::post('editions.store', [
    'uses' => 'EditionsController@store',
    'as' => 'editions.store'
 ]);
+
+Route::get('pages', [
+   'uses' => 'PagesController@index',
+   'as' => 'pages.index'
+]);
+
+Route::get('pages.create', [
+   'uses' => 'PagesController@create',
+   'as' => 'pages.create'
+]);
+
+Route::post('pages.store', [
+   'uses' => 'PagesController@store',
+   'as' => 'pages.store'
+]);
