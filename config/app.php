@@ -186,8 +186,8 @@ return [
         * Acacha AdminLTE template provider
         */
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
-
         Silber\Bouncer\BouncerServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
 
     ],
 

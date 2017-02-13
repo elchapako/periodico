@@ -68,7 +68,6 @@
                 @endif
 
                 <!-- Control Sidebar Toggle Button -->
-
             </ul>
         </div>
     </nav>
