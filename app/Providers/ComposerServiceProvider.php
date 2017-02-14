@@ -14,7 +14,7 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('layouts/partials/mainheader', 'App\Http\ViewComposers\EditionComposer');
+        View::composer('layouts/partials/contentheader', 'App\Http\ViewComposers\EditionComposer');
     }
 
     /**

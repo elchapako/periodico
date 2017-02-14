@@ -14,7 +14,8 @@ class EditionsTableSeeder extends Seeder
     {
         factory(App\Edition::class)->create([
            'date' => Carbon::today(),
-           'number_of_edition' => '8459'
+           'number_of_edition' => '8459',
+           'status' => 'active'
         ]);
     }
 }

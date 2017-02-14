@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    {{ trans('validation.attributes.create_new_edition') }}
+    {{ trans('validation.attributes.list_of_edition') }}
 @endsection
 
 @section('contentheader_title')
-    {{ trans('validation.attributes.create_new_edition') }}
+    {{ trans('validation.attributes.list_of_edition') }}
 @endsection
 
 @section('main-content')
@@ -14,7 +14,7 @@
             <div class="col-md-10 col-md-offset-1">
                 @include('partials/errors')
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{ trans('validation.attributes.create_new_edition') }}
+                    <div class="panel-heading">{{ trans('validation.attributes.list_of_edition') }}
                     </div>
                     @if(Session::has('message'))
                         <p class="alert alert-success">{{Session::get('message')}}</p>

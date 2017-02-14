@@ -4,34 +4,37 @@ use Carbon\Carbon;
 
 class EditionTest extends FeatureTestCase
 {
-
-    function test_editor_can_create_a_new_edition()
+    public function test_list_of_edition()
     {
+        $today = Carbon::now(-4)->format('Y-m-d');
+        $editions_number = 6518;
+
+        $first = factory(App\Edition::class)->create([
+            'date' => $today,
+            'number_of_edition' => $editions_number,
+            'status' => 'in-progress'
+        ]);
+
+        $tomorrow = Carbon::tomorrow(-4)->format('Y-m-d');
+
+        $second = factory(App\Edition::class)->create([
+           'date' => $tomorrow,
+           'number_of_edition' => $editions_number+1,
+           'status' => 'active'
+        ]);
+
         $editor = $this->defaultUser([
             'name' => 'Edwin Ibañez'
         ])->assign('editor');
 
-        $date = Carbon::now(-4);
-        $editions_number = 8459;
-
-        factory(App\Edition::class)->create([
-            'date' => $date,
-            'number_of_edition' => $editions_number
-        ]);
-
-        $date = Carbon::tomorrow(-4);
-
         $this->actingAs($editor)
-            ->visit('editions')
-            ->see('Crear Nueva Edición')
-            ->press('Crear Edición')
-            ->seePageIs('editions')
-            ->see('Edición de fecha ' . $date . ' fue creada')
-            ->seeInDatabase('editions', [
-                'date' => $date,
-                'number_of_edition' => $editions_number+1
-            ]);
+            ->visit(route('editions.index'))
+            ->see($first->date)
+            ->see($first->number_of_edition)
+            ->see($first->status)
+            ->see($second->date)
+            ->see($second->editions_number)
+            ->see($second->status);
 
     }
-
 }

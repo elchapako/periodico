@@ -64,5 +64,6 @@ $factory->define(App\Edition::class, function (Faker\Generator $faker){
    return[
        'date'  => $faker->date(),
        'number_of_edition' => $faker->randomNumber(4),
+       'status' => $faker->randomElement(['active', 'in-progress', 'done'])
    ];
 });

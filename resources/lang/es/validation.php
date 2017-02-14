@@ -133,7 +133,7 @@ return [
         'body'                  => 'contenido',
         'description'           => 'descripción',
         'excerpt'               => 'extracto',
-        'date'                  => 'fecha',
+        'date'                  => 'Fecha',
         'time'                  => 'hora',
         'subject'               => 'asunto',
         'message'               => 'mensaje',
@@ -193,6 +193,8 @@ return [
         'number_of_edition'     => 'Numero de Edición',
         'list_of_pages'         => 'Lista de Páginas',
         'add_page'              => 'Agregar Página',
-        'create_page'           => 'Crear Página'
+        'create_page'           => 'Crear Página',
+        'list_of_edition'       => 'Lista de Ediciones',
+        'status'                => 'Estado'
     ],
 ];
