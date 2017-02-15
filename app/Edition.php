@@ -32,11 +32,10 @@ class Edition extends Model
 
     static function getLastEditionNumber()
     {
-        $lastNumber = Edition::latest()->first()->number_of_edition;
-        if (! $lastNumber){
-            return config('app.edition_number')+1;
+        if (! $last= Edition::latest()->first()) {
+            return config('app.edition_number');
         }
-        return $lastNumber;
+        return $last->number_of_edition;
     }
 
     static function getLastDate()

@@ -16,7 +16,7 @@ class CreateEditionsTable extends Migration
         Schema::create('editions', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->date('date');
+            $table->date('date')->unique();
             $table->integer('number_of_edition')->unique();
             $table->enum('status', ['active', 'in-progress', 'done']);
 
