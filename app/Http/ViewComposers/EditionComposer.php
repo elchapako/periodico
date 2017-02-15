@@ -7,7 +7,7 @@ class EditionComposer
 {
     public function compose(View $view)
     {
-        $edition = Edition::take(1)->OrderBy('created_at', 'DESC')->get();
-        $view->with('edition', $edition);
+        $lastEdition = Edition::latest()->first();
+        $view->with('edition', $lastEdition);
     }
 }
