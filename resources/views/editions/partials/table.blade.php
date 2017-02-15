@@ -6,7 +6,7 @@
     </tr>
     @foreach($editions as $edition)
         <tr>
-            <td>{{$edition->date}}</td>
+            <td>{{$edition->publish_date}}</td>
             <td>{{$edition->number_of_edition}}</td>
             <td>{{$edition->status}}</td>
         </tr>

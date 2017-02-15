@@ -23,7 +23,7 @@
                         Edición Activa:
                         {{$edition->number_of_edition}}
                         de
-                        {{$edition->date}}
+                        {{$edition->publish_date}}
                 </div>
                 @endif
                 <!-- Messages: style can be found in dropdown.less-->

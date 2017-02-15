@@ -11,7 +11,7 @@ class Edition extends Model
     protected $fillable = ['date', 'number_of_edition', 'status'];
 
     protected $dates = [
-      'date',
+        'date'
     ];
 
     static function createEdition()
@@ -20,23 +20,23 @@ class Edition extends Model
             Session::flash('message', 'No se puede crear más ediciones hasta no terminar la activa');
         }else{
         $date= Carbon::tomorrow();
-        $number_of_edition = Edition::getEditionNumber();
+        $number_of_edition = Edition::getLastEditionNumber();
         $edition = new Edition();
         $edition->date = $date;
-        $edition->number_of_edition = $number_of_edition;
+        $edition->number_of_edition = $number_of_edition+1;
         $edition->save();
 
         Session::flash('message', 'Edición de fecha '. $date . ' fue creada');
         }
     }
 
-    static function getEditionNumber()
+    static function getLastEditionNumber()
     {
         $lastNumber = Edition::latest()->first()->number_of_edition;
         if (! $lastNumber){
             return config('app.edition_number')+1;
         }
-        return $lastNumber+1;
+        return $lastNumber;
     }
 
     static function getLastDate()
