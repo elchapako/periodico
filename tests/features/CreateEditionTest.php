@@ -11,21 +11,22 @@ class CreateEditionTest extends FeatureTestCase
             'name' => 'Edwin Ibañez'
         ])->assign('editor');
 
-        $date = Carbon::now(-4);
+        $date = Carbon::now();
         $editions_number = 8459;
 
         factory(App\Edition::class)->create([
             'date' => $date,
-            'number_of_edition' => $editions_number
+            'number_of_edition' => $editions_number,
+            'status' => 'active'
         ]);
 
-        $date = Carbon::tomorrow(-4);
+        $date = Carbon::tomorrow();
 
         $this->actingAs($editor)
-            ->visit('editions')
+            ->visit(route('editions.index'))
             ->see('Lista de Ediciones')
-            ->press('Crear Edición')
-            ->seePageIs('editions')
+            ->press('Crear Edicion')
+            ->seePageIs(route('editions.index'))
             ->see('Edición de fecha ' . $date . ' fue creada')
             ->seeInDatabase('editions', [
                 'date' => $date,

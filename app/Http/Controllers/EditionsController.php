@@ -15,6 +15,6 @@ class EditionsController extends Controller
     public function store()
     {
         Edition::createEdition();
-        return redirect()->to('editions');
+        return redirect()->route('editions.index');
     }
 }

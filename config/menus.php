@@ -27,10 +27,6 @@ return[
             'route' => 'notes.index',
             'logged' =>true
         ],
-        'pages'         => [
-            'route' => 'pages.index',
-            'logged' => true
-        ],
         'publicity'     => [
             'submenu' => [
                 'advertising' => [

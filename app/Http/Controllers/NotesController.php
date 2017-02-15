@@ -35,6 +35,6 @@ class NotesController extends Controller
         $note = request()->all();
         Note::create($note);
 
-        return redirect()->to('notes');
+        return redirect()->route('notes.index');
     }
 }

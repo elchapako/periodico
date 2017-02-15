@@ -6,7 +6,7 @@ class EditionTest extends FeatureTestCase
 {
     public function test_list_of_edition()
     {
-        $today = Carbon::now(-4)->format('Y-m-d');
+        $today = Carbon::now()->format('Y-m-d');
         $editions_number = 6518;
 
         $first = factory(App\Edition::class)->create([
@@ -15,7 +15,7 @@ class EditionTest extends FeatureTestCase
             'status' => 'in-progress'
         ]);
 
-        $tomorrow = Carbon::tomorrow(-4)->format('Y-m-d');
+        $tomorrow = Carbon::tomorrow()->format('Y-m-d');
 
         $second = factory(App\Edition::class)->create([
            'date' => $tomorrow,

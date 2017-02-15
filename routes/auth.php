@@ -42,7 +42,7 @@ Route::resource('publicidades', 'AdsController', [
     ]
 ]);
 
-Route::get('notes', [
+Route::get('noticias', [
     'uses' => 'NotesController@index',
     'as' => 'notes.index'
 ]);
@@ -57,12 +57,12 @@ Route::post('notes.store', [
     'as' => 'notes.store'
 ]);
 
-Route::get('assigned-notes', [
+Route::get('noticias-asignadas', [
     'uses' => 'AssignedNotesController@index',
     'as' => 'assigned-notes.index'
 ]);
 
-Route::get('editions', [
+Route::get('ediciones', [
     'uses' => 'EditionsController@index',
     'as' => 'editions.index'
 ]);
@@ -70,19 +70,4 @@ Route::get('editions', [
 Route::post('editions.store', [
    'uses' => 'EditionsController@store',
    'as' => 'editions.store'
-]);
-
-Route::get('pages', [
-   'uses' => 'PagesController@index',
-   'as' => 'pages.index'
-]);
-
-Route::get('pages.create', [
-   'uses' => 'PagesController@create',
-   'as' => 'pages.create'
-]);
-
-Route::post('pages.store', [
-   'uses' => 'PagesController@store',
-   'as' => 'pages.store'
 ]);
