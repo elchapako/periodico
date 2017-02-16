@@ -16,9 +16,6 @@ class Edition extends Model
 
     static function createEdition()
     {
-        if(Edition::getLastDate()==Carbon::tomorrow()){
-            Session::flash('message', 'No se puede crear más ediciones hasta no terminar la activa');
-        }else{
         $date= Carbon::tomorrow();
         $number_of_edition = Edition::getLastEditionNumber();
         $edition = new Edition();
@@ -27,7 +24,6 @@ class Edition extends Model
         $edition->save();
 
         Session::flash('message', 'Edición de fecha '. $date . ' fue creada');
-        }
     }
 
     static function getLastEditionNumber()
@@ -40,7 +36,10 @@ class Edition extends Model
 
     static function getLastDate()
     {
-        return $lastDate = Edition::latest()->first()->date;
+        if (! $last = Edition::latest()->first()){
+            return Carbon::today();
+        }
+        return $last->date;
     }
 
     public function getPublishDateAttribute()
