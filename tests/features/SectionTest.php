@@ -1,5 +1,5 @@
 <?php
-use App\Section;
+use App\SectionName;
 
 class SectionTest extends FeatureTestCase
 {
@@ -7,8 +7,8 @@ class SectionTest extends FeatureTestCase
     {
         $useradmin = $this->adminUser();
         //having
-            Section::create(['name' => 'Cronica']);
-            Section::create(['name' => 'Deportivo']);
+            SectionName::create(['name' => 'Cronica']);
+            SectionName::create(['name' => 'Deportivo']);
 	    //when
 	        $this->actingAs($useradmin)
             ->visit(route('sections.index'))
@@ -21,7 +21,7 @@ class SectionTest extends FeatureTestCase
     {
         $useradmin = $this->adminUser();
 
-        Section::create(['name' => 'Cronica']);
+        SectionName::create(['name' => 'Cronica']);
 
         $this->actingAs($useradmin)
             ->visit(route('sections.index'))
@@ -32,7 +32,7 @@ class SectionTest extends FeatureTestCase
             ->press('Actualizar Seccion')
             ->seePageIs(route('sections.index'))
             ->see('Deportivo')
-            ->seeInDatabase('sections',[
+            ->seeInDatabase('section_names',[
                 'name' => 'Deportivo'
             ]);
     }
@@ -41,13 +41,13 @@ class SectionTest extends FeatureTestCase
     {
         $useradmin = $this->adminUser();
 
-        Section::create(['name' => 'Deportivo']);
+        SectionName::create(['name' => 'Deportivo']);
 
         $this->actingAs($useradmin)
             ->visit(route('sections.index'))
             ->press('Eliminar')
             ->seePageIs(route('sections.index'))
-            ->dontSeeInDatabase('sections', [
+            ->dontSeeInDatabase('section_names', [
                 'name' => 'Deportivo']);
     }
 

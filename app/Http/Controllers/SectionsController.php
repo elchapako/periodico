@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Section;
+use App\SectionName;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
 
@@ -16,7 +16,7 @@ class SectionsController extends Controller
      */
     public function index()
     {
-        $sections = Section::paginate(15);
+        $sections = SectionName::paginate(15);
         return view('sections.list', compact('sections'));
     }
 
@@ -43,7 +43,7 @@ class SectionsController extends Controller
         ]);
 
         $section = request()->all();
-        Section::create($section);
+        SectionName::create($section);
 
         return redirect()->route('sections.index');
 
@@ -68,7 +68,7 @@ class SectionsController extends Controller
      */
     public function edit($id)
     {
-        $section = Section::findOrFail($id);
+        $section = SectionName::findOrFail($id);
         return view('sections.edit', compact('section'));
     }
 
@@ -84,7 +84,7 @@ class SectionsController extends Controller
         $this->validate(request(), [
             'name' => 'required', 'max:50',
         ]);
-        $section= Section::findOrFail($id);
+        $section= SectionName::findOrFail($id);
         $section->fill(request()->all());
         $section->save();
         return redirect()->route('sections.index');
@@ -98,7 +98,7 @@ class SectionsController extends Controller
      */
     public function destroy($id)
     {
-        $section= Section::findOrFail($id);
+        $section= SectionName::findOrFail($id);
         $section->delete();
         Session::flash('message', 'Section '. $section->name . ' fue eliminada');
         return redirect()->route('sections.index');

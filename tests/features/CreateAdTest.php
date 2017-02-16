@@ -12,7 +12,7 @@ class CreateAdTest extends FeatureTestCase
         $s=factory(App\Size::class)->create([
             'size' => '1/4'
         ]);
-        $sec=factory(App\Section::class)->create([
+        $sec=factory(App\SectionName::class)->create([
             'name' => 'Edicion Central'
         ]);
 

@@ -10,7 +10,7 @@ class Page extends Model
 
     public function section()
     {
-        return $this->belongsTo(Section::class);
+        return $this->belongsTo(SectionName::class);
     }
 
     public function area()
