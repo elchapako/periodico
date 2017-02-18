@@ -17,9 +17,7 @@
                     <div class="panel-heading">{{ trans('validation.attributes.list_of_areas') }}
                         <a href="{{url('areas/create')}}" class="btn-xs btn-primary pull-right" role="button">{{ trans('validation.attributes.add_area') }}</a>
                     </div>
-                    @if(Session::has('message'))
-                        <p class="alert alert-success">{{Session::get('message')}}</p>
-                    @endif
+                    {!! Alert::render() !!}
                     <div class="panel-body">
                         <p>Hay {{ $areas->total() }} areas</p>
                         @include('areas.partials.table')

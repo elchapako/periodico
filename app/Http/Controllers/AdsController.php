@@ -11,7 +11,7 @@ use App\Size;
 
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\Session;
+use Styde\Html\Facades\Alert;
 
 
 class AdsController extends Controller
@@ -59,6 +59,8 @@ class AdsController extends Controller
         $ad = request()->all();
 
         Ad::create($ad);
+
+        Alert::success('Advertising fue creada');
 
         return redirect()->route('ads.index');
     }
@@ -111,6 +113,9 @@ class AdsController extends Controller
         $ad = Ad::findOrFail($id);
         $ad->fill(request()->all());
         $ad->save();
+
+        Alert::success('Advertising '. $ad->name . ' fue actualizada');
+
         return redirect()->route('ads.index');
 
     }
@@ -126,7 +131,7 @@ class AdsController extends Controller
         $ad = Ad::findOrFail($id);
         $ad->delete();
 
-        Session::flash('message', 'Advertising '. $ad->name . ' fue eliminada');
+        Alert::success('Advertising '. $ad->name . ' fue eliminada');
 
         return redirect()->route('ads.index');
     }

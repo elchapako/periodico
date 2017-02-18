@@ -4,7 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Session;
+use Styde\Html\Facades\Alert;
 
 class Edition extends Model
 {
@@ -22,8 +22,7 @@ class Edition extends Model
         $edition->date = $date;
         $edition->number_of_edition = $number_of_edition+1;
         $edition->save();
-
-        Session::flash('message', 'Edición de fecha '. $date . ' fue creada');
+        Alert::success('Edicion de fecha ' . $edition->publish_date . ' fue creada');
     }
 
     static function getLastEditionNumber()

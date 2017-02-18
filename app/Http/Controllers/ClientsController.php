@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Client;
-
-use Illuminate\Support\Facades\Session;
-
 use App\Http\Requests;
+use Styde\Html\Facades\Alert;
 
 class ClientsController extends Controller
 {
@@ -51,6 +49,7 @@ class ClientsController extends Controller
         $client = request()->all();
 
         Client::create($client);
+        Alert::success('Client fue creado');
 
         return redirect()->route('clients.index');
     }
@@ -99,6 +98,7 @@ class ClientsController extends Controller
         $client= Client::findOrFail($id);
         $client->fill(request()->all());
         $client->save();
+        Alert::success('Client '. $client->full_name . ' fue actualizado');
         return redirect()->route('clients.index');
     }
 
@@ -114,7 +114,7 @@ class ClientsController extends Controller
 
         $client->delete();
 
-        Session::flash('message', 'Client '. $client->full_name . ' fue eliminada');
+        Alert::success('Client '. $client->name . ' fue eliminado');
 
         return redirect()->route('clients.index');
     }

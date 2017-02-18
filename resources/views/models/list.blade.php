@@ -17,9 +17,7 @@
                     <div class="panel-heading">{{ trans('validation.attributes.list_of_models') }}
                         <a href="{{route('models.create')}}" class="btn-xs btn-primary pull-right" role="button">{{ trans('validation.attributes.add_model') }}</a>
                     </div>
-                    @if(Session::has('message'))
-                        <p class="alert alert-success">{{Session::get('message')}}</p>
-                    @endif
+                    {!! Alert::render() !!}
                     <div class="panel-body">
                         <div class="panel-body">
                             <div class="row">

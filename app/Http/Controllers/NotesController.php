@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Area;
 use App\Note;
-use App\Notifications\NoteAssigned;
 use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Notification;
+use Styde\Html\Facades\Alert;
 
 class NotesController extends Controller
 {
@@ -34,6 +32,8 @@ class NotesController extends Controller
 
         $note = request()->all();
         Note::create($note);
+
+        Alert::success('Note fue creada');
 
         return redirect()->route('notes.index');
     }

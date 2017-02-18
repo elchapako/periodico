@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Area;
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
-
+use Styde\Html\Facades\Alert;
 
 
 class AreasController extends Controller
@@ -34,6 +31,7 @@ class AreasController extends Controller
         $area = request()->all();
 
         Area::create($area);
+        Alert::success('Area fue creada');
 
         return redirect()->to('areas');
     }
@@ -52,6 +50,8 @@ class AreasController extends Controller
             $area= Area::findOrFail($id);
             $area->fill(request()->all());
             $area->save();
+
+            Alert::success('Area '. $area->name . ' fue actualizada');
             return redirect()->to('areas');
     }
 
@@ -66,7 +66,7 @@ class AreasController extends Controller
 
         $area->delete();
 
-        Session::flash('message', 'Area '. $area->name . ' fue eliminada');
+        Alert::success('Area '. $area->name . ' fue eliminada');
 
         return redirect()->route('areas.index');
     }

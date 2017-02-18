@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use App\Model;
 use App\Http\Requests;
 use Intervention\Image\Facades\Image;
-use Illuminate\Support\Facades\Session;
+use Styde\Html\Facades\Alert;
 
 class ModelsController extends Controller
 {
@@ -66,6 +64,8 @@ class ModelsController extends Controller
         $model->name = Input::get('name');
         $model->image = $file->getClientOriginalName();
         $model->save();
+
+        Alert::success('Model ' . $model->name . ' fue creada');
 
         return redirect()->route('models.index');
     }
@@ -136,6 +136,8 @@ class ModelsController extends Controller
             $model->image = $file->getClientOriginalName();
             $model->save();
 
+            Alert::success('Model ' . $model->name . ' fue actualizada');
+
             return redirect()->route('models.index');
         }
 
@@ -156,7 +158,7 @@ class ModelsController extends Controller
         File::delete(public_path().'/storage/'.$name);
         File::delete(public_path().'/storage/'.'thumb_'.$name);
 
-        Session::flash('message', 'Model '. $model->name . ' fue eliminada');
+        Alert::success('Model ' . $model->name . ' fue eliminada');
         return redirect()->route('models.index');
     }
 }

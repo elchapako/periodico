@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\SectionName;
 use App\Http\Requests;
-use Illuminate\Support\Facades\Session;
+use Styde\Html\Facades\Alert;
 
 
 class SectionsController extends Controller
@@ -44,6 +44,8 @@ class SectionsController extends Controller
 
         $section = request()->all();
         SectionName::create($section);
+
+        Alert::success('Section fue creada');
 
         return redirect()->route('sections.index');
 
@@ -87,6 +89,8 @@ class SectionsController extends Controller
         $section= SectionName::findOrFail($id);
         $section->fill(request()->all());
         $section->save();
+
+        Alert::success('Section '. $section->name . ' fue actualizada');
         return redirect()->route('sections.index');
     }
 
@@ -100,7 +104,7 @@ class SectionsController extends Controller
     {
         $section= SectionName::findOrFail($id);
         $section->delete();
-        Session::flash('message', 'Section '. $section->name . ' fue eliminada');
+        Alert::success('Section '. $section->name . ' fue eliminada');
         return redirect()->route('sections.index');
     }
 }

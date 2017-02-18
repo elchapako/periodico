@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Size;
 use App\Http\Requests;
-use Illuminate\Support\Facades\Session;
+use Styde\Html\Facades\Alert;
 
 class SizesController extends Controller
 {
@@ -43,6 +43,8 @@ class SizesController extends Controller
 
         $size = request()->all();
         Size::create($size);
+
+        Alert::success('Size fue creada');
 
         return redirect()->route('sizes.index');
     }
@@ -85,6 +87,9 @@ class SizesController extends Controller
         $size= Size::findOrFail($id);
         $size->fill(request()->all());
         $size->save();
+
+        Alert::success('Size '. $size->size . ' fue actualizada');
+
         return redirect()->route('sizes.index');
     }
 
@@ -98,7 +103,7 @@ class SizesController extends Controller
     {
         $size= Size::findOrFail($id);
         $size->delete();
-        Session::flash('message', 'Size '. $size->size . ' fue eliminada');
+        Alert::success('Size '. $size->size . ' fue eliminada');
         return redirect()->route('sizes.index');
     }
 }

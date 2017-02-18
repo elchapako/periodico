@@ -16,9 +16,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">{{ trans('validation.attributes.list_of_edition') }}
                     </div>
-                    @if(Session::has('message'))
-                        <p class="alert alert-success">{{Session::get('message')}}</p>
-                    @endif
+                    {!! Alert::render() !!}
                     <div class="panel-body">
                         @include('editions.partials.table')
                                 {!! Form::open(['route' => 'editions.store', 'method' => 'POST']) !!}

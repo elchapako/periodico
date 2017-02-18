@@ -17,9 +17,7 @@
                     <div class="panel-heading">{{ trans('validation.attributes.list_of_clients') }}
                         <a href="{{route('clients.create')}}" class="btn-xs btn-primary pull-right" role="button">{{ trans('validation.attributes.add_client') }}</a>
                     </div>
-                    @if(Session::has('message'))
-                        <p class="alert alert-success">{{Session::get('message')}}</p>
-                    @endif
+                    {!! Alert::render() !!}
                     <div class="panel-body">
                         <p>Hay {{ $clients->total() }} clients</p>
                         @include('clients.partials.table')
