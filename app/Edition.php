@@ -23,6 +23,7 @@ class Edition extends Model
         $edition->number_of_edition = $number_of_edition+1;
         $edition->save();
         Alert::success('Edicion de fecha ' . $edition->publish_date . ' fue creada');
+        return $edition;
     }
 
     static function getLastEditionNumber()

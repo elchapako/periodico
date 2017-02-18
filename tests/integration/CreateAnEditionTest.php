@@ -6,8 +6,12 @@ class CreateAnEditionTest extends FeatureTestCase
 {
     public function test_create_new_edition()
     {
-        Edition::createEdition();
-        $date = Edition::getLastDate();
-        $this->assertEquals(Carbon\Carbon::tomorrow(), $date);
+        $edition = Edition::createEdition();
+
+        $this->seeInDatabase('editions', [
+           'date' => $edition->date,
+           'number_of_edition' => $edition->number_of_edition,
+           'status' => 'active'
+        ]);
     }
 }
