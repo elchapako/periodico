@@ -7,7 +7,7 @@ class EditionComposer
 {
     public function compose(View $view)
     {
-        $lastEdition = Edition::latest()->first();
+        $lastEdition = Edition::where('status', 'in-progress')->first();
         $view->with('edition', $lastEdition);
     }
 }

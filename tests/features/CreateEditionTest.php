@@ -1,5 +1,6 @@
 <?php
 
+use App\Edition;
 use Carbon\Carbon;
 
 class CreateEditionTest extends FeatureTestCase
@@ -20,17 +21,18 @@ class CreateEditionTest extends FeatureTestCase
             'status' => 'active'
         ]);
 
-        //$date = Carbon::tomorrow()->format('d-m-Y');
-        $d = Carbon::tomorrow()->format('Y-m-d');
         $this->actingAs($editor)
             ->visit(route('editions.index'))
             ->see('Lista de Ediciones')
             ->press('Crear Edicion')
-            ->seePageIs(route('editions.index'))
-        //    ->see('Edición de fecha ' . $date . ' fue creada')
-            ->seeInDatabase('editions', [
-                'date' => $d,
-                'number_of_edition' => $editions_number+1
+            ->seePageIs(route('editions.index'));
+
+        $last = Edition::latest()->first();
+
+        //$this->see('Edicion de fecha ' . $last->publish_date . ' fue creada')
+        $this->seeInDatabase('editions', [
+                'date' => $last->date,
+                'number_of_edition' => $last->number_of_edition
             ]);
 
     }
