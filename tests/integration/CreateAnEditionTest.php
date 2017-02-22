@@ -6,7 +6,7 @@ class CreateAnEditionTest extends FeatureTestCase
 {
     public function test_create_new_edition()
     {
-        $edition = Edition::createEdition();
+        $edition = Edition::createNextEdition();
 
         $this->seeInDatabase('editions', [
            'date' => $edition->date,

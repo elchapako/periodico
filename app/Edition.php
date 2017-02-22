@@ -5,6 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Styde\Html\Facades\Alert;
+use Symfony\Component\VarDumper\Dumper\DataDumperInterface;
 
 class Edition extends Model
 {
@@ -14,20 +15,23 @@ class Edition extends Model
         'date'
     ];
 
-    static function createEdition()
+    public static function createNextEdition()
     {
-        $date= Edition::getLastDate()->addDay();
-        $number_of_edition = Edition::getLastEditionNumber();
-        $status = Edition::changeStatus();
         $edition = new Edition();
-        $edition->date = $date;
-        $edition->number_of_edition = $number_of_edition+1;
+        $edition->date = Edition::getLastDate()->addDay();
+        $edition->number_of_edition = Edition::getLastEditionNumber() + 1;
         $edition->save();
+
+        if ($edition->id == 1) {
+            $edition->update(['status' => 'active']);
+        }
+
         Alert::success('Edicion de fecha ' . $edition->publish_date . ' fue creada');
+
         return $edition;
     }
 
-    static function getLastEditionNumber()
+    protected static function getLastEditionNumber()
     {
         if (! $last= Edition::latest()->first()) {
             return config('app.edition_number');
@@ -35,7 +39,7 @@ class Edition extends Model
         return $last->number_of_edition;
     }
 
-    static function getLastDate()
+    public static function getLastDate()
     {
         if (! $last = Edition::latest()->first()){
             return Carbon::today();
@@ -43,13 +47,17 @@ class Edition extends Model
         return $last->date;
     }
 
-    static function changeStatus()
+    protected static function activateStatus()
     {
         if ($last = Edition::latest()->first()){
-            $find = Edition::find($last->id);
-            $find->status = 'active';
-            $find->save();
+            $last->status = 'active';
+            $last->save();
         }
+    }
+
+    public function scopeNext($query)
+    {
+        return $query->where('status', 'next');
     }
 
     public function getPublishDateAttribute()
