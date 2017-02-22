@@ -14,7 +14,7 @@ class ShowEditionActiveTest extends FeatureTestCase
         $first = factory(Edition::class)->create([
             'date' => Carbon::today(),
             'number_of_edition' => '6568',
-            'status' => 'in-progress'
+            'status' => 'active'
         ]);
 
         $this->actingAs($user)

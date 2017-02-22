@@ -18,7 +18,7 @@ class CreateEditionsTable extends Migration
 
             $table->date('date')->unique();
             $table->integer('number_of_edition')->unique();
-            $table->enum('status', ['active', 'in-progress', 'done']);
+            $table->enum('status', ['active', 'next', 'done'])->default('next');
 
             $table->timestamps();
         });
