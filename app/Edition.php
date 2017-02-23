@@ -5,7 +5,6 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Styde\Html\Facades\Alert;
-use Symfony\Component\VarDumper\Dumper\DataDumperInterface;
 
 class Edition extends Model
 {
@@ -14,6 +13,11 @@ class Edition extends Model
     protected $dates = [
         'date'
     ];
+
+    public function sections()
+    {
+        return $this->belongsToMany(SectionName::class);
+    }
 
     public static function createNextEdition()
     {
@@ -25,7 +29,7 @@ class Edition extends Model
         if ($edition->id == 1) {
             $edition->update(['status' => 'active']);
         }
-
+        Edition::asigningSections();
         Alert::success('Edicion de fecha ' . $edition->publish_date . ' fue creada');
 
         return $edition;
@@ -53,6 +57,11 @@ class Edition extends Model
             $last->status = 'active';
             $last->save();
         }
+    }
+
+    public static function asigningSections(){
+        $edition = Edition::latest()->first();
+        $edition->sections()->attach(SectionName::all());
     }
 
     public function scopeNext($query)

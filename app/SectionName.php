@@ -17,4 +17,9 @@ class SectionName extends Model
     {
         return $this->hasMany(Page::class);
     }
+
+    public function editions()
+    {
+        return $this->belongsToMany(Edition::class);
+    }
 }
