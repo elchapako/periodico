@@ -13,7 +13,7 @@ class EditionTest extends FeatureTestCase
         $first = factory(Edition::class)->create([
             'date' => $today,
             'number_of_edition' => $editions_number,
-            'status' => 'in-progress'
+            'status' => 'active'
         ]);
 
         $tomorrow = Carbon::tomorrow()->format('Y-m-d');
