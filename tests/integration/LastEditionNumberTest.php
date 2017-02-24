@@ -1,7 +1,6 @@
 <?php
 
 use App\Edition;
-use Illuminate\Support\Facades\DB;
 
 class LastEditionNumberTest extends FeatureTestCase
 {

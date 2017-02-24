@@ -27,9 +27,9 @@ class Edition extends Model
         $edition->save();
 
         if ($edition->id == 1) {
-            $edition->update(['status' => 'active']);
+            $edition->activate();
         }
-        Edition::asigningSections();
+        $edition->assignSections();
         Alert::success('Edicion de fecha ' . $edition->publish_date . ' fue creada');
 
         return $edition;
@@ -51,22 +51,23 @@ class Edition extends Model
         return $last->date;
     }
 
-    protected static function activateStatus()
-    {
-        if ($last = Edition::latest()->first()){
-            $last->status = 'active';
-            $last->save();
-        }
+    public function assignSections(){
+        $this->sections()->attach(SectionName::all());
     }
 
-    public static function asigningSections(){
-        $edition = Edition::latest()->first();
-        $edition->sections()->attach(SectionName::all());
+    public function activate(){
+        if (Edition::next()->count()==1 && Edition::active()->count()==0){
+        $this->update(['status' => 'active']);
+        }
     }
 
     public function scopeNext($query)
     {
         return $query->where('status', 'next');
+    }
+
+    public function scopeActive($query){
+        return $query->where('status', 'active');
     }
 
     public function getPublishDateAttribute()
