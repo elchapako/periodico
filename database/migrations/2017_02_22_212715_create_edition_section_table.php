@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEditionSectionNameTable extends Migration
+class CreateEditionSectionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateEditionSectionNameTable extends Migration
      */
     public function up()
     {
-        Schema::create('edition_section_name', function (Blueprint $table){
+        Schema::create('edition_section', function (Blueprint $table){
            $table->increments('id');
 
-            $table->integer('section_name_id')->unsigned();
-            $table->foreign('section_name_id')->references('id')->on('section_names')->onDelete('cascade');
+            $table->integer('section_id')->unsigned();
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
 
             $table->integer('edition_id')->unsigned();
             $table->foreign('edition_id')->references('id')->on('editions')->onDelete('cascade');
@@ -32,6 +32,6 @@ class CreateEditionSectionNameTable extends Migration
      */
     public function down()
     {
-        Schema::drop('edition_section_name');
+        Schema::drop('edition_section');
     }
 }

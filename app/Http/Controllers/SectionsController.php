@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\SectionName;
+use App\Section;
 use App\Http\Requests;
 use Styde\Html\Facades\Alert;
 
@@ -16,7 +16,7 @@ class SectionsController extends Controller
      */
     public function index()
     {
-        $sections = SectionName::paginate(15);
+        $sections = Section::paginate(15);
         return view('sections.list', compact('sections'));
     }
 
@@ -43,7 +43,7 @@ class SectionsController extends Controller
         ]);
 
         $section = request()->all();
-        SectionName::create($section);
+        Section::create($section);
 
         Alert::success('Section fue creada');
 
@@ -70,7 +70,7 @@ class SectionsController extends Controller
      */
     public function edit($id)
     {
-        $section = SectionName::findOrFail($id);
+        $section = Section::findOrFail($id);
         return view('sections.edit', compact('section'));
     }
 
@@ -86,7 +86,7 @@ class SectionsController extends Controller
         $this->validate(request(), [
             'name' => 'required', 'max:50',
         ]);
-        $section= SectionName::findOrFail($id);
+        $section= Section::findOrFail($id);
         $section->fill(request()->all());
         $section->save();
 
@@ -102,7 +102,7 @@ class SectionsController extends Controller
      */
     public function destroy($id)
     {
-        $section= SectionName::findOrFail($id);
+        $section= Section::findOrFail($id);
         $section->delete();
         Alert::success('Section '. $section->name . ' fue eliminada');
         return redirect()->route('sections.index');

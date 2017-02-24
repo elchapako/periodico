@@ -15,7 +15,7 @@ class CreateSectionTest extends FeatureTestCase
             ->press('Crear Seccion')
             ->seePageIs(route('sections.index'))
             ->see('Sociales')
-            ->seeInDatabase('section_names',[
+            ->seeInDatabase('sections',[
                 'name' => 'Sociales'
             ]);
     }

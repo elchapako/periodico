@@ -16,7 +16,7 @@ class Ad extends Model
 
     public function section()
     {
-        return $this->belongsTo(SectionName::class);
+        return $this->belongsTo(Section::class);
     }
 
     public function size()

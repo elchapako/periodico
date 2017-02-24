@@ -16,7 +16,7 @@ class Edition extends Model
 
     public function sections()
     {
-        return $this->belongsToMany(SectionName::class);
+        return $this->belongsToMany(Section::class);
     }
 
     public static function createNextEdition()
@@ -52,7 +52,7 @@ class Edition extends Model
     }
 
     public function assignSections(){
-        $this->sections()->attach(SectionName::all());
+        $this->sections()->attach(Section::all());
     }
 
     public function activate(){

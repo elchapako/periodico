@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class SectionNamesTableSeeder extends Seeder
+class SectionsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,19 +11,19 @@ class SectionNamesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\SectionName::class)->create([
+        factory(App\Section::class)->create([
             'name' => 'Edicion-Central'
         ]);
-        factory(App\SectionName::class)->create([
+        factory(App\Section::class)->create([
             'name' => 'Campeón'
         ]);
-        factory(App\SectionName::class)->create([
+        factory(App\Section::class)->create([
             'name' => 'Crónica'
         ]);
-        factory(App\SectionName::class)->create([
+        factory(App\Section::class)->create([
             'name' => 'Comodín'
         ]);
-        factory(App\SectionName::class)->create([
+        factory(App\Section::class)->create([
             'name' => 'Pura Cepa'
         ]);
     }

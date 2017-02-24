@@ -28,7 +28,7 @@ $factory->define(App\Area::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\SectionName::class, function (Faker\Generator $faker) {
+$factory->define(App\Section::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->word,

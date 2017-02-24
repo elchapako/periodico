@@ -23,7 +23,7 @@ class CreateAdsTable extends Migration
             $table->foreign('client_id')->references('id')->on('clients');
 
             $table->integer('section_id')->unsigned();
-            $table->foreign('section_id')->references('id')->on('section_names');
+            $table->foreign('section_id')->references('id')->on('sections');
 
             $table->integer('size_id')->unsigned();
             $table->foreign('size_id')->references('id')->on('sizes');

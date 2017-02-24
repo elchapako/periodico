@@ -6,7 +6,6 @@ use App\Ad;
 
 use App\Client;
 use App\Section;
-use App\SectionName;
 use App\Size;
 
 
@@ -34,7 +33,7 @@ class AdsController extends Controller
      */
     public function create()
     {
-        $sections = SectionName::pluck('name', 'id');
+        $sections = Section::pluck('name', 'id');
         $sizes = Size::pluck('size', 'id');
         $clients = Client::pluck('full_name', 'id');
         return view('ads.create', compact('sizes', 'sections', 'clients'));
@@ -86,7 +85,7 @@ class AdsController extends Controller
     {
         $ad = Ad::findOrFail($id);
 
-        $sections = SectionName::pluck('name', 'id');
+        $sections = Section::pluck('name', 'id');
         $sizes = Size::pluck('size', 'id');
         $clients = Client::pluck('full_name', 'id');
 
