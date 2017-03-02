@@ -14,9 +14,9 @@ class Edition extends Model
         'date'
     ];
 
-    public function sections()
+    public function editionsection()
     {
-        return $this->belongsToMany(Section::class);
+        return $this->hasMany(Editionsection::class);
     }
 
     public static function createNextEdition()
@@ -29,7 +29,7 @@ class Edition extends Model
         if ($edition->id == 1) {
             $edition->activate();
         }
-        $edition->assignSections();
+        //$edition->assignSections();
         Alert::success('Edicion de fecha ' . $edition->publish_date . ' fue creada');
 
         return $edition;
@@ -52,7 +52,11 @@ class Edition extends Model
     }
 
     public function assignSections(){
-        $this->sections()->attach(Section::all());
+        Editionsection::create([
+           'no_pages' => 20,
+           'edition_id' => $this->id,
+           'section_id' => 1
+        ]);
     }
 
     public function activate(){

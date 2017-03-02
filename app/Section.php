@@ -18,8 +18,8 @@ class Section extends Model
         return $this->hasMany(Page::class);
     }
 
-    public function editions()
+    public function editionsection()
     {
-        return $this->belongsToMany(Edition::class);
+        return $this->hasMany(Editionsection::class);
     }
 }
