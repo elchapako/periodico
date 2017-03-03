@@ -12,19 +12,24 @@ class SectionsTableSeeder extends Seeder
     public function run()
     {
         factory(App\Section::class)->create([
-            'name' => 'Edicion-Central'
+            'name' => 'Edicion-Central',
+            'pages' => 20
         ]);
         factory(App\Section::class)->create([
-            'name' => 'Campeón'
+            'name' => 'Campeón',
+            'pages' => 8
         ]);
         factory(App\Section::class)->create([
-            'name' => 'Crónica'
+            'name' => 'Crónica',
+            'pages' => 8
         ]);
         factory(App\Section::class)->create([
-            'name' => 'Comodín'
+            'name' => 'Comodín',
+            'pages' => 4
         ]);
         factory(App\Section::class)->create([
-            'name' => 'Pura Cepa'
+            'name' => 'Pura Cepa',
+            'pages' => 4
         ]);
     }
 }

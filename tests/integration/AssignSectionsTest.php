@@ -7,7 +7,8 @@ class AssignSectionsTest extends FeatureTestCase
     public function test_assign_sections_to_new_edition()
     {
         $sec1 = Section::create([
-            'name' => 'Central'
+            'name' => 'Central',
+            'pages' => 20
         ]);
 
         $edition = factory(App\Edition::class)->create();

@@ -39,7 +39,8 @@ class SectionsController extends Controller
     public function store()
     {
         $this->validate(request(), [
-            'name' => ['required', 'max:50']
+            'name' => ['required', 'max:50'],
+            'pages' => ['required', 'integer']
         ]);
 
         $section = request()->all();
@@ -85,6 +86,7 @@ class SectionsController extends Controller
     {
         $this->validate(request(), [
             'name' => 'required', 'max:50',
+            'pages' => ['required', 'integer']
         ]);
         $section= Section::findOrFail($id);
         $section->fill(request()->all());

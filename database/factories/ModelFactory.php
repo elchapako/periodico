@@ -32,6 +32,7 @@ $factory->define(App\Section::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->word,
+        'pages' => 4
     ];
 });
 

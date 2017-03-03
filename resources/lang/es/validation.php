@@ -195,6 +195,7 @@ return [
         'add_page'              => 'Agregar Página',
         'create_page'           => 'Crear Página',
         'list_of_edition'       => 'Lista de Ediciones',
-        'status'                => 'Estado'
+        'status'                => 'Estado',
+        'pages'                 => 'Páginas'
     ],
 ];

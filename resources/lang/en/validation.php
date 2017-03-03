@@ -159,7 +159,8 @@ return [
         'ad_name'               => 'Advertising Name',
         'back'                  => 'Back',
         'create_new_edition'    => 'create new edition',
-        'create_edition'        => 'Create Edition'
+        'create_edition'        => 'Create Edition',
+        'pages'                 => 'Pages'
     ],
 
 ];

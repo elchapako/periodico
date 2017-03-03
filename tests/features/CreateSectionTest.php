@@ -12,11 +12,14 @@ class CreateSectionTest extends FeatureTestCase
             ->seePageIs(route('sections.create'))
             ->see('Agregar Seccion')
             ->type('Sociales', 'name')
+            ->type('8', 'pages')
             ->press('Crear Seccion')
             ->seePageIs(route('sections.index'))
             ->see('Sociales')
+            ->see('8')
             ->seeInDatabase('sections',[
-                'name' => 'Sociales'
+                'name' => 'Sociales',
+                'pages' => '8'
             ]);
     }
 
@@ -34,6 +37,7 @@ class CreateSectionTest extends FeatureTestCase
             ->visit(route('sections.create'))
             ->press('Crear Seccion')
             ->seePageIs(route('sections.create'))
-            ->see('El campo nombre es obligatorio');
+            ->see('El campo nombre es obligatorio')
+            ->see('El campo Páginas es obligatorio');
     }
 }
