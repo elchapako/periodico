@@ -78,4 +78,15 @@ class Edition extends Model
     {
         return $this->date->format('d/m/Y');
     }
+
+    public function assign(Section $section) {
+        $this->sections()->attach($section);
+        EditionSection::day($this, $section)->first()->addPages($section->pages);
+    }
+
+    public function scopeDay($query, $edition, $section)
+    {
+        return $query->where('edition_id', $edition->id)
+            ->where('section_id', $section->id);
+    }
 }

@@ -1,22 +1,24 @@
 <?php
 
+use App\Edition;
 use App\Section;
 
 class AssignSectionsTest extends FeatureTestCase
 {
     public function test_assign_sections_to_new_edition()
     {
+
         $sec1 = Section::create([
             'name' => 'Central',
-            'pages' => 20
+            'pages' => 4
         ]);
 
-        $edition = factory(App\Edition::class)->create();
-        //$edition->assignSections();
+        $edition = factory(Edition::class)->create([
+            'status' => 'next',
+            'number_of_edition' => 1234
+        ]);
 
-        //$this->seeInDatabase('edition_section', [
-        //   'section_id' => $sec1->id,
-        //   'edition_id'     => $edition->id
-        //]);
-    }
+        //$edition->assign($sec1);
+        //        dd(Page::all());
+        }
 }

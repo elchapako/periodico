@@ -13,8 +13,20 @@ class Editionsection extends Model
         return $this->belongsToMany(Section::class);
     }
 
+    public function pages()
+    {
+        return $this->hasMany(Page::class);
+    }
+
     public function edition()
     {
         return $this->belongsTo(Edition::class);
+    }
+
+    public function addPages($pages_number)
+    {
+        for ($i=1; $i <= $pages_number / 4; $i++) {
+            $this->pages()->saveMany(Page::newGroup($i));
+        }
     }
 }

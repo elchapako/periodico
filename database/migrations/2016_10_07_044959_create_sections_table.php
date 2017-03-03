@@ -18,6 +18,7 @@ class CreateSectionsTable extends Migration
 
             $table->string('name');
             $table->unsignedInteger('pages');
+            $table->boolean('IsRegular')->default(true);
 
             $table->timestamps();
         });
