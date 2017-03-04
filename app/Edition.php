@@ -51,14 +51,6 @@ class Edition extends Model
         return $last->date;
     }
 
-    public function assignSections(){
-        Editionsection::create([
-           'no_pages' => 20,
-           'edition_id' => $this->id,
-           'section_id' => 1
-        ]);
-    }
-
     public function activate(){
         if (Edition::next()->count()==1 && Edition::active()->count()==0){
         $this->update(['status' => 'active']);
@@ -81,7 +73,7 @@ class Edition extends Model
 
     public function assignSection($section)
     {
-        return EditionSection::create([
+        return Editionsection::create([
             'section_id' => $section->id,
             'edition_id' => $this->id
         ]);

@@ -22,6 +22,6 @@ class AddPagesToSectionTest extends FeatureTestCase
            // 'no_pages' => 20
         ]);
 
-        EditionSection::day($edition, $section)->first()->addPages($section->pages);
+        Editionsection::day($edition, $section)->first()->addPages($section->pages);
     }
 }
