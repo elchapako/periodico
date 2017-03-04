@@ -10,7 +10,8 @@ class AssignSectionsTest extends FeatureTestCase
 
         $sec1 = Section::create([
             'name' => 'Central',
-            'pages' => 4
+            'pages' => 4,
+            'isRegular' => true
         ]);
 
         $edition = factory(Edition::class)->create([

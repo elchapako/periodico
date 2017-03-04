@@ -10,7 +10,7 @@ class Editionsection extends Model
 
     public function sections()
     {
-        return $this->belongsToMany(Section::class);
+        return $this->belongsTo(Section::class);
     }
 
     public function pages()
@@ -28,5 +28,11 @@ class Editionsection extends Model
         for ($i=1; $i <= $pages_number / 4; $i++) {
             $this->pages()->saveMany(Page::newGroup($i));
         }
+    }
+
+    public function scopeDay($query, $edition, $section)
+    {
+        return $query->where('edition_id', $edition->id)
+            ->where('section_id', $section->id);
     }
 }

@@ -160,7 +160,10 @@ return [
         'back'                  => 'Back',
         'create_new_edition'    => 'create new edition',
         'create_edition'        => 'Create Edition',
-        'pages'                 => 'Pages'
+        'pages'                 => 'Pages',
+        'isregular'             => 'Its Regular',
+        'true'                  => 'Yes',
+        'false'                 => 'Not'
     ],
 
 ];

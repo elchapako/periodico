@@ -13,13 +13,16 @@ class CreateSectionTest extends FeatureTestCase
             ->see('Agregar Seccion')
             ->type('Sociales', 'name')
             ->type('8', 'pages')
+            ->select(true, 'isRegular')
             ->press('Crear Seccion')
             ->seePageIs(route('sections.index'))
             ->see('Sociales')
             ->see('8')
+            ->see(true)
             ->seeInDatabase('sections',[
                 'name' => 'Sociales',
-                'pages' => '8'
+                'pages' => '8',
+                'isRegular' => true
             ]);
     }
 

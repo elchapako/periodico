@@ -29,7 +29,7 @@ class Edition extends Model
         if ($edition->id == 1) {
             $edition->activate();
         }
-        //$edition->assignSections();
+        $edition->builderEdition();
         Alert::success('Edicion de fecha ' . $edition->publish_date . ' fue creada');
 
         return $edition;
@@ -79,14 +79,22 @@ class Edition extends Model
         return $this->date->format('d/m/Y');
     }
 
-    public function assign(Section $section) {
-        $this->sections()->attach($section);
-        EditionSection::day($this, $section)->first()->addPages($section->pages);
+    public function assignSection($section)
+    {
+        return EditionSection::create([
+            'section_id' => $section->id,
+            'edition_id' => $this->id
+        ]);
     }
 
-    public function scopeDay($query, $edition, $section)
+    public function builderEdition()
     {
-        return $query->where('edition_id', $edition->id)
-            ->where('section_id', $section->id);
+        $sections = Section::regulars()->get();
+
+        $sections->each(function ($section)
+        {
+            $editionSection = $this->assignSection($section);
+            $editionSection->addPages($section->pages);
+        });
     }
 }

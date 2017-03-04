@@ -16,12 +16,12 @@ class CreateEditionsectionsTable extends Migration
         Schema::create('editionsections', function (Blueprint $table){
             $table->increments('id');
 
-            $table->integer('no_pages');
+            //$table->integer('no_pages');
 
             $table->integer('section_id')->unsigned();
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
 
-            $table->integer('edition_id')->unsigned();
+            $table->integer('edition_id')->unsigned()->nullable();
             $table->foreign('edition_id')->references('id')->on('editions')->onDelete('cascade');
 
             $table->timestamps();

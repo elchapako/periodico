@@ -13,23 +13,28 @@ class SectionsTableSeeder extends Seeder
     {
         factory(App\Section::class)->create([
             'name' => 'Edicion-Central',
-            'pages' => 20
+            'pages' => 20,
+            'isRegular' => true
         ]);
         factory(App\Section::class)->create([
             'name' => 'Campeón',
-            'pages' => 8
+            'pages' => 8,
+            'isRegular' => true
         ]);
         factory(App\Section::class)->create([
             'name' => 'Crónica',
-            'pages' => 8
+            'pages' => 8,
+            'isRegular' => true
         ]);
         factory(App\Section::class)->create([
             'name' => 'Comodín',
-            'pages' => 4
+            'pages' => 4,
+            'isRegular' => true
         ]);
         factory(App\Section::class)->create([
             'name' => 'Pura Cepa',
-            'pages' => 4
+            'pages' => 4,
+            'isRegular' => true
         ]);
     }
 }

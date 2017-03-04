@@ -196,6 +196,9 @@ return [
         'create_page'           => 'Crear Página',
         'list_of_edition'       => 'Lista de Ediciones',
         'status'                => 'Estado',
-        'pages'                 => 'Páginas'
+        'pages'                 => 'Páginas',
+        'isregular'             => 'Es regular',
+        'true'                  => 'Si',
+        'false'                 => 'No'
     ],
 ];

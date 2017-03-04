@@ -9,11 +9,13 @@ class SectionTest extends FeatureTestCase
         //having
         $sec1 = Section::create([
                 'name' => 'Cronica',
-                'pages' => 8
+                'pages' => 8,
+                'isRegular' => true
             ]);
         $sec2 = Section::create([
                 'name' => 'Deportivo',
-                'pages' => 8
+                'pages' => 8,
+                'isRegular' => false
             ]);
 	    //when
 	        $this->actingAs($useradmin)
@@ -21,8 +23,10 @@ class SectionTest extends FeatureTestCase
 	    //then
             ->see($sec1->name)
             ->see($sec1->pages)
+            ->see('si')
             ->see($sec2->name)
-            ->see($sec2->pages);
+            ->see($sec2->pages)
+            ->see('no');
     }
 
     function test_update_sections()
@@ -31,7 +35,8 @@ class SectionTest extends FeatureTestCase
 
         Section::create([
             'name' => 'Cronica',
-            'pages' => 8
+            'pages' => 8,
+            'isRegular' => true
         ]);
 
         $this->actingAs($useradmin)
@@ -42,13 +47,17 @@ class SectionTest extends FeatureTestCase
             ->type('Deportivo', 'name')
             ->see('8')
             ->type('12', 'pages')
+            ->see('si')
+            ->select('0', 'isRegular')
             ->press('Actualizar Seccion')
             ->seePageIs(route('sections.index'))
             ->see('Deportivo')
             ->see('12')
+            ->see('no')
             ->seeInDatabase('sections',[
                 'name' => 'Deportivo',
-                'pages' => '12'
+                'pages' => '12',
+                'isRegular' => '0'
             ]);
     }
 
@@ -58,7 +67,8 @@ class SectionTest extends FeatureTestCase
 
         Section::create([
             'name' => 'Deportivo',
-            'pages' => 8
+            'pages' => 8,
+            'isRegular' => true
         ]);
 
         $this->actingAs($useradmin)
@@ -67,7 +77,8 @@ class SectionTest extends FeatureTestCase
             ->seePageIs(route('sections.index'))
             ->dontSeeInDatabase('sections', [
                 'name' => 'Deportivo',
-                'pages' => '8'
+                'pages' => '8',
+                'isRegular' => '0'
             ]);
     }
 

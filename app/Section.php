@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Section extends Model
 {
-    protected $fillable = ['name', 'pages'];
+    protected $fillable = ['name', 'pages', 'isRegular'];
 
     public function ads()
     {
@@ -21,5 +21,10 @@ class Section extends Model
     public function editionsection()
     {
         return $this->hasMany(Editionsection::class);
+    }
+
+    public function scopeRegulars($query)
+    {
+        return $query->where('isRegular', true);
     }
 }
