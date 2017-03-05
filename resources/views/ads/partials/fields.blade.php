@@ -8,13 +8,13 @@
 </div>
 <div class="form-group">
     {!! Form::label('section_id', trans('validation.attributes.section')) !!}
-    {!! Form::select('section_id', $sections) !!}
+    {!! Form::select('section_id', $sections, null, ['placeholder' => 'Select a section...']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('size_id', trans('validation.attributes.size')) !!}
-    {!! Form::select('size_id', $sizes) !!}
+    {!! Form::select('size_id', $sizes, null, ['placeholder' => 'Select a size...']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('client_id', trans('validation.attributes.client')) !!}
-    {!! Form::select('client_id', $clients) !!}
+    {!! Form::select('client_id', $clients, null, ['placeholder' => 'Select a client...']) !!}
 </div>
