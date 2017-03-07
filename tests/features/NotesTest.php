@@ -24,6 +24,7 @@ class NotesTest extends FeatureTestCase
             'title' => 'Lino Condori y la cama en su despacho',
             'area_id' => $area->id,
             'reporter_id' => $reporter->id,
+            'status' => \App\NoteStatus::assigned
         ]);
 
         //when
@@ -32,6 +33,14 @@ class NotesTest extends FeatureTestCase
             //then
             ->see('Lino Condori y la cama en su despacho')
             ->see('Local')
-            ->see('Jesus Vargas');
+            ->see('Jesus Vargas')
+            ->see('1');
+
+        $this->seeInDatabase('notes', [
+           'title' =>  'Lino Condori y la cama en su despacho',
+           'area_id' => $area->id,
+           'reporter_id' => $reporter->id,
+           'status' => '1'
+        ]);
     }
 }

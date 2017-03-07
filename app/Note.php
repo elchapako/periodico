@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Note extends Model
 {
-    protected $fillable = ['title', 'area_id', 'reporter_id'];
+    protected $fillable = ['title', 'area_id', 'reporter_id', 'status'];
 
     public function reporter()
     {

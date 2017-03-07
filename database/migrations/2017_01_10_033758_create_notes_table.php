@@ -24,6 +24,8 @@ class CreateNotesTable extends Migration
             $table->integer('reporter_id')->unsigned();
             $table->foreign('reporter_id')->references('id')->on('users');
 
+            $table->integer('status');
+
             $table->timestamps();
         });
     }

@@ -27,7 +27,8 @@ class NotifyUsersTest extends FeatureTestCase
         $note = Note::create([
             'title' => 'Lino condori y su cama',
             'area_id' => $area->id,
-            'reporter_id' => $reporter->id
+            'reporter_id' => $reporter->id,
+            'status' => \App\NoteStatus::assigned
         ]);
 
     }

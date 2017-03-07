@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Area;
 use App\Note;
+use App\NoteStatus;
 use App\User;
+use Illuminate\Http\Request;
 use Styde\Html\Facades\Alert;
 
 class NotesController extends Controller
@@ -22,7 +24,7 @@ class NotesController extends Controller
         return view('notes.create', compact('areas', 'users'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $this->validate(request(), [
             'title' => ['required', 'max:60'],
@@ -30,8 +32,12 @@ class NotesController extends Controller
             'reporter_id'=> ['required'],
         ]);
 
-        $note = request()->all();
-        Note::create($note);
+        Note::create([
+            'title' => $request->title,
+            'area_id' => $request->area_id,
+            'reporter_id' => $request->reporter_id,
+            'status' => NoteStatus::assigned
+        ]);
 
         Alert::success('Note fue creada');
 
