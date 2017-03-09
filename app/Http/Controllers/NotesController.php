@@ -36,7 +36,7 @@ class NotesController extends Controller
             'title' => $request->title,
             'area_id' => $request->area_id,
             'reporter_id' => $request->reporter_id,
-            'status' => NoteStatus::assigned
+            'status' => NoteStatus::ASSIGNED
         ]);
 
         Alert::success('Note fue creada');

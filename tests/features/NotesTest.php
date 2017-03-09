@@ -24,7 +24,7 @@ class NotesTest extends FeatureTestCase
             'title' => 'Lino Condori y la cama en su despacho',
             'area_id' => $area->id,
             'reporter_id' => $reporter->id,
-            'status' => \App\NoteStatus::assigned
+            'status' => \App\NoteStatus::ASSIGNED
         ]);
 
         //when
@@ -39,7 +39,7 @@ class NotesTest extends FeatureTestCase
            'title' =>  'Lino Condori y la cama en su despacho',
            'area_id' => $area->id,
            'reporter_id' => $reporter->id,
-           'status' => \App\NoteStatus::assigned
+           'status' => \App\NoteStatus::ASSIGNED
         ]);
     }
 }

@@ -28,7 +28,7 @@ class NotifyUsersTest extends FeatureTestCase
             'title' => 'Lino condori y su cama',
             'area_id' => $area->id,
             'reporter_id' => $reporter->id,
-            'status' => \App\NoteStatus::assigned
+            'status' => \App\NoteStatus::ASSIGNED
         ]);
 
     }

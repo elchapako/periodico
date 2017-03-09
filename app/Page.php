@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-    protected $fillable = ['group', 'section_id'];
+    protected $fillable = ['group', 'section_id', 'status'];
 
     public function section()
     {
@@ -22,7 +22,10 @@ class Page extends Model
     {
         $pages = [];
         for ($i=0; $i < 4; $i++) {
-            $pages[] = new Page(['group' => $group]);
+            $pages[] = new Page([
+                'group' => $group,
+                'status' => PageStatus::UNREALIZED,
+            ]);
         }
         return $pages;
     }

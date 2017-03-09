@@ -199,6 +199,16 @@ return [
         'pages'                 => 'Páginas',
         'isregular'             => 'Es regular',
         'true'                  => 'Si',
-        'false'                 => 'No'
+        'false'                 => 'No',
+        'assigned'              => 'Asignada',
+        'presented'             => 'Presentada',
+        'corrected'             => 'Corregida',
+        'published'             => 'Publicada',
+        'unrealized'            => 'No realizada',
+        'assignin_notes'        => 'Asignando noticias',
+        'waiting_for_photo'     => 'Esperando fotografia',
+        'designing'             => 'Diseñando',
+        'revised'               => 'Revisada',
+        'printed'               => 'Impresa'
     ],
 ];

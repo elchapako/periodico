@@ -4,20 +4,20 @@ namespace App;
 
 class NoteStatus
 {
-    const assigned = 1;
-    const presented = 2;
-    const corrected = 3;
-    const published = 4;
+    const ASSIGNED = 1;
+    const PRESENTED = 2;
+    const CORRECTED = 3;
+    const PUBLISHED = 4;
 
     private $statuses = [];
 
     public function __construct()
     {
         $this->statuses = [
-            self::assigned => trans('validation.attributes.assigned'),
-            self::presented => trans('validation.attributes.presented'),
-            self::corrected => trans('validation.attributes.corrected'),
-            self::published => trans('validation.attributes.published')
+            self::ASSIGNED => trans('validation.attributes.assigned'),
+            self::PRESENTED => trans('validation.attributes.presented'),
+            self::CORRECTED => trans('validation.attributes.corrected'),
+            self::PUBLISHED => trans('validation.attributes.published')
         ];
     }
 
