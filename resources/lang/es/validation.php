@@ -209,6 +209,8 @@ return [
         'waiting_for_photo'     => 'Esperando fotografia',
         'designing'             => 'Diseñando',
         'revised'               => 'Revisada',
-        'printed'               => 'Impresa'
+        'printed'               => 'Impresa',
+        'editions'              => 'Ediciones',
+        'config'                => 'Configuración'
     ],
 ];

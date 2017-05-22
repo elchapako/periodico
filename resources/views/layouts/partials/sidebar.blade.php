@@ -13,16 +13,39 @@
                 <div class="pull-left info">
                     <p>{{ Auth::user()->name }}</p>
                     <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> {{ trans('message.online') }}</a>
                 </div>
             </div>
         @endif
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">{{ trans('message.header') }}</li>
-            {!! Menu::make('menus.items', 'sidebar-menu') !!}
+            <!-- Optionally, you can add icons to the links --> 
+            <li class="active"><a href="{{ url('/') }}"><i class='fa fa-link'></i><span>{{ trans('message.home') }}</span></a></li> 
+                        @if (Auth::user()->isA('reporter', 'admin')) 
+            <li><a href="{{ route('assigned-notes.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.assignin_notes') }}</span></a></li>
+                        @endif
+                        @if (Auth::user()->isA('editor', 'admin')) 
+            <li><a href="{{ route('notes.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.notes') }}</span></a></li>
+            <li><a href="{{ route('editions.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.editions') }}</span></a></li>
+            <li class="treeview"> 
+                <a href="#"><i class='fa fa-link'></i><span>{{ trans('validation.attributes.config') }}</span><i class="fa fa-angle-left pull-right"></i></a> 
+                <ul class="treeview-menu"> 
+                    <li><a href="{{ route('areas.index') }}"><i class='fa fa-link'></i><span>{{ trans('message.areas') }}</span></a></li> 
+                    <li><a href="{{ route('sections.index') }}"><i class='fa fa-link'></i><span>{{ trans('message.sections') }}</span></a></li> 
+                    <li><a href="{{ route('models.index') }}"><i class='fa fa-link'></i><span>{{ trans('message.models') }}</span></a></li> 
+                </ul>
+            </li> 
+                        @endif
+                        @if (Auth::user()->isA('secretary', 'admin')) 
+            <li class="treeview"> 
+                <a href="#"><i class='fa fa-link'></i><span>{{ trans('message.publicity') }}</span><i class="fa fa-angle-left pull-right"></i></a> 
+                <ul class="treeview-menu"> 
+                    <li><a href="{{ route('ads.index') }}"><i class='fa fa-link'></i>{{ trans('message.advertising') }}</a></li> 
+                    <li><a href="{{ route('clients.index') }}"><i class='fa fa-link'></i>{{ trans('message.clients') }}</a></li> 
+                    <li><a href="{{ route('sizes.index') }}"><i class='fa fa-link'></i>{{ trans('message.sizes') }}</a></li> 
+                </ul>
+            </li>     @endif
         </ul><!-- /.sidebar-menu -->
-
     </section>
     <!-- /.sidebar -->
 </aside>

@@ -163,7 +163,9 @@ return [
         'pages'                 => 'Pages',
         'isregular'             => 'Its Regular',
         'true'                  => 'Yes',
-        'false'                 => 'Not'
+        'false'                 => 'Not',
+        'editions'              => 'Editions',
+        'config'                => 'Config'
     ],
 
 ];
