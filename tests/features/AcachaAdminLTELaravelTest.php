@@ -73,12 +73,12 @@ class AcachaAdminLTELaravelTest extends FeatureTestCase
     }
 
 
-    function test404Page()
-    {
-        $this->get('asdasdjlapmnnk')
-            ->seeStatusCode(404)
-            ->see('404');
-    }
+    //function test404Page()
+    //{
+    //    $this->get('asdasdjlapmnnk')
+    //        ->seeStatusCode(404)
+    //        ->see('404');
+    //}
 
     function testSendPasswordReset()
     {
