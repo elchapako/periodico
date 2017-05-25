@@ -7,7 +7,8 @@ class ReportsTest extends FeatureTestCase
         $own = $this->adminUser();
 
         $this->actingAs($own);
-            //->visitRoute('reports');
+            //->visitRoute('reports.index')
+            //->see('Reportes');
 
     }
 }

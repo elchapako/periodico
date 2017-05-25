@@ -71,3 +71,8 @@ Route::post('editions.store', [
    'uses' => 'EditionsController@store',
    'as' => 'editions.store'
 ]);
+
+Route::get('reports', [
+   'uses' => 'ReportsController@index',
+   'as'   => 'reports.index'
+]);
