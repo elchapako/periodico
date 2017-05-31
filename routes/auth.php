@@ -72,7 +72,7 @@ Route::post('editions.store', [
    'as' => 'editions.store'
 ]);
 
-Route::get('reports', [
+Route::get('reportes', [
    'uses' => 'ReportsController@index',
    'as'   => 'reports.index'
 ]);

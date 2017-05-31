@@ -4,6 +4,9 @@
 	Home
 @endsection
 
+@section('contentheader_title')
+	{{ trans('validation.attributes.welcome') }} {{ Auth::user()->name }}!
+@endsection
 
 @section('main-content')
 	<div class="container spark-screen">

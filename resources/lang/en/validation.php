@@ -165,7 +165,9 @@ return [
         'true'                  => 'Yes',
         'false'                 => 'Not',
         'editions'              => 'Editions',
-        'config'                => 'Config'
+        'config'                => 'Config',
+        'welcome'               => 'Welcome',
+        'active_edition'        => 'Active Edition'
     ],
 
 ];

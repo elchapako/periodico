@@ -45,14 +45,15 @@ class Edition extends Model
 
     public static function getLastDate()
     {
-        if (! $last = Edition::latest()->first()){
+        if (! $last = Edition::latest()->first()) {
             return Carbon::today();
         }
         return $last->date;
     }
 
-    public function activate(){
-        if (Edition::next()->count()==1 && Edition::active()->count()==0){
+    public function activate()
+    {
+        if (Edition::next()->count()==1 && Edition::active()->count()==0) {
         $this->update(['status' => 'active']);
         }
     }
@@ -62,7 +63,8 @@ class Edition extends Model
         return $query->where('status', 'next');
     }
 
-    public function scopeActive($query){
+    public function scopeActive($query)
+    {
         return $query->where('status', 'active');
     }
 

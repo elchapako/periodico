@@ -13,7 +13,8 @@
         "intervention/image": "^2.3",
         "acacha/admin-lte-template-laravel": "4.*",
         "silber/bouncer": "dev-master",
-        "barryvdh/laravel-dompdf": "0.7.*"
+        "barryvdh/laravel-dompdf": "0.7.*",
+        "laravel/tinker": "^1.0"
 
     },
     "require-dev": {

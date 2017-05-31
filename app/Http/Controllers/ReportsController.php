@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Page;
+use App\Edition;
 use Illuminate\Http\Request;
 
 class ReportsController extends Controller
 {
     public function index()
     {
-        //$pages = Page::paginate(15);
-        //return view('notes.list', compact('notes'));
+        $activeEdition = Edition::where('status', 'active')->first();
+        return view('reports.edition', compact('activeEdition'));
     }
 }

@@ -211,6 +211,9 @@ return [
         'revised'               => 'Revisada',
         'printed'               => 'Impresa',
         'editions'              => 'Ediciones',
-        'config'                => 'Configuración'
+        'config'                => 'Configuración',
+        'reports'               => 'Reportes',
+        'welcome'               => 'Bienvenido',
+        'active_edition'        => 'Edición Activa'
     ],
 ];
