@@ -14,9 +14,54 @@ class Edition extends Model
         'date'
     ];
 
+    //protected $with = [
+    //    'editionsection',
+    //];
+
     public function editionsection()
     {
         return $this->hasMany(Editionsection::class);
+    }
+
+    public function scopeNext($query)
+    {
+        return $query->where('status', 'next');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
+    public function activate()
+    {
+        if (Edition::next()->count()==1 && Edition::active()->count()==0) {
+            $this->update(['status' => 'active']);
+        }
+    }
+
+    public function getPublishDateAttribute()
+    {
+        return $this->date->format('d/m/Y');
+    }
+
+    public function assignSection($section)
+    {
+        return Editionsection::create([
+            'section_id' => $section->id,
+            'edition_id' => $this->id
+        ]);
+    }
+
+    public function builderEdition()
+    {
+        $sections = Section::regulars()->get();
+
+        $sections->each(function ($section)
+        {
+            $editionSection = $this->assignSection($section);
+            $editionSection->addPages($section->pages);
+        });
     }
 
     public static function createNextEdition()
@@ -49,46 +94,5 @@ class Edition extends Model
             return Carbon::today();
         }
         return $last->date;
-    }
-
-    public function activate()
-    {
-        if (Edition::next()->count()==1 && Edition::active()->count()==0) {
-        $this->update(['status' => 'active']);
-        }
-    }
-
-    public function scopeNext($query)
-    {
-        return $query->where('status', 'next');
-    }
-
-    public function scopeActive($query)
-    {
-        return $query->where('status', 'active');
-    }
-
-    public function getPublishDateAttribute()
-    {
-        return $this->date->format('d/m/Y');
-    }
-
-    public function assignSection($section)
-    {
-        return Editionsection::create([
-            'section_id' => $section->id,
-            'edition_id' => $this->id
-        ]);
-    }
-
-    public function builderEdition()
-    {
-        $sections = Section::regulars()->get();
-
-        $sections->each(function ($section)
-        {
-            $editionSection = $this->assignSection($section);
-            $editionSection->addPages($section->pages);
-        });
     }
 }

@@ -8,7 +8,12 @@ class Editionsection extends Model
 {
     protected $fillable = ['section_id', 'edition_id'];
 
-    public function sections()
+    //protected $with = [
+    //    'sections',
+    //    'pages'
+    //];
+
+    public function section()
     {
         return $this->belongsTo(Section::class);
     }
@@ -23,16 +28,16 @@ class Editionsection extends Model
         return $this->belongsTo(Edition::class);
     }
 
+    public function scopeDay($query, $edition, $section)
+    {
+        return $query->where('edition_id', $edition->id)
+            ->where('section_id', $section->id);
+    }
+
     public function addPages($pages_number)
     {
         for ($i=1; $i <= $pages_number / 4; $i++) {
             $this->pages()->saveMany(Page::newGroup($i));
         }
-    }
-
-    public function scopeDay($query, $edition, $section)
-    {
-        return $query->where('edition_id', $edition->id)
-            ->where('section_id', $section->id);
     }
 }
