@@ -9,7 +9,7 @@ class Editionsection extends Model
     protected $fillable = ['section_id', 'edition_id'];
 
     //protected $with = [
-    //    'sections',
+    //    'section',
     //    'pages'
     //];
 

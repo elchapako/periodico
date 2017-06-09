@@ -20,6 +20,10 @@
                     <div class="panel-body">
                         @if($activeEdition)
                         <p>Número de Edicion: {{ $activeEdition->number_of_edition }} - Fecha en desarrollo: {{ $activeEdition->publish_date }} </p>
+                        <p>Secciones</p>
+                        @foreach($activeEdition->editionsection as $sections)
+                        <p>{{ $sections->section->name }}</p>
+                        @endforeach
                         @else
                             <p>No existe Edición Activa</p>
                         @endif
