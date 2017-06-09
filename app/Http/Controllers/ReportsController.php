@@ -11,7 +11,7 @@ class ReportsController extends Controller
 {
     public function index()
     {
-        $activeEdition = Edition::active()->with('editionsection.section')->first();
+        $activeEdition = Edition::active()->with('editionsection.section')->with('editionsection.pages')->first();
         //dd($activeEdition);
         return view('reports.edition', compact('activeEdition'));
     }

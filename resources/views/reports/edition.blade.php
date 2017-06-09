@@ -23,6 +23,9 @@
                         <p>Secciones</p>
                         @foreach($activeEdition->editionsection as $sections)
                         <p>{{ $sections->section->name }}</p>
+                            @foreach($sections->pages as $pages)
+                                    <p>{{ $pages->group }} - {{ $pages->status }}</p>
+                            @endforeach
                         @endforeach
                         @else
                             <p>No existe Edición Activa</p>
