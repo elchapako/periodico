@@ -36,8 +36,12 @@ class Editionsection extends Model
 
     public function addPages($pages_number)
     {
-        for ($i=1; $i <= $pages_number / 4; $i++) {
-            $this->pages()->saveMany(Page::newGroup($i));
+        for ($i=1; $i <= $pages_number; $i++) {
+            $this->pages()->save(Page::create([
+                'page_number' => $i,
+                'status' => PageStatus::UNREALIZED,
+                'editionsection_id' => $this->id,
+            ]));
         }
     }
 }

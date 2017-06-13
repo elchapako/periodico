@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-    protected $fillable = ['group', 'editionsection_id', 'status'];
+    protected $fillable = ['page_number', 'editionsection_id', 'status'];
 
-    public function section()
+    public function editionsection()
     {
-        return $this->belongsTo(Section::class);
+        return $this->belongsTo(Editionsection::class);
     }
 
     public function area()

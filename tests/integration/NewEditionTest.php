@@ -25,11 +25,9 @@ class NewEditionTest extends FeatureTestCase
         foreach (Edition::first()->editionsection as $cuerpo) {
           //  dd(Edition::first()->editionsection);
             echo "\n{$cuerpo->section->name}\n";
-            $i = 0;
             foreach ($cuerpo->pages->chunk(4) as $chunk) {
                 foreach ($chunk as $page) {
-                    $i = $i+1;
-                    echo "pagina: {$i} {$page->group} - {$page->status} \n";
+                    echo "pagina: {$page->page_number} -Estado {$page->status} \n";
                 }
             }
         }
