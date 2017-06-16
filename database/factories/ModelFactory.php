@@ -69,3 +69,24 @@ $factory->define(App\Edition::class, function (Faker\Generator $faker){
        'status' => $faker->randomElement(['active', 'next', 'done'])
    ];
 });
+
+$factory->define(App\Editionsection::class, function (Faker\Generator $faker){
+   return[
+       'section_id' => function () {
+           return factory(App\Section::class)->create()->id;
+       },
+       'edition_id' => function () {
+           return factory(App\Edition::class)->create()->id;
+       }
+   ];
+});
+
+$factory->define(App\Page::class, function (Faker\Generator $faker){
+   return[
+       'page_number'        => $faker->numberBetween(1,20),
+       'status'             => $faker->numberBetween(1,6),
+       'editionsection_id'  => function () {
+           return factory(App\Editionsection::class)->create()->id;
+       }
+   ];
+});

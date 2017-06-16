@@ -45,7 +45,11 @@
                         <li><a href="{{ route('clients.index') }}"><i class='fa fa-link'></i>{{ trans('message.clients') }}</a></li>
                         <li><a href="{{ route('sizes.index') }}"><i class='fa fa-link'></i>{{ trans('message.sizes') }}</a></li>
                     </ul>
-                </li>@endif
+                </li>
+            @endif
+            @if (Auth::user()->isA('owner', 'admin'))
+                <li><a href="{{ route('reports.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.reports') }}</span></a></li>
+            @endif
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

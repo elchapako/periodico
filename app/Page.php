@@ -29,4 +29,22 @@ class Page extends Model
         }
         return $pages;
     }
+
+    public function getStatusTextAttribute()
+    {
+        return $this->arrayStatus($this->status);
+    }
+
+    public function arrayStatus($number_status)
+    {
+        $status = [];
+        $status [1] = 'UNREALIZED';
+        $status [2] = 'ASSIGNING_NOTES';
+        $status [3] = 'WAITING_FOR_PHOTOGRAPHY';
+        $status [4] = 'DESIGNING';
+        $status [5] = 'REVISED';
+        $status [6] = 'PRINTED';
+
+        return $status[$number_status];
+    }
 }

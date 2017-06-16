@@ -24,7 +24,7 @@
                         @foreach($activeEdition->editionsection as $sections)
                         <p>{{ $sections->section->name }}</p>
                             @foreach($sections->pages as $pages)
-                                    <p>{{ $pages->group }} - {{ $pages->status }}</p>
+                                    <p>Página: {{ $pages->page_number }} - {{ $pages->status_text }}</p>
                             @endforeach
                         @endforeach
                         @else
