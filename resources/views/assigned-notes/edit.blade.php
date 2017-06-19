@@ -9,6 +9,7 @@
 @endsection
 
 @section('main-content')
+    <script src="{!! asset('/vendors/ckeditor/ckeditor.js') !!}"></script>
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">

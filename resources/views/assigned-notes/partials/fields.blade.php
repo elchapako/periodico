@@ -8,5 +8,5 @@
 </div>
 <div class="form-group">
     {!! Form::label('note', trans('validation.attributes.note')) !!}
-    {!! Form::textarea('note', null, ['class' => 'form-control', 'placeholder' => 'Write the note here...']) !!}
+    {!! Form::textarea('note', null, ['class' => 'ckeditor', 'placeholder' => 'Write the note here...']) !!}
 </div>
