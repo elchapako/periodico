@@ -205,7 +205,7 @@ return [
         'corrected'             => 'Corregida',
         'published'             => 'Publicada',
         'unrealized'            => 'No realizada',
-        'assignin_notes'        => 'Asignando noticias',
+        'assigned_notes'        => 'Noticias asignadas',
         'waiting_for_photo'     => 'Esperando fotografia',
         'designing'             => 'Diseñando',
         'revised'               => 'Revisada',
@@ -214,6 +214,9 @@ return [
         'config'                => 'Configuración',
         'reports'               => 'Reportes',
         'welcome'               => 'Bienvenido',
-        'active_edition'        => 'Edición Activa'
+        'active_edition'        => 'Edición Activa',
+        'edit_note'             => 'Editar Noticia',
+        'note'                  => 'Noticia',
+        'save_note'             => 'Guardar Noticia'
     ],
 ];

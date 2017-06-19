@@ -22,7 +22,7 @@
         <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('/') }}"><i class='fa fa-link'></i><span>{{ trans('message.home') }}</span></a></li>
             @if (Auth::user()->isA('reporter', 'admin'))
-                <li><a href="{{ route('assigned-notes.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.assignin_notes') }}</span></a></li>
+                <li><a href="{{ route('assigned-notes.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.assigned_notes') }}</span></a></li>
             @endif
             @if (Auth::user()->isA('editor', 'admin'))
                 <li><a href="{{ route('notes.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.notes') }}</span></a></li>

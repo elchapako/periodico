@@ -18,6 +18,8 @@ class CreateNotesTable extends Migration
 
             $table->string('title');
 
+            $table->longText('note')->nullable();
+
             $table->integer('area_id')->unsigned();
             $table->foreign('area_id')->references('id')->on('areas');
 

@@ -11,7 +11,7 @@
             <td>{{$note->id}}</td>
             <td>{{$note->title}}</td>
             <td>{{$note->area->name}}</td>
-            <td></td>
+            <td><a href="{{route('assigned-notes.edit', $note->id)}}" class="btn btn-primary">{{ trans('validation.attributes.edit') }}</a></td>
             <td></td>
         </tr>
     @endforeach
