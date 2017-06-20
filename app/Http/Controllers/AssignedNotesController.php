@@ -28,11 +28,20 @@ class AssignedNotesController extends Controller
 
     public function update($id)
     {
-        $note= Note::findOrFail($id);
+        $note = Note::findOrFail($id);
         $note->fill(request()->all());
         $note->save();
 
         Alert::success('Note '. $note->title . ' fue actualizada');
+        return redirect()->route('assigned-notes.index');
+    }
+
+    public function correction($id)
+    {
+        $note = Note::findOrFail($id);
+        $note->fill(request()->all());
+        $note->save();
+        Alert::success('Note '. $note->title . ' fue enviada para corrección');
         return redirect()->route('assigned-notes.index');
     }
 }

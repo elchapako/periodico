@@ -217,6 +217,7 @@ return [
         'active_edition'        => 'Edición Activa',
         'edit_note'             => 'Editar Noticia',
         'note'                  => 'Noticia',
-        'save_note'             => 'Guardar Noticia'
+        'save_note'             => 'Guardar Noticia',
+        'send_to_correction'    => 'Enviar a Corrección'
     ],
 ];

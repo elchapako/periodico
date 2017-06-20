@@ -72,6 +72,11 @@ Route::post('noticias-asignadas.update/{id}', [
     'as' => 'assigned-notes.update'
 ]);
 
+Route::post('noticias-asignadas.correction/{id}', [
+    'uses' => 'AssignedNotesController@correction',
+    'as' => 'assigned-notes.correction'
+]);
+
 Route::get('ediciones', [
     'uses' => 'EditionsController@index',
     'as' => 'editions.index'
