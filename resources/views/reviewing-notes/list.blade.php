@@ -17,9 +17,7 @@
                     <div class="panel-heading">{{ trans('validation.attributes.list_of_notes_to_correct') }}
 
                     </div>
-                    @if(Session::has('message'))
-                        <p class="alert alert-success">{{Session::get('message')}}</p>
-                    @endif
+                    {!! Alert::render() !!}
                     <div class="panel-body">
                         <p>Hay {{ $notes->total() }} notas</p>
                         @include('reviewing-notes.partials.table')

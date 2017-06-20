@@ -29,6 +29,7 @@
             @endif
             @if (Auth::user()->isA('editor', 'admin'))
                 <li><a href="{{ route('editions.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.editions') }}</span></a></li>
+                <li><a href="{{ route('corrected-notes.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.corrected_notes') }}</span></a></li>
                 <li class=“treeview">
                     <a href="#"><i class='fa fa-link'></i><span>{{ trans('validation.attributes.config') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">

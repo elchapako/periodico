@@ -97,6 +97,21 @@ Route::post('revisando-noticias.corrected/{id}', [
     'as' => 'reviewing-notes.corrected'
 ]);
 
+Route::get('noticias-corregidas', [
+    'uses' => 'CorrectedNotesController@index',
+    'as' => 'corrected-notes.index'
+]);
+
+Route::get('noticias-corregidas.edit/{id}', [
+    'uses' => 'CorrectedNotesController@edit',
+    'as' => 'corrected-notes.edit'
+]);
+
+Route::post('noticias-corregidas.update/{id}', [
+    'uses' => 'CorrectedNotesController@update',
+    'as' => 'corrected-notes.update'
+]);
+
 Route::get('ediciones', [
     'uses' => 'EditionsController@index',
     'as' => 'editions.index'

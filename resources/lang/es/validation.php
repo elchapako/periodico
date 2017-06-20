@@ -223,6 +223,9 @@ return [
         'reviewing_note'        => 'Revisando Noticia',
         'send_to_redaction'     => 'Enviar a Redacción',
         'review_notes'          => 'Revisar Noticias',
-        'assign_notes'          => 'Asignar Noticias'
+        'assign_notes'          => 'Asignar Noticias',
+        'list_of_corrected_notes' => 'Lista de Noticias Corregidas',
+        'editing_note'          => 'Editando Noticia',
+        'corrected_notes'       => 'Noticias Corregidas'
     ],
 ];
