@@ -50,6 +50,9 @@
             @if (Auth::user()->isA('owner', 'admin'))
                 <li><a href="{{ route('reports.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.reports') }}</span></a></li>
             @endif
+            @if (Auth::user()->isA('review-manager', 'admin'))
+                <li><a href="{{ route('reviewing-notes.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.review_notes') }}</span></a></li>
+            @endif
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

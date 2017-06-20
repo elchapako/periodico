@@ -221,6 +221,7 @@ return [
         'send_to_correction'    => 'Enviar a Corrección',
         'list_of_notes_to_correct' => 'Lista de Noticias para Corregir',
         'reviewing_note'        => 'Revisando Noticia',
-        'send_to_redaction'     => 'Enviar a Redacción'
+        'send_to_redaction'     => 'Enviar a Redacción',
+        'review_notes'          => 'Revisar Noticias'
     ],
 ];
