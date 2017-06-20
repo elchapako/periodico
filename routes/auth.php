@@ -77,6 +77,26 @@ Route::post('noticias-asignadas.correction/{id}', [
     'as' => 'assigned-notes.correction'
 ]);
 
+Route::get('revisando-noticias', [
+    'uses' => 'ReviewingNotesController@index',
+    'as' => 'reviewing-notes.index'
+]);
+
+Route::get('revisando-noticias.edit/{id}', [
+    'uses' => 'ReviewingNotesController@edit',
+    'as' => 'reviewing-notes.edit'
+]);
+
+Route::post('revisando-noticias.update/{id}', [
+    'uses' => 'ReviewingNotesController@update',
+    'as' => 'reviewing-notes.update'
+]);
+
+Route::post('revisando-noticias.corrected/{id}', [
+    'uses' => 'ReviewingNotesController@corrected',
+    'as' => 'reviewing-notes.corrected'
+]);
+
 Route::get('ediciones', [
     'uses' => 'EditionsController@index',
     'as' => 'editions.index'
