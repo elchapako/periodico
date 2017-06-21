@@ -11,6 +11,6 @@ class PageStatusTextTest extends FeatureTestCase
         ]);
         //dd($page);
         $status = $page->status_text;
-        $this->assertEquals($status, 'ASSIGNING_NOTES');
+        $this->assertEquals($status, 'Asignando Noticias');
     }
 }

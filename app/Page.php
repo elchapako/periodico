@@ -38,12 +38,12 @@ class Page extends Model
     public function arrayStatus($number_status)
     {
         $status = [];
-        $status [1] = 'UNREALIZED';
-        $status [2] = 'ASSIGNING_NOTES';
-        $status [3] = 'WAITING_FOR_PHOTOGRAPHY';
-        $status [4] = 'DESIGNING';
-        $status [5] = 'REVISED';
-        $status [6] = 'PRINTED';
+        $status [1] = trans('validation.attributes.unrealized');
+        $status [2] = trans('validation.attributes.assigning_notes');
+        $status [3] = trans('validation.attributes.waiting_for_photo');
+        $status [4] = trans('validation.attributes.designing');
+        $status [5] = trans('validation.attributes.revised');
+        $status [6] = trans('validation.attributes.printed');
 
         return $status[$number_status];
     }

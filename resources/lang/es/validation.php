@@ -226,6 +226,7 @@ return [
         'assign_notes'          => 'Asignar Noticias',
         'list_of_corrected_notes' => 'Lista de Noticias Corregidas',
         'editing_note'          => 'Editando Noticia',
-        'corrected_notes'       => 'Noticias Corregidas'
+        'corrected_notes'       => 'Noticias Corregidas',
+        'assigning_notes'       => 'Asignando Noticias'
     ],
 ];
