@@ -9,6 +9,12 @@
 @endsection
 
 @section('main-content')
+    <!-- Datepicker Files -->
+    <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker3.css')}}">
+    <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker.standalone.css')}}">
+    <script src="{{asset('datePicker/js/bootstrap-datepicker.js')}}"></script>
+    <!-- Languaje -->
+    <script src="{{asset('datePicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -30,4 +36,12 @@
             </div>
         </div>
     </div>
+    <script>
+        $('.datepicker').datepicker({
+            format: "dd/mm/yyyy",
+            clearBtn: true,
+            multidate: true,
+            todayHighlight: true
+        });
+    </script>
 @endsection

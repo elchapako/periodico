@@ -18,3 +18,7 @@
     {!! Form::label('client_id', trans('validation.attributes.client')) !!}
     {!! Form::select('client_id', $clients, null, ['placeholder' => 'Select a client...']) !!}
 </div>
+<div class="input-group date">
+    {!! Form::label('date', trans('validation.attributes.date')) !!}
+    {!! Form::text('date', null, ['class' => 'form-control datepicker']) !!}
+</div>
