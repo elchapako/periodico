@@ -22,15 +22,15 @@ class NewEditionTest extends FeatureTestCase
 
         $edition->builderEdition();
 
-        foreach (Edition::first()->editionsection as $cuerpo) {
+        //foreach (Edition::first()->editionsection as $cuerpo) {
           //  dd(Edition::first()->editionsection);
-            echo "\n{$cuerpo->section->name}\n";
-            foreach ($cuerpo->pages->chunk(4) as $chunk) {
-                foreach ($chunk as $page) {
-                    echo "pagina: {$page->page_number} -Estado {$page->status} \n";
-                }
-            }
-        }
+        //    echo "\n{$cuerpo->section->name}\n";
+        //    foreach ($cuerpo->pages->chunk(4) as $chunk) {
+        //        foreach ($chunk as $page) {
+        //            echo "pagina: {$page->page_number} -Estado {$page->status} \n";
+        //        }
+        //    }
+        //}
     }
 
     private function createSectionRegular($name, $pages = 4)
