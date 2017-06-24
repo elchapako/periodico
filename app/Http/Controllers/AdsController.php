@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Ad;
 
 use App\Client;
+use App\Date;
 use App\Section;
 use App\Size;
 
 
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use Styde\Html\Facades\Alert;
 
 
@@ -36,7 +37,8 @@ class AdsController extends Controller
         $sections = Section::pluck('name', 'id');
         $sizes = Size::pluck('size', 'id');
         $clients = Client::pluck('full_name', 'id');
-        return view('ads.create', compact('sizes', 'sections', 'clients'));
+        $dates = '';
+        return view('ads.create', compact('sizes', 'sections', 'clients', 'dates'));
     }
 
     /**
@@ -45,19 +47,33 @@ class AdsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
         $this->validate(request(), [
             'name' => ['required', 'max:50'],
             'color' => ['required'],
             'section_id' => ['required'],
             'size_id'=> ['required'],
-            'client_id' => ['required']
+            'client_id' => ['required'],
+            'dates'     => ['required']
         ]);
 
-        $ad = request()->all();
+        $ad = Ad::create([
+            'name' => $request->name,
+            'color' => $request->color,
+            'section_id' => $request->section_id,
+            'size_id' => $request->size_id,
+            'client_id' => $request->client_id
+        ]);
 
-        Ad::create($ad);
+        $dates = $request->dates;
+        $arrayDates = explode(',', $dates);
+        for ($i=0; $i<count($arrayDates); $i++){
+            $date = Date::create([
+                'dates' => $arrayDates[$i]
+            ]);
+            $ad->dates()->save($date);
+        }
 
         Alert::success('Advertising fue creada');
 
@@ -89,7 +105,10 @@ class AdsController extends Controller
         $sizes = Size::pluck('size', 'id');
         $clients = Client::pluck('full_name', 'id');
 
-        return view('ads.edit', compact('ad', 'sections', 'sizes', 'clients'));
+        $ads = Ad::find($id);
+        $dates = implode($ads->dates()->pluck('dates')->toArray(), ',');
+
+        return view('ads.edit', compact('ad', 'sections', 'sizes', 'clients', 'dates'));
     }
 
     /**

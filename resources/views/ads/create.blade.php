@@ -38,7 +38,8 @@
     </div>
     <script>
         $('.datepicker').datepicker({
-            format: "dd/mm/yyyy",
+            format: "yyyy/mm/dd",
+            startDate: "today",
             clearBtn: true,
             multidate: true,
             todayHighlight: true

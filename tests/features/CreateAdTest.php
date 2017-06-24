@@ -26,6 +26,7 @@ class CreateAdTest extends FeatureTestCase
             ->select($sec->id, 'section_id')
             ->select($s->id, 'size_id')
             ->select($c->id, 'client_id')
+            ->type('2017/06/29', 'dates')
             ->press('Crear publicidad')
             ->seePageIs(route('ads.index'))
             ->see('Juancito Pinto')

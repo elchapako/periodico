@@ -23,4 +23,10 @@ class Ad extends Model
     {
         return $this->belongsTo(Size::class);
     }
+
+    public function dates()
+    {
+        return $this->belongsToMany(Date::class)
+            ->withTimestamps();
+    }
 }
