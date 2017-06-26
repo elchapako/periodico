@@ -13,4 +13,10 @@ class Date extends Model
         return $this->belongsToMany(Ad::class)
             ->withTimestamps();
     }
+
+    public function scopePublicities($query, $activeDate)
+    {
+        return $query->where('dates', $activeDate);
+    }
+
 }

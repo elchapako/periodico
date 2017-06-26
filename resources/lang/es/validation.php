@@ -227,6 +227,7 @@ return [
         'list_of_corrected_notes' => 'Lista de Noticias Corregidas',
         'editing_note'          => 'Editando Noticia',
         'corrected_notes'       => 'Noticias Corregidas',
-        'assigning_notes'       => 'Asignando Noticias'
+        'assigning_notes'       => 'Asignando Noticias',
+        'list_of_ads_to_post'   => 'Lista de Publicidades para Publicar'
     ],
 ];

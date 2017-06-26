@@ -112,6 +112,11 @@ Route::post('noticias-corregidas.update/{id}', [
     'as' => 'corrected-notes.update'
 ]);
 
+Route::get('publicidades-activas', [
+    'uses' => 'ActiveAdsController@index',
+    'as' => 'active-ads.index'
+]);
+
 Route::get('ediciones', [
     'uses' => 'EditionsController@index',
     'as' => 'editions.index'

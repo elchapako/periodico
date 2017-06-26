@@ -69,9 +69,13 @@ class AdsController extends Controller
         $dates = $request->dates;
         $arrayDates = explode(',', $dates);
         for ($i=0; $i<count($arrayDates); $i++){
+            if ($date = Date::where('dates', $arrayDates[$i])->first()){
+               // $date = Date::find($date->id);
+            }else{
             $date = Date::create([
                 'dates' => $arrayDates[$i]
             ]);
+            }
             $ad->dates()->save($date);
         }
 

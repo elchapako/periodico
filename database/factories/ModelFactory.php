@@ -90,3 +90,19 @@ $factory->define(App\Page::class, function (Faker\Generator $faker){
        }
    ];
 });
+
+$factory->define(App\Ad::class, function (Faker\Generator $faker){
+   return[
+       'name' => $faker->text(30),
+       'color' => $faker->randomElement(['B&W', 'Full Color']),
+       'client_id' => function () {
+           return factory(App\Client::class)->create()->id;
+       },
+       'section_id' => function () {
+           return factory(App\Section::class)->create()->id;
+       },
+       'size_id' => function () {
+           return factory(App\Size::class)->create()->id;
+       }
+   ];
+});
