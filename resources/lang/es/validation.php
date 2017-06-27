@@ -229,6 +229,10 @@ return [
         'corrected_notes'       => 'Noticias Corregidas',
         'assigning_notes'       => 'Asignando Noticias',
         'list_of_ads_to_post'   => 'Lista de Publicidades para Publicar',
-        'active_ads'            => 'Publicidades Activadas'
+        'active_ads'            => 'Publicidades Activadas',
+        'list_of_pages_of_active_edition' => 'Lista de Páginas de la Edición Activa',
+        'page'                  => 'Página',
+        'update_page'           => 'Actualizar Página',
+        'editing_page'          => 'Editando Página'
     ],
 ];

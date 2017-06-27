@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-    protected $fillable = ['page_number', 'editionsection_id', 'status'];
+    protected $fillable = ['page_number', 'editionsection_id', 'status', 'area_id'];
 
     public function editionsection()
     {

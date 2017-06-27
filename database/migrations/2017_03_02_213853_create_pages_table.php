@@ -17,6 +17,8 @@ class CreatePagesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('page_number');
             $table->integer('status');
+            $table->integer('area_id')->unsigned()->nullable();
+            $table->foreign('area_id')->references('id')->on('areas');
             $table->unsignedInteger('editionsection_id');
             $table->timestamps();
 
