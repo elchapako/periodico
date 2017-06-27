@@ -228,6 +228,7 @@ return [
         'editing_note'          => 'Editando Noticia',
         'corrected_notes'       => 'Noticias Corregidas',
         'assigning_notes'       => 'Asignando Noticias',
-        'list_of_ads_to_post'   => 'Lista de Publicidades para Publicar'
+        'list_of_ads_to_post'   => 'Lista de Publicidades para Publicar',
+        'active_ads'            => 'Publicidades Activadas'
     ],
 ];
