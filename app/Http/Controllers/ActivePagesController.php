@@ -27,6 +27,11 @@ class ActivePagesController extends Controller
 
     public function update($id)
     {
+        $this->validate(request(), [
+            'area_id' => ['required'],
+            'model_id'=> ['required'],
+        ]);
+
         $page = Page::findOrFail($id);
         $page->fill(request()->all());
         $page->save();
