@@ -234,6 +234,7 @@ return [
         'page'                  => 'Página',
         'update_page'           => 'Actualizar Página',
         'editing_page'          => 'Editando Página',
-        'model'                 => 'Modelo'
+        'model'                 => 'Modelo',
+        'active_pages'          => 'Páginas Activas'
     ],
 ];
