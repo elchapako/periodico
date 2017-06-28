@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Models;
 
-class Note extends Model
+class Note extends Models
 {
     protected $fillable = ['title', 'note', 'area_id', 'reporter_id', 'status'];
 

@@ -13,7 +13,11 @@ class ActiveAdsController extends Controller
         $active = Edition::active()->first();
         $activeDate = $active->date;
         $date = Date::where('dates', $activeDate)->first();
+        if ($date==null){
+            $ads = '';
+        }else{
         $ads = $date->ads()->paginate(15);
+        }
         return view('active-ads.list', compact('ads'));
     }
 }

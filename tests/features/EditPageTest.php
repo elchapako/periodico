@@ -2,6 +2,7 @@
 
 use App\Area;
 use App\Edition;
+use App\Model;
 use Carbon\Carbon;
 
 class EditPageTest extends FeatureTestCase
@@ -60,6 +61,14 @@ class EditPageTest extends FeatureTestCase
 
         $edition->builderEdition();
 
+        $model = factory(Model::class)->create([
+            'name' => 'modelo 1'
+        ]);
+
+        $area1 = factory(Area::class)->create([
+            'name' => 'local'
+        ]);
+
         $this->actingAs($editor)
             ->visit(route('active-pages.index'))
             ->see('Lista de Páginas de la Edición Activa')
@@ -68,9 +77,10 @@ class EditPageTest extends FeatureTestCase
             ->click('Editar')
             ->see('Editando Página')
             ->select($area1->id, 'area_id')
+            ->select($model->id, 'model_id')
             ->press('Actualizar Página')
             ->seeInDatabase('pages', [
-               'area_id' => $area1->id
+                'model_id' => $model->id
             ]);
     }
 }

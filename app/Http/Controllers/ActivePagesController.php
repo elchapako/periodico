@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Area;
 use App\Edition;
+use App\Model;
 use App\Page;
 use Illuminate\Http\Request;
 use Styde\Html\Facades\Alert;
@@ -20,7 +21,8 @@ class ActivePagesController extends Controller
     {
         $page = Page::findOrFail($id);
         $areas = Area::pluck('name', 'id');
-        return view('active-pages.edit', compact('page', 'areas'));
+        $models = Model::pluck('name', 'id');
+        return view('active-pages.edit', compact('page', 'areas', 'models'));
     }
 
     public function update($id)

@@ -106,3 +106,10 @@ $factory->define(App\Ad::class, function (Faker\Generator $faker){
        }
    ];
 });
+
+$factory->define(App\Model::class, function (Faker\Generator $faker){
+   return[
+       'name' => $faker->randomElement(['modelo 1', 'modelo 2']),
+       'image' => $faker->randomElement(['modelo 1.jpg', 'modelo 2.jpg'])
+   ];
+});

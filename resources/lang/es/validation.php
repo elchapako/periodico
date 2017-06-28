@@ -233,6 +233,7 @@ return [
         'list_of_pages_of_active_edition' => 'Lista de Páginas de la Edición Activa',
         'page'                  => 'Página',
         'update_page'           => 'Actualizar Página',
-        'editing_page'          => 'Editando Página'
+        'editing_page'          => 'Editando Página',
+        'model'                 => 'Modelo'
     ],
 ];

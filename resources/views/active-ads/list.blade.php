@@ -17,9 +17,13 @@
                     <div class="panel-heading">{{ trans('validation.attributes.list_of_ads_to_post') }}</div>
                     {!! Alert::render() !!}
                     <div class="panel-body">
-                        <p>Hay {{ $ads->total() }} ads</p>
-                        @include('active-ads.partials.table')
-                        {!! $ads->render() !!}
+                        @if($ads)
+                            <p>Hay {{ $ads->total() }} ads</p>
+                            @include('active-ads.partials.table')
+                            {!! $ads->render() !!}
+                        @else
+                            <p>No hay publicidades para esta Edición</p>
+                        @endif
                     </div>
                 </div>
             </div>
