@@ -16,6 +16,8 @@ class CreateAdDateTable extends Migration
         Schema::create('ad_date', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->boolean('assigned')->default(false);
+
             $table->integer('ad_id')->unsigned()->nullable();
             $table->foreign('ad_id')->references('id')
                 ->on('ads')->onDelete('cascade');

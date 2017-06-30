@@ -18,6 +18,12 @@ class Page extends Model
         return $this->belongsTo(Area::class);
     }
 
+    public function ads()
+    {
+        return $this->belongsToMany(Ad::class)
+            ->withTimestamps();
+    }
+
     public static function newGroup($group)
     {
         $pages = [];

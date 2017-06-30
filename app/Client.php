@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Models;
 
-class Client extends Model
+class Client extends Models
 {
     protected $fillable = ['full_name', 'phone', 'cellphone', 'ci', 'address', 'email'];
 

@@ -117,6 +117,16 @@ Route::get('publicidades-activas', [
     'as' => 'active-ads.index'
 ]);
 
+Route::get('publicidades-activas.edit/{id}', [
+    'uses' => 'ActiveAdsController@edit',
+    'as' => 'active-ads.edit'
+]);
+
+Route::post('publicidades-activas.update/{id}', [
+    'uses' => 'ActiveAdsController@update',
+    'as' => 'active-ads.update'
+]);
+
 Route::get('paginas-activas', [
     'uses' => 'ActivePagesController@index',
     'as' => 'active-pages.index'

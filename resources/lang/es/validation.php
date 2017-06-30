@@ -235,6 +235,9 @@ return [
         'update_page'           => 'Actualizar Página',
         'editing_page'          => 'Editando Página',
         'model'                 => 'Modelo',
-        'active_pages'          => 'Páginas Activas'
+        'active_pages'          => 'Páginas Activas',
+        'assign_to_page'        => 'Asignar a Página',
+        'assign_ad_to_active_page' => 'Asignar publicidad a página activa',
+        'assign_ad'             => 'Asignar Publicidad'
     ],
 ];

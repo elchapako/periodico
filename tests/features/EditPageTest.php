@@ -53,9 +53,6 @@ class EditPageTest extends FeatureTestCase
             'number_of_edition' => 5555,
             'status' => 'active'
         ]);
-        $area1 = factory(Area::class)->create([
-           'name' => 'local'
-        ]);
 
         $this->createSectionRegular('Edicion Central', 20);
 
@@ -80,6 +77,7 @@ class EditPageTest extends FeatureTestCase
             ->select($model->id, 'model_id')
             ->press('Actualizar Página')
             ->seeInDatabase('pages', [
+                'area_id' => $area1->id,
                 'model_id' => $model->id
             ]);
     }

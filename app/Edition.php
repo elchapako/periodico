@@ -23,6 +23,11 @@ class Edition extends Model
         return $this->hasMany(Editionsection::class);
     }
 
+    public function pages()
+    {
+        return $this->hasManyThrough('App\Page', 'App\Editionsection');
+    }
+
     public function scopeNext($query)
     {
         return $query->where('status', 'next');

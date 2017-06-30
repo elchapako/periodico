@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Models;
 
 
-class Ad extends Model
+class Ad extends Models
 {
     protected $fillable = ['name', 'color', 'section_id', 'size_id', 'client_id'];
 
@@ -27,6 +27,13 @@ class Ad extends Model
     public function dates()
     {
         return $this->belongsToMany(Date::class)
+            ->withPivot('assigned')
+            ->withTimestamps();
+    }
+
+    public function pages()
+    {
+        return $this->belongsToMany(Page::class)
             ->withTimestamps();
     }
 }
