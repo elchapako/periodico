@@ -142,6 +142,16 @@ Route::post('paginas-activas.update/{id}', [
     'as' => 'active-pages.update'
 ]);
 
+Route::get('paginas-activas.add-notes/{id}', [
+    'uses' => 'ActivePagesController@addNotes',
+    'as' => 'active-pages.add-notes'
+]);
+
+Route::post('paginas-activas.update-notes/{id}', [
+    'uses' => 'ActivePagesController@updateNotes',
+    'as' => 'active-pages.update-notes'
+]);
+
 Route::get('ediciones', [
     'uses' => 'EditionsController@index',
     'as' => 'editions.index'

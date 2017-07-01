@@ -238,6 +238,7 @@ return [
         'active_pages'          => 'Páginas Activas',
         'assign_to_page'        => 'Asignar a Página',
         'assign_ad_to_active_page' => 'Asignar publicidad a página activa',
-        'assign_ad'             => 'Asignar Publicidad'
+        'assign_ad'             => 'Asignar Publicidad',
+        'assign_note'           => 'Asignar Noticia'
     ],
 ];

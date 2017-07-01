@@ -19,6 +19,7 @@
                 <td>{{ $pages->area->name }}</td>
                 @endif
                 <td><a href="{{route('active-pages.edit', $pages->id)}}" class="btn btn-primary">{{ trans('validation.attributes.edit') }}</a></td>
+                <td><a href="{{route('active-pages.add-notes', $pages->id)}}" class="btn btn-primary">{{ trans('validation.attributes.assign_notes') }}</a></td>
                 <td></td>
             </tr>
         @endforeach

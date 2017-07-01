@@ -81,4 +81,29 @@ class EditPageTest extends FeatureTestCase
                 'model_id' => $model->id
             ]);
     }
+
+    public function test_editor_can_see_assign_notes_botton()
+    {
+        $editor = $this->defaultUser([
+            'name' => 'Jorge Quiros'
+        ])->assign('editor');
+
+        $edition = factory(Edition::class)->create([
+            'date' => Carbon::today(),
+            'number_of_edition' => 5555,
+            'status' => 'active'
+        ]);
+
+        $this->createSectionRegular('Edicion Central', 20);
+
+        $edition->builderEdition();
+
+        $this->actingAs($editor)
+            ->visit(route('active-pages.index'))
+            ->see('Lista de Páginas de la Edición Activa')
+            ->see('Edicion Central')
+            ->see('1')
+            ->click('Asignar Noticias')
+            ->see('Noticias');
+    }
 }

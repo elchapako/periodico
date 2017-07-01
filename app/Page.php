@@ -24,6 +24,11 @@ class Page extends Model
             ->withTimestamps();
     }
 
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
+    }
+
     public static function newGroup($group)
     {
         $pages = [];

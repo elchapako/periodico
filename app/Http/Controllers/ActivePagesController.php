@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Area;
 use App\Edition;
 use App\Model;
+use App\Note;
 use App\Page;
 use Illuminate\Http\Request;
 use Styde\Html\Facades\Alert;
@@ -40,5 +41,35 @@ class ActivePagesController extends Controller
 
         return redirect()->route('active-pages.index');
     }
-    
+
+    public function addNotes($id)
+    {
+        $page = Page::findOrFail($id);
+        if ($page->area_id==null){
+            $notes = Note::corrected()->pluck('title', 'id');
+        }else{
+            $notes = Note::corrected()->where('area_id', $page->area_id)->pluck('title', 'id');
+        }
+
+        return view('active-pages.addnotes', compact('page', 'notes'));
+    }
+
+    public function updateNotes(Request $request, $id)
+    {
+        $this->validate(request(), [
+            'note_id' => ['required'],
+        ]);
+        $page = Page::findOrFail($id);
+        $notes= $request->note_id;
+
+        for ($i=0; $i<count($notes); $i++){
+            $note = Note::findOrFail($notes[$i]);
+            $note->page_id = $page->id;
+            $note->save();
+        }
+
+        Alert::success('Notas fueron asignadas');
+        return redirect()->route('active-pages.index');
+    }
+
 }
