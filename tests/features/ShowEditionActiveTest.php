@@ -10,6 +10,7 @@ class ShowEditionActiveTest extends FeatureTestCase
         $user = $this->defaultUser([
             'name' => 'Edwin Ibañez'
         ]);
+        $user->assign('admin');
 
         $first = factory(Edition::class)->create([
             'date' => Carbon::today(),

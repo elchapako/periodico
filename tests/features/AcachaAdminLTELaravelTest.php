@@ -12,13 +12,14 @@ class AcachaAdminLTELaravelTest extends FeatureTestCase
     public function test_user_can_login()
     {
         $user = factory(App\User::class)->create(['password' => Hash::make('passw0RD')]);
-
+        $user->assign('admin');
         $this->visit('/login')
             ->type($user->email, 'email')
             ->type('passw0RD', 'password')
             ->press('Iniciar Sesión')
             ->seePageIs('/')
-            ->see($user->name);
+            ->see($user->name)
+            ->see($user->getRole());
     }
 
     function testLoginRequiredFields()
@@ -54,6 +55,7 @@ class AcachaAdminLTELaravelTest extends FeatureTestCase
     public function testHomePageForAuthenticatedUsers()
     {
         $user = factory(App\User::class)->create();
+        $user->assign('admin');
 
         $this->actingAs($user)
             ->visit('/home')
@@ -63,6 +65,7 @@ class AcachaAdminLTELaravelTest extends FeatureTestCase
     public function testLogout()
     {
         $user = factory(App\User::class)->create();
+        $user->assign('admin');
 
         $form = $this->actingAs($user)->visit('/')->getForm('logout');
 
@@ -83,6 +86,7 @@ class AcachaAdminLTELaravelTest extends FeatureTestCase
     function testSendPasswordReset()
     {
         $user = factory(App\User::class)->create();
+        $user->assign('admin');
 
         $this->visit('password/reset')
             ->type($user->email, 'email')
