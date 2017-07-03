@@ -27,10 +27,25 @@ class CorrectedNotesController extends Controller
         return view('corrected-notes.edit', compact('note', 'area', 'reporter'));
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $note = Note::findOrFail($id);
-        $note->fill(request()->all());
+        $notes = $request->note;
+        if ($request->titular==1){
+            $titular = true;
+        }else{
+            $titular = false;
+        }
+        if ($request->photo==1){
+            $photo = true;
+        }else{
+            $photo = false;
+        }
+        $note->fill([
+           'note' => $notes,
+           'titular' => $titular,
+           'photo' => $photo
+        ]);
         $note->save();
 
         Alert::success('Note '. $note->title . ' fue actualizada');
