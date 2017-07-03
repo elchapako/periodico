@@ -33,8 +33,10 @@ class CorrectedNotesController extends Controller
         $notes = $request->note;
         if ($request->titular==1){
             $titular = true;
+            $title = 'Titular: ' . $note->title;
         }else{
             $titular = false;
+            $title = str_replace('Titular: ', '', $note->title);
         }
         if ($request->photo==1){
             $photo = true;
@@ -44,7 +46,8 @@ class CorrectedNotesController extends Controller
         $note->fill([
            'note' => $notes,
            'titular' => $titular,
-           'photo' => $photo
+           'photo' => $photo,
+           'title' => $title
         ]);
         $note->save();
 
