@@ -152,6 +152,13 @@ Route::post('paginas-activas.update-notes/{id}', [
     'as' => 'active-pages.update-notes'
 ]);
 
+Route::resource('fotografias', 'PhotosController', [
+    'names' => 'photos',
+    'parameters' => [
+        'fotos' => 'fotos'
+    ]
+]);
+
 Route::get('ediciones', [
     'uses' => 'EditionsController@index',
     'as' => 'editions.index'

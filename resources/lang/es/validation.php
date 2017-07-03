@@ -241,6 +241,11 @@ return [
         'assign_ad'             => 'Asignar Publicidad',
         'assign_note'           => 'Asignar Noticia',
         'titular'               => 'Titular',
-        'photo'                 => 'Foto'
+        'photo'                 => 'Foto',
+        'list_of_photos'        => 'Lista de Fotografías',
+        'add_photo'             => 'Agregar Foto',
+        'create_photo'          => 'Crear Foto',
+        'update_photo'          => 'Actualizar Foto',
+        'photos'                => 'Fotos'
     ],
 ];
