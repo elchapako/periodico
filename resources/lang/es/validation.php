@@ -243,9 +243,15 @@ return [
         'titular'               => 'Titular',
         'photo'                 => 'Foto',
         'list_of_photos'        => 'Lista de Fotografías',
+        'add_photo_to'          => 'Agregar Foto a ',
         'add_photo'             => 'Agregar Foto',
         'create_photo'          => 'Crear Foto',
         'update_photo'          => 'Actualizar Foto',
-        'photos'                => 'Fotos'
+        'photos'                => 'Fotos',
+        'albums'                => 'Álbumes',
+        'add_album'             => 'Agregar Álbum',
+        'show_gallery'          => 'Mostrar Galeria',
+        'create_album'          => 'Crear Álbum',
+        'add_imagen_to_album'   => 'Agregar Imagen a Álbum'
     ],
 ];

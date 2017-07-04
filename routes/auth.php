@@ -152,11 +152,31 @@ Route::post('paginas-activas.update-notes/{id}', [
     'as' => 'active-pages.update-notes'
 ]);
 
-Route::resource('fotografias', 'PhotosController', [
-    'names' => 'photos',
+Route::resource('albumes', 'AlbumsController', [
+    'names' => 'albums',
     'parameters' => [
-        'fotos' => 'fotos'
+        'albumes' => 'album'
     ]
+]);
+
+Route::get('imagenes.create/{id}', [
+    'uses' => 'ImagesController@create',
+    'as' => 'images.create'
+]);
+
+Route::post('imagenes.store', [
+    'uses' => 'ImagesController@store',
+    'as' => 'images.store'
+]);
+
+Route::get('imagenes.destroy/{id}', [
+    'uses' => 'ImagesController@destroy',
+    'as' => 'images.destroy'
+]);
+
+Route::post('imagenes.postMove', [
+    'uses' => 'ImagesController@postMove',
+    'as' => 'images.postMove'
 ]);
 
 Route::get('ediciones', [

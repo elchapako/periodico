@@ -9,7 +9,7 @@ class PhotosTest extends FeatureTestCase
         ])->assign('photographer');
 
         $this->actingAs($photographer)
-            ->visit(route('photos.index'))
-            ->see('Lista de Fotografías');
+            ->visit(route('albums.index'))
+            ->see('Álbumes');
     }
 }
