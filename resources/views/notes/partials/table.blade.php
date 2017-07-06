@@ -4,8 +4,6 @@
         <th>{{ trans('validation.attributes.title') }}</th>
         <th>{{ trans('validation.attributes.area') }}</th>
         <th>{{ trans('validation.attributes.reporter') }}</th>
-        <th>{{ trans('validation.attributes.actions') }}</th>
-        <th></th>
     </tr>
     @foreach($notes as $note)
         <tr>
@@ -13,8 +11,6 @@
             <td>{{$note->title}}</td>
             <td>{{$note->area->name}}</td>
             <td>{{$note->reporter->name}}</td>
-            <td></td>
-            <td></td>
         </tr>
     @endforeach
 </table>

@@ -38,6 +38,4 @@ class User extends Authenticatable
     {
         return $this->roles()->first()->title;
     }
-
-
 }

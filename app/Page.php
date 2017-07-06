@@ -18,6 +18,11 @@ class Page extends Model
         return $this->belongsTo(Area::class);
     }
 
+    public function model()
+    {
+        return $this->belongsTo(Model::class);
+    }
+
     public function ads()
     {
         return $this->belongsToMany(Ad::class)
@@ -27,18 +32,6 @@ class Page extends Model
     public function notes()
     {
         return $this->hasMany(Note::class);
-    }
-
-    public static function newGroup($group)
-    {
-        $pages = [];
-        for ($i=0; $i < 4; $i++) {
-            $pages[] = new Page([
-                'group' => $group,
-                'status' => PageStatus::UNREALIZED,
-            ]);
-        }
-        return $pages;
     }
 
     public function getStatusTextAttribute()

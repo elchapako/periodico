@@ -21,10 +21,10 @@ class CreateNotesTable extends Migration
             $table->longText('note')->nullable();
 
             $table->integer('area_id')->unsigned();
-            $table->foreign('area_id')->references('id')->on('areas');
+            $table->foreign('area_id')->references('id')->on('areas')->onDelete('CASCADE')->onUpdate('CASCADE');
 
             $table->integer('reporter_id')->unsigned();
-            $table->foreign('reporter_id')->references('id')->on('users');
+            $table->foreign('reporter_id')->references('id')->on('users')->onDelete('CASCADE')->onUpdate('CASCADE');
 
             $table->integer('status');
 

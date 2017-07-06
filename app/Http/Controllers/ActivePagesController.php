@@ -60,6 +60,8 @@ class ActivePagesController extends Controller
             'note_id' => ['required'],
         ]);
         $page = Page::findOrFail($id);
+        $page->status = 2;
+        $page->save();
         $notes= $request->note_id;
 
         for ($i=0; $i<count($notes); $i++){

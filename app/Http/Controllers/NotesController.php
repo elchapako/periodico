@@ -20,7 +20,7 @@ class NotesController extends Controller
     public function create()
     {
         $areas = Area::pluck('name', 'id');
-        $users = User::pluck('name', 'id');
+        $users = User::whereIs('reporter')->get()->pluck('name', 'id');
         return view('notes.create', compact('areas', 'users'));
     }
 
