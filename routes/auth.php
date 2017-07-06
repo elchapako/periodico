@@ -152,6 +152,11 @@ Route::post('paginas-activas.update-notes/{id}', [
     'as' => 'active-pages.update-notes'
 ]);
 
+Route::post('paginas-activas.send-to-photographer/{id}', [
+    'uses' => 'ActivePagesController@sendToPhotographer',
+    'as' => 'active-pages.send-to-photographer'
+]);
+
 Route::resource('albumes', 'AlbumsController', [
     'names' => 'albums',
     'parameters' => [

@@ -252,6 +252,8 @@ return [
         'add_album'             => 'Agregar Álbum',
         'show_gallery'          => 'Mostrar Galeria',
         'create_album'          => 'Crear Álbum',
-        'add_imagen_to_album'   => 'Agregar Imagen a Álbum'
+        'add_imagen_to_album'   => 'Agregar Imagen a Álbum',
+        'send_to_photographer'  => 'Enviar a Fotógrafo',
+        'sent_to_photographer'  => 'Enviado a Fotógrafo'
     ],
 ];

@@ -14,7 +14,7 @@ class ActivePagesController extends Controller
 {
     public function index()
     {
-        $activeEdition = Edition::active()->with('editionsection.section', 'editionsection.pages.area')->first();
+        $activeEdition = Edition::active()->with('editionsection.section', 'editionsection.pages.area', 'editionsection.pages.notes')->first();
         return view('active-pages.list', compact('activeEdition'));
     }
 
@@ -74,4 +74,13 @@ class ActivePagesController extends Controller
         return redirect()->route('active-pages.index');
     }
 
+    public function sendToPhotographer($id)
+    {
+        $page = Page::findOrFail($id);
+        $page->fill(request()->all());
+        $page->save();
+
+        Alert::success('Page '. $page->page_number . ' fue enviada a fotógrafo');
+        return redirect()->route('active-pages.index');
+    }
 }
