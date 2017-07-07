@@ -128,7 +128,7 @@ return [
         'hour'                  => 'hora',
         'minute'                => 'minuto',
         'second'                => 'segundo',
-        'title'                 => 'título',
+        'title'                 => 'Título',
         'content'               => 'contenido',
         'body'                  => 'contenido',
         'description'           => 'descripción',
@@ -248,12 +248,16 @@ return [
         'create_photo'          => 'Crear Foto',
         'update_photo'          => 'Actualizar Foto',
         'photos'                => 'Fotos',
+        'save_photo'            => 'Guardar Foto',
         'albums'                => 'Álbumes',
         'add_album'             => 'Agregar Álbum',
         'show_gallery'          => 'Mostrar Galeria',
         'create_album'          => 'Crear Álbum',
         'add_imagen_to_album'   => 'Agregar Imagen a Álbum',
         'send_to_photographer'  => 'Enviar a Fotógrafo',
-        'sent_to_photographer'  => 'Enviado a Fotógrafo'
+        'sent_to_photographer'  => 'Enviado a Fotógrafo',
+        'list_of_pages_that_need_photos'    => 'Lista de páginas que necesitan fotos',
+        'show_notes'            => 'Mostrar Noticias',
+        'notes_that_need_photos'    => 'Noticias que necesitan fotos'
     ],
 ];

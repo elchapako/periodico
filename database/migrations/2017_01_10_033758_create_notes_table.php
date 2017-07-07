@@ -28,6 +28,8 @@ class CreateNotesTable extends Migration
 
             $table->integer('status');
 
+            $table->string('image')->nullable();
+
             $table->boolean('photo')->default(false);
             $table->boolean('titular')->default(false);
 

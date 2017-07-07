@@ -157,6 +157,21 @@ Route::post('paginas-activas.send-to-photographer/{id}', [
     'as' => 'active-pages.send-to-photographer'
 ]);
 
+Route::get('fotos-paginas', [
+    'uses' => 'PhotoPagesController@index',
+    'as' => 'photo-pages.index'
+]);
+
+Route::get('fotos-paginas.show/{id}', [
+    'uses' => 'PhotoPagesController@show',
+    'as' => 'photo-pages.show'
+]);
+
+Route::post('fotos-paginas.store/{id}', [
+    'uses' => 'PhotoPagesController@store',
+    'as' => 'photo-pages.store'
+]);
+
 Route::resource('albumes', 'AlbumsController', [
     'names' => 'albums',
     'parameters' => [

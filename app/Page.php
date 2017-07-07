@@ -51,4 +51,9 @@ class Page extends Model
 
         return $status[$number_status];
     }
+
+    public function scopeNeedPhoto($query)
+    {
+        return $query->where('status', 3);
+    }
 }
