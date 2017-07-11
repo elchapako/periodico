@@ -103,7 +103,7 @@ class EditPageTest extends FeatureTestCase
             ->see('Lista de Páginas de la Edición Activa')
             ->see('Edicion Central')
             ->see('1')
-            ->click('Asignar Noticias')
+            ->click('Agregar Noticias')
             ->see('Noticias');
     }
 }

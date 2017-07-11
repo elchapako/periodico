@@ -10,7 +10,6 @@
 </div>
 <button type="submit" class="btn btn-default">{{ trans('validation.attributes.save_photo') }}</button>
 {!! Form::close() !!}
-<a href="{{route('photo-pages.index')}}" class="btn btn-primary">{{ trans('validation.attributes.back') }}</a>
 @else
 <p>ya guardo una imagen para esta noticia</p>
 @endif

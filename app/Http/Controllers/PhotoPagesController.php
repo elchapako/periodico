@@ -48,4 +48,14 @@ class PhotoPagesController extends Controller
         Alert::success('Foto fue guardada exitosamente');
         return redirect()->route('photo-pages.index');
     }
+
+    public function sendToDesigner($id)
+    {
+        $page = Page::findOrFail($id);
+        $page->fill(request()->all());
+        $page->save();
+
+        Alert::success('Page '. $page->page_number . ' fue enviada a diseñador');
+        return redirect()->route('photo-pages.index');
+    }
 }

@@ -60,14 +60,13 @@ class ActivePagesController extends Controller
             'note_id' => ['required'],
         ]);
         $page = Page::findOrFail($id);
-        $page->status = 2;
+        $page->changeStatusAddingNotes();
         $page->save();
         $notes= $request->note_id;
 
         for ($i=0; $i<count($notes); $i++){
             $note = Note::findOrFail($notes[$i]);
             $note->page_id = $page->id;
-            $note->status = 4;
             $note->save();
         }
 
@@ -75,13 +74,20 @@ class ActivePagesController extends Controller
         return redirect()->route('active-pages.index');
     }
 
-    public function sendToPhotographer($id)
+    public function addedNotes($id)
     {
         $page = Page::findOrFail($id);
-        $page->fill(request()->all());
-        $page->save();
 
-        Alert::success('Page '. $page->page_number . ' fue enviada a fotógrafo');
-        return redirect()->route('active-pages.index');
+        if($page->hasModelAndArea() && $page->hasNotes() && $page->status == 2){
+            $page->fill(request()->all());
+            $page->save();
+            Alert::success('Page '. $page->page_number . ' esta lista');
+            return redirect()->route('active-pages.index');
+        }else{
+            Alert::info('Page '. $page->page_number . ' tiene que tener modelo, área y noticia para estar lista');
+            return redirect()->route('active-pages.index');
+        }
+
+
     }
 }

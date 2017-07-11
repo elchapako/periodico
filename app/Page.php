@@ -42,12 +42,13 @@ class Page extends Model
     public function arrayStatus($number_status)
     {
         $status = [];
-        $status [1] = trans('validation.attributes.unrealized');
-        $status [2] = trans('validation.attributes.assigning_notes');
-        $status [3] = trans('validation.attributes.waiting_for_photo');
-        $status [4] = trans('validation.attributes.designing');
-        $status [5] = trans('validation.attributes.revised');
-        $status [6] = trans('validation.attributes.printed');
+        $status [1] = trans('validation.attributes.created');
+        $status [2] = trans('validation.attributes.adding_notes');
+        $status [3] = trans('validation.attributes.added_notes');
+        $status [4] = trans('validation.attributes.added_photos');
+        $status [5] = trans('validation.attributes.designed');
+        $status [6] = trans('validation.attributes.revised');
+        $status [7] = trans('validation.attributes.printed');
 
         return $status[$number_status];
     }
@@ -55,5 +56,20 @@ class Page extends Model
     public function scopeNeedPhoto($query)
     {
         return $query->where('status', 3);
+    }
+
+    public function changeStatusAddingNotes()
+    {
+        $this->update(['status' => 2]);
+    }
+
+    public function hasModelAndArea()
+    {
+        return $this->model_id && $this->area_id;
+    }
+
+    public function hasNotes()
+    {
+        return $this->notes()->count() > 0;
     }
 }

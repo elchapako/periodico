@@ -21,6 +21,7 @@
                         @foreach($notes as $note)
                             @include('photo-pages.partials.fields')
                         @endforeach
+                            <a href="{{route('photo-pages.index')}}" class="btn btn-primary">{{ trans('validation.attributes.back') }}</a>
                     </div>
                 </div>
             </div>

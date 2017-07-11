@@ -152,9 +152,9 @@ Route::post('paginas-activas.update-notes/{id}', [
     'as' => 'active-pages.update-notes'
 ]);
 
-Route::post('paginas-activas.send-to-photographer/{id}', [
-    'uses' => 'ActivePagesController@sendToPhotographer',
-    'as' => 'active-pages.send-to-photographer'
+Route::post('paginas-activas.added-notes/{id}', [
+    'uses' => 'ActivePagesController@addedNotes',
+    'as' => 'active-pages.added-notes'
 ]);
 
 Route::get('fotos-paginas', [
@@ -170,6 +170,11 @@ Route::get('fotos-paginas.show/{id}', [
 Route::post('fotos-paginas.store/{id}', [
     'uses' => 'PhotoPagesController@store',
     'as' => 'photo-pages.store'
+]);
+
+Route::post('fotos-paginas.send-to-designer/{id}', [
+    'uses' => 'PhotoPagesController@sendToDesigner',
+    'as' => 'photo-pages.send-to-designer'
 ]);
 
 Route::resource('albumes', 'AlbumsController', [
