@@ -66,6 +66,7 @@ class ActivePagesController extends Controller
 
         for ($i=0; $i<count($notes); $i++){
             $note = Note::findOrFail($notes[$i]);
+            $note->changeStatusSelected();
             $note->page_id = $page->id;
             $note->save();
         }
