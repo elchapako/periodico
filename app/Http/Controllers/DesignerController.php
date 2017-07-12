@@ -34,11 +34,13 @@ class DesignerController extends Controller
 
         $file = Input::file('template');
         //Creamos una instancia de la libreria instalada
-        $name = $file->getClientOriginalName();
+        $random_name = str_random(8);
+        $original_name = $file->getClientOriginalName();
+        $name = $random_name.$original_name;
 
-        \Storage::disk('template')->put($name, \File::get($file));
+        \Storage::disk('designed')->put($name, \File::get($file));
 
-        $page->template = $name;
+        $page->designed = $name;
         $page->save();
 
         Alert::success('Template fue guardada exitosamente');

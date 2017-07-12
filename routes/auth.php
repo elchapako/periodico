@@ -202,6 +202,31 @@ Route::post('paginas-listas-para-disenar.designed/{id}', [
     'as' => 'ready-pages-to-design.designed'
 ]);
 
+Route::get('paginas-disenadas', [
+    'uses' => 'DesignedPagesController@index',
+    'as' => 'designed-pages.index'
+]);
+
+Route::get('paginas-disenadas.show-page/{id}', [
+    'uses' => 'DesignedPagesController@showPage',
+    'as' => 'designed-pages.show-page'
+]);
+
+Route::get('paginas-disenadas.download-page/{id}', [
+    'uses' => 'DesignedPagesController@downloadPage',
+    'as' => 'designed-pages.download-page'
+]);
+
+Route::post('paginas-disenadas.reviewed/{id}', [
+    'uses' => 'DesignedPagesController@reviewed',
+    'as' => 'designed-pages.reviewed'
+]);
+
+Route::post('paginas-disenadas.reviewed-ready/{id}', [
+    'uses' => 'DesignedPagesController@reviewedReady',
+    'as' => 'designed-pages.reviewed-ready'
+]);
+
 Route::resource('albumes', 'AlbumsController', [
     'names' => 'albums',
     'parameters' => [

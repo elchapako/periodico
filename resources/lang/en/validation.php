@@ -244,7 +244,12 @@ return [
         'show_page'             => 'Show Page',
         'save_page'             => 'Save Page',
         'designig_page'         => 'Designing Page',
-        'designed_ready'        => 'Designed Ready'
+        'designed_ready'        => 'Designed Ready',
+        'pages_to_design'       => 'Page to Design',
+        'reviewing_page'        => 'Reviewing Page',
+        'download_page'         => 'Download Page',
+        'list_of_pages_designed'    => 'List of Pages Designed',
+        'reviewed_page'         => 'Reviewed Page'
     ],
 
 ];

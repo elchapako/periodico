@@ -2,7 +2,8 @@
 /public/storage
 /public/photos
 /public/album
-/public/templates
+/public/designed
+/public/reviewed
 /vendor
 /.idea
 Homestead.json

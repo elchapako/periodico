@@ -274,6 +274,10 @@ return [
         'save_page'             => 'Guardar Página',
         'designig_page'         => 'Diseñando Página',
         'designed_ready'        => 'Diseñada Lista',
-        'pages_to_design'       => 'Páginas para Diseñar'
+        'pages_to_design'       => 'Páginas para Diseñar',
+        'reviewing_page'        => 'Revisando Página',
+        'download_page'         => 'Descargar Página',
+        'list_of_pages_designed' => 'Lista de Páginas Diseñadas',
+        'reviewed_page'         => 'Página Revisada'
     ],
 ];

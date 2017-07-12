@@ -48,9 +48,14 @@ return [
             'root' => public_path().'/storage',
         ],
 
-        'template' => [
+        'designed' => [
             'driver' => 'local',
-            'root' => public_path().'/template',
+            'root' => public_path().'/designed',
+        ],
+
+        'reviewed' => [
+            'driver' => 'local',
+            'root' => public_path().'/reviewed',
         ],
 
         'public' => [
