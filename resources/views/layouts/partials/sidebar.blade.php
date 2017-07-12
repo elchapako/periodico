@@ -60,7 +60,7 @@
                 <li><a href="{{ route('reviewing-notes.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.review_notes') }}</span></a></li>
             @endif
             @if (Auth::user()->isA('photographer', 'admin'))
-                <li><a href="{{ route('albums.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.albums') }}</span></a></li>
+                <li><a href="{{ route('photo-pages.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.pages_need_photo') }}</span></a></li>
             @endif
         </ul><!-- /.sidebar-menu -->
     </section>

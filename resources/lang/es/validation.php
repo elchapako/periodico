@@ -265,6 +265,10 @@ return [
         'send_to_designer'      => 'Enviar a Diseñador',
         'sent_to_designer'      => 'Enviado a Diseñador',
         'add_notes'             => 'Agregar Noticias',
-        'edit_page'             => 'Editar Página'
+        'edit_page'             => 'Editar Página',
+        'view_note'             => 'Ver Noticia',
+        'add_photo_to_note'     => 'Agregar Foto a Noticia',
+        'added_photos_ready'    => 'Fotos Agregadas Lista',
+        'pages_need_photo'      => 'Páginas que Necesitan Fotos'
     ],
 ];

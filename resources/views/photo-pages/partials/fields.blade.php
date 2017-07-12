@@ -1,15 +1,12 @@
-<div class="form-group">
-    {!! Form::label('title', trans('validation.attributes.title')) !!}:
-    {!! Form::label('title', $note->title, null, array('disabled'), ['class' => 'form-control']) !!}
-</div>
-@if($note->image == null)
-{!! Form::open(['route' => ['photo-pages.store', $note->id], 'method' => 'POST', 'files' => 'true']) !!}
-<div class="form-group">
-    {!! Form::label('image','Imagen')!!}
-    {!! Form::file('image',null,['class' => 'form-control']) !!}
-</div>
-<button type="submit" class="btn btn-default">{{ trans('validation.attributes.save_photo') }}</button>
-{!! Form::close() !!}
-@else
-<p>ya guardo una imagen para esta noticia</p>
-@endif
+<table class="table table-striped">
+    <tr>
+        <th>{{ trans('validation.attributes.title') }}</th>
+        <th>{{ trans('validation.attributes.actions') }}</th>
+    </tr>
+    @foreach($notes as $note)
+        <tr>
+            <td>{{ $note->title }}</td>
+            <td><a href="{{route('photo-pages.photo-note', $note->id)}}" class="btn btn-primary">{{ trans('validation.attributes.view_note') }}</a></td>
+        </tr>
+    @endforeach
+</table>

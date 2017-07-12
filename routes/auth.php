@@ -162,9 +162,14 @@ Route::get('fotos-paginas', [
     'as' => 'photo-pages.index'
 ]);
 
-Route::get('fotos-paginas.show/{id}', [
-    'uses' => 'PhotoPagesController@show',
-    'as' => 'photo-pages.show'
+Route::get('fotos-paginas.show-notes/{id}', [
+    'uses' => 'PhotoPagesController@showNotes',
+    'as' => 'photo-pages.show-notes'
+]);
+
+Route::get('fotos-paginas.photo-note/{id}', [
+    'uses' => 'PhotoPagesController@photoNote',
+    'as' => 'photo-pages.photo-note'
 ]);
 
 Route::post('fotos-paginas.store/{id}', [
@@ -172,9 +177,9 @@ Route::post('fotos-paginas.store/{id}', [
     'as' => 'photo-pages.store'
 ]);
 
-Route::post('fotos-paginas.send-to-designer/{id}', [
-    'uses' => 'PhotoPagesController@sendToDesigner',
-    'as' => 'photo-pages.send-to-designer'
+Route::post('fotos-paginas.added-photos/{id}', [
+    'uses' => 'PhotoPagesController@addedPhotos',
+    'as' => 'photo-pages.added-photos'
 ]);
 
 Route::resource('albumes', 'AlbumsController', [

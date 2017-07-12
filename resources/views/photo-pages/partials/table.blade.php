@@ -15,18 +15,12 @@
                 @else
                     <td>{{ $page->area->name }}</td>
                 @endif
-                <td><a href="{{route('photo-pages.show', $page->id)}}" class="btn btn-primary">{{ trans('validation.attributes.show_notes') }}</a></td>
-                {{ $count = 0 }}
-                @foreach($page->notes as $note)
-                    @if($note->image==null)
-                        {{$count = $count+1}}
-                    @endif
-                @endforeach
-                @if($count==0 & $page->status == 3)
+                <td><a href="{{route('photo-pages.show-notes', $page->id)}}" class="btn btn-primary">{{ trans('validation.attributes.show_notes') }}</a></td>
+                @if($page->notes_count==0)
                     <td>
-                        {!! Form::open(['route' => ['photo-pages.send-to-designer', $page->id], 'method' => 'POST']) !!}
+                        {!! Form::open(['route' => ['photo-pages.added-photos', $page->id], 'method' => 'POST']) !!}
                         {!! Form::hidden('status', 4) !!}
-                        <button type="submit" class="btn btn-primary">{{ trans('validation.attributes.send_to_designer') }}</button>
+                        <button type="submit" class="btn btn-success">{{ trans('validation.attributes.added_photos_ready') }}</button>
                         {!! Form::close() !!}
                     </td>
                 @else

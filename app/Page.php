@@ -53,7 +53,7 @@ class Page extends Model
         return $status[$number_status];
     }
 
-    public function scopeNeedPhoto($query)
+    public function scopeStatusAddedNotes($query)
     {
         return $query->where('status', 3);
     }
