@@ -257,18 +257,17 @@ return [
         'show_gallery'          => 'Mostrar Galeria',
         'create_album'          => 'Crear Álbum',
         'add_imagen_to_album'   => 'Agregar Imagen a Álbum',
-        'send_to_photographer'  => 'Enviar a Fotógrafo',
-        'sent_to_photographer'  => 'Enviado a Fotógrafo',
         'list_of_pages_that_need_photos'    => 'Lista de páginas que necesitan fotos',
         'show_notes'            => 'Mostrar Noticias',
         'notes_that_need_photos'    => 'Noticias que necesitan fotos',
-        'send_to_designer'      => 'Enviar a Diseñador',
-        'sent_to_designer'      => 'Enviado a Diseñador',
         'add_notes'             => 'Agregar Noticias',
         'edit_page'             => 'Editar Página',
         'view_note'             => 'Ver Noticia',
         'add_photo_to_note'     => 'Agregar Foto a Noticia',
         'added_photos_ready'    => 'Fotos Agregadas Lista',
-        'pages_need_photo'      => 'Páginas que Necesitan Fotos'
+        'pages_need_photo'      => 'Páginas que Necesitan Fotos',
+        'designed'              => 'Diseñada',
+        'revised'               => 'Revisada',
+        'printed'               => 'Impresa'
     ],
 ];
