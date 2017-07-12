@@ -268,6 +268,12 @@ return [
         'pages_need_photo'      => 'Páginas que Necesitan Fotos',
         'designed'              => 'Diseñada',
         'revised'               => 'Revisada',
-        'printed'               => 'Impresa'
+        'printed'               => 'Impresa',
+        'list_of_pages_to_design'   => 'Lista de Páginas para Diseñar',
+        'show_page'             => 'Mostrar Página',
+        'save_page'             => 'Guardar Página',
+        'designig_page'         => 'Diseñando Página',
+        'designed_ready'        => 'Diseñada Lista',
+        'pages_to_design'       => 'Páginas para Diseñar'
     ],
 ];

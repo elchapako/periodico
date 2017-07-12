@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Models;
 
-class Page extends Model
+class Page extends Models
 {
     protected $fillable = ['page_number', 'editionsection_id', 'status', 'area_id', 'model_id'];
 
@@ -56,6 +56,16 @@ class Page extends Model
     public function scopeStatusAddedNotes($query)
     {
         return $query->where('status', 3);
+    }
+
+    public function scopeStatusAddedPhotos($query)
+    {
+        return $query->where('status', 4);
+    }
+
+    public function scopeStatusDesigned($query)
+    {
+        return $query->where('status', 5);
     }
 
     public function changeStatusAddingNotes()

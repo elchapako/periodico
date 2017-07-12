@@ -62,6 +62,9 @@
             @if (Auth::user()->isA('photographer', 'admin'))
                 <li><a href="{{ route('photo-pages.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.pages_need_photo') }}</span></a></li>
             @endif
+            @if (Auth::user()->isA('designer', 'admin'))
+                <li><a href="{{ route('ready-pages-to-design.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.pages_to_design') }}</span></a></li>
+            @endif
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

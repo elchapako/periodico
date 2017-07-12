@@ -182,6 +182,26 @@ Route::post('fotos-paginas.added-photos/{id}', [
     'as' => 'photo-pages.added-photos'
 ]);
 
+Route::get('paginas-listas-para-disenar', [
+    'uses' => 'DesignerController@index',
+    'as' => 'ready-pages-to-design.index'
+]);
+
+Route::get('paginas-listas-para-disenar.show-page/{id}', [
+    'uses' => 'DesignerController@showPage',
+    'as' => 'ready-pages-to-design.show-page'
+]);
+
+Route::post('paginas-listas-para-disenar.store/{id}', [
+    'uses' => 'DesignerController@store',
+    'as' => 'ready-pages-to-design.store'
+]);
+
+Route::post('paginas-listas-para-disenar.designed/{id}', [
+    'uses' => 'DesignerController@designed',
+    'as' => 'ready-pages-to-design.designed'
+]);
+
 Route::resource('albumes', 'AlbumsController', [
     'names' => 'albums',
     'parameters' => [

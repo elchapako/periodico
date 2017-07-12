@@ -239,7 +239,12 @@ return [
         'name'                  => 'Name',
         'phone'                 => 'Phone',
         'address'               => 'Address',
-        'email'                 => 'Email'
+        'email'                 => 'Email',
+        'list_of_pages_to_design'   => 'List of Pages to Design',
+        'show_page'             => 'Show Page',
+        'save_page'             => 'Save Page',
+        'designig_page'         => 'Designing Page',
+        'designed_ready'        => 'Designed Ready'
     ],
 
 ];
