@@ -278,6 +278,7 @@ return [
         'reviewing_page'        => 'Revisando Página',
         'download_page'         => 'Descargar Página',
         'list_of_pages_designed' => 'Lista de Páginas Diseñadas',
-        'reviewed_page'         => 'Página Revisada'
+        'reviewed_page'         => 'Página Revisada',
+        'designed_pages'        => 'Páginas Diseñadas'
     ],
 ];

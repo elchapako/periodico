@@ -249,7 +249,8 @@ return [
         'reviewing_page'        => 'Reviewing Page',
         'download_page'         => 'Download Page',
         'list_of_pages_designed'    => 'List of Pages Designed',
-        'reviewed_page'         => 'Reviewed Page'
+        'reviewed_page'         => 'Reviewed Page',
+        'designed_pages'        => 'Designed Pages'
     ],
 
 ];
