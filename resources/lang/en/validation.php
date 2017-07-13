@@ -250,7 +250,10 @@ return [
         'download_page'         => 'Download Page',
         'list_of_pages_designed'    => 'List of Pages Designed',
         'reviewed_page'         => 'Reviewed Page',
-        'designed_pages'        => 'Designed Pages'
+        'designed_pages'        => 'Designed Pages',
+        'list_of_reviewed_pages'    => 'List of Reviewed Pages',
+        'printed_page'          => 'Printed Page',
+        'reviewed_pages'        => 'Reviewed Pages'
     ],
 
 ];

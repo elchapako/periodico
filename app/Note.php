@@ -49,4 +49,9 @@ class Note extends Models
     {
         $this->update(['status' => 4]);
     }
+
+    public function changeStatusPublished()
+    {
+        $this->update(['status' => 5]);
+    }
 }

@@ -68,6 +68,11 @@ class Page extends Models
         return $query->where('status', 5);
     }
 
+    public function scopeStatusReviewed($query)
+    {
+        return $query->where('status', 6);
+    }
+
     public function changeStatusAddingNotes()
     {
         $this->update(['status' => 2]);

@@ -279,6 +279,9 @@ return [
         'download_page'         => 'Descargar Página',
         'list_of_pages_designed' => 'Lista de Páginas Diseñadas',
         'reviewed_page'         => 'Página Revisada',
-        'designed_pages'        => 'Páginas Diseñadas'
+        'designed_pages'        => 'Páginas Diseñadas',
+        'list_of_reviewed_pages' => 'Lista de Páginas Revisadas',
+        'printed_page'          => 'Página Impresa',
+        'reviewed_pages'        => 'Páginas Revisadas'
     ],
 ];

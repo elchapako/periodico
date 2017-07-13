@@ -41,4 +41,44 @@ class DesignerTest extends FeatureTestCase
             ->see('Lista de Páginas para diseñar')
             ->see($page->page_number);
     }
+
+    public function test_designer_can_see_list_of_reviewed_pages_ready_to_print()
+    {
+        $designer = $this->defaultUser([
+            'name' => 'Jaime Bacotich'
+        ])->assign('designer');
+
+        $section = factory(\App\Section::class)->create([
+            'name' => 'Edicion Central'
+        ]);
+
+        $edition = factory(\App\Edition::class)->create([
+            'date' => \Carbon\Carbon::today(),
+            'status' => 'active'
+        ]);
+
+        $editionsection = factory(\App\Editionsection::class)->create([
+            'edition_id' => $edition->id,
+            'section_id' => $section->id
+        ]);
+
+        $model = factory(\App\Model::class)->create();
+
+        $area = factory(\App\Area::class)->create([
+            'name' => 'Local'
+        ]);
+
+        $page = factory(\App\Page::class)->create([
+            'status' => 6,
+            'page_number' => '5',
+            'area_id' => $area->id,
+            'model_id' => $model->id,
+            'editionsection_id' => $editionsection->id
+        ]);
+
+        $this->actingAs($designer)
+            ->visit(route('reviewed-pages.index'))
+            ->see('Lista de Páginas Revisadas')
+            ->see($page->page_number);
+    }
 }

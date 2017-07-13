@@ -65,6 +65,7 @@
             @endif
             @if (Auth::user()->isA('designer', 'admin'))
                 <li><a href="{{ route('ready-pages-to-design.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.pages_to_design') }}</span></a></li>
+                <li><a href="{{ route('reviewed-pages.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.reviewed_pages') }}</span></a></li>
             @endif
         </ul><!-- /.sidebar-menu -->
     </section>

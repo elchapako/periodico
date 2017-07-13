@@ -227,6 +227,21 @@ Route::post('paginas-disenadas.reviewed-ready/{id}', [
     'as' => 'designed-pages.reviewed-ready'
 ]);
 
+Route::get('paginas-revisadas', [
+    'uses' => 'ReviewedPagesController@index',
+    'as' => 'reviewed-pages.index'
+]);
+
+Route::get('paginas-revisadas.download-page/{id}', [
+    'uses' => 'ReviewedPagesController@downloadPage',
+    'as' => 'reviewed-pages.download-page'
+]);
+
+Route::post('paginas-revisadas.printed/{id}', [
+    'uses' => 'reviewedPagesController@printed',
+    'as' => 'reviewed-pages.printed'
+]);
+
 Route::resource('albumes', 'AlbumsController', [
     'names' => 'albums',
     'parameters' => [
