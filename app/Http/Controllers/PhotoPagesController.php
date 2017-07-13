@@ -7,6 +7,7 @@ use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Intervention\Image\Facades\Image;
+use Spatie\Activitylog\ActivitylogFacade;
 use Styde\Html\Facades\Alert;
 
 class PhotoPagesController extends Controller
@@ -64,6 +65,8 @@ class PhotoPagesController extends Controller
         $page = Page::findOrFail($id);
         $page->fill(request()->all());
         $page->save();
+
+        ActivitylogFacade::log('Agregó fotos a página: '. $page->id);
 
         Alert::success('Page '. $page->page_number . ' con fotografias lista');
         return redirect()->route('photo-pages.index');

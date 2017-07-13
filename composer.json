@@ -15,7 +15,8 @@
         "silber/bouncer": "dev-master",
         "barryvdh/laravel-dompdf": "0.7.*",
         "laravel/tinker": "^1.0",
-        "creativeorange/gravatar": "~1.0"
+        "creativeorange/gravatar": "~1.0",
+        "spatie/activitylog": "^2.4"
 
     },
     "require-dev": {

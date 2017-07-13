@@ -7,6 +7,7 @@ use App\Note;
 use App\NoteStatus;
 use App\User;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\ActivitylogFacade;
 use Styde\Html\Facades\Alert;
 
 class NotesController extends Controller
@@ -32,7 +33,7 @@ class NotesController extends Controller
             'reporter_id'=> ['required'],
         ]);
 
-        Note::create([
+        $note = Note::create([
             'title' => $request->title,
             'area_id' => $request->area_id,
             'reporter_id' => $request->reporter_id,
@@ -40,6 +41,7 @@ class NotesController extends Controller
         ]);
 
         Alert::success('Note fue creada');
+        ActivitylogFacade::log('Asignó noticia: '. $note->id . ' a ' . $note->reporter->name);
 
         return redirect()->route('notes.index');
     }

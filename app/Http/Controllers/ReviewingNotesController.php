@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Area;
 use App\Note;
 use App\User;
+use Spatie\Activitylog\ActivitylogFacade;
 use Styde\Html\Facades\Alert;
 
 class ReviewingNotesController extends Controller
@@ -41,6 +42,8 @@ class ReviewingNotesController extends Controller
         $note = Note::findOrFail($id);
         $note->fill(request()->all());
         $note->save();
+
+        ActivitylogFacade::log('Revisó noticia: '. $note->id);
 
         Alert::success('Note '. $note->title . ' fue enviada para redacción');
         return redirect()->route('reviewing-notes.index');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Area;
 use App\Note;
+use Spatie\Activitylog\ActivitylogFacade;
 use Styde\Html\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,6 +42,8 @@ class AssignedNotesController extends Controller
         $note = Note::findOrFail($id);
         $note->fill(request()->all());
         $note->save();
+
+        ActivitylogFacade::log('Presentó noticia: '. $note->id);
 
         Alert::success('Note '. $note->title . ' fue enviada para corrección');
         return redirect()->route('assigned-notes.index');

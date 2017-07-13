@@ -6,6 +6,7 @@ use App\Area;
 use App\Note;
 use App\User;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\ActivitylogFacade;
 use Styde\Html\Facades\Alert;
 
 class CorrectedNotesController extends Controller
@@ -50,6 +51,8 @@ class CorrectedNotesController extends Controller
            'title' => $title
         ]);
         $note->save();
+
+        ActivitylogFacade::log('Editó noticia: '. $note->id);
 
         Alert::success('Note '. $note->title . ' fue actualizada');
         return redirect()->route('corrected-notes.index');
