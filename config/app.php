@@ -190,6 +190,7 @@ return [
         Silber\Bouncer\BouncerServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
+        Creativeorange\Gravatar\GravatarServiceProvider::class,
 
     ],
 
@@ -247,6 +248,7 @@ return [
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
         'Bouncer' => Silber\Bouncer\BouncerFacade::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
     ],
 
 ];
