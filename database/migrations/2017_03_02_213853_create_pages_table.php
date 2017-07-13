@@ -21,7 +21,8 @@ class CreatePagesTable extends Migration
             $table->foreign('area_id')->references('id')->on('areas');
             $table->integer('model_id')->unsigned()->nullable();
             $table->foreign('model_id')->references('id')->on('models');
-            $table->unsignedInteger('editionsection_id');
+            $table->Integer('editionsection_id')->unsigned();
+            $table->foreign('editionsection_id')->references('id')->on('editionsections');
             $table->string('designed')->nullable();
             $table->string('reviewed')->nullable();
             $table->timestamps();
