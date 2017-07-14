@@ -192,7 +192,6 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Creativeorange\Gravatar\GravatarServiceProvider::class,
         Spatie\Activitylog\ActivitylogServiceProvider::class,
-
     ],
 
     /*
@@ -250,7 +249,6 @@ return [
         'Bouncer' => Silber\Bouncer\BouncerFacade::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
-        'Activity' => Spatie\Activitylog\ActivitylogFacade::class,
     ],
 
 ];

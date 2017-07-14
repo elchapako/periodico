@@ -38,11 +38,22 @@ class Edition extends Model
         return $query->where('status', 'active');
     }
 
+    public function scopeCountPagesActiveEdition($query)
+    {
+        return $query->active()->withCount(['pages', 'pages AS pages_status' => function ($q) {$q->where('status', 7);}])->get();
+    }
+
     public function activate()
     {
         if (Edition::next()->count()==1 && Edition::active()->count()==0) {
             $this->update(['status' => 'active']);
         }
+    }
+
+    public function done()
+    {
+        $this->update(['status' => 'done']);
+        Edition::next()->first()->activate();
     }
 
     public function getPublishDateAttribute()

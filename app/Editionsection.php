@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Activitylog\ActivitylogFacade;
 
 class Editionsection extends Model
 {
@@ -38,12 +37,11 @@ class Editionsection extends Model
     public function addPages($pages_number)
     {
         for ($i=1; $i <= $pages_number; $i++) {
-            $page = $this->pages()->save(Page::create([
+            $this->pages()->save(Page::create([
                 'page_number' => $i,
                 'status' => PageStatus::UNREALIZED,
                 'editionsection_id' => $this->id,
             ]));
-            ActivitylogFacade::log('Creó página: '. $page->id);
         }
     }
 }

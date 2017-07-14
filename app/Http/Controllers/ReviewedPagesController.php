@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Edition;
 use App\Note;
 use App\Page;
-use Illuminate\Http\Request;
-use Spatie\Activitylog\ActivitylogFacade;
 use Styde\Html\Facades\Alert;
 
 class ReviewedPagesController extends Controller
@@ -30,14 +29,16 @@ class ReviewedPagesController extends Controller
         $page->fill(request()->all());
         $page->save();
 
-        ActivitylogFacade::log('Imprimió página: '. $page->id);
-
         $notes = $page->notes()->get();
         for ($i = 0; $i < count($notes); $i++){
             $note = Note::findOrFail($notes[$i]->id);
             $note->changeStatusPublished();
             $note->save();
-            ActivitylogFacade::log('Publicó: '. $note->id);
+        }
+
+        $pages= Edition::countPagesActiveEdition();
+        if ($pages[0]->pages_count==$pages[0]->pages_status_count){
+            Edition::active()->first()->done();
         }
 
         Alert::success('Page '. $page->page_number . ' impresa');

@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Page;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Spatie\Activitylog\ActivitylogFacade;
 use Styde\Html\Facades\Alert;
 
 class DesignedPagesController extends Controller
@@ -58,8 +56,6 @@ class DesignedPagesController extends Controller
         $page = Page::findOrFail($id);
         $page->fill(request()->all());
         $page->save();
-
-        ActivitylogFacade::log('Revisó página: '. $page->id);
 
         Alert::success('Page '. $page->page_number . ' revisada lista');
         return redirect()->route('designed-pages.index');

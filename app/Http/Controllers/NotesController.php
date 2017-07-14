@@ -7,14 +7,13 @@ use App\Note;
 use App\NoteStatus;
 use App\User;
 use Illuminate\Http\Request;
-use Spatie\Activitylog\ActivitylogFacade;
 use Styde\Html\Facades\Alert;
 
 class NotesController extends Controller
 {
     public function index()
     {
-        $notes = Note::paginate(15);
+        $notes = Note::where('status', 1)->paginate(15);
         return view('notes.list', compact('notes'));
     }
 
@@ -41,7 +40,6 @@ class NotesController extends Controller
         ]);
 
         Alert::success('Note fue creada');
-        ActivitylogFacade::log('Asignó noticia: '. $note->id . ' a ' . $note->reporter->name);
 
         return redirect()->route('notes.index');
     }

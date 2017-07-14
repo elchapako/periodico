@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Note;
 use App\Page;
 use Illuminate\Support\Facades\Input;
-use Intervention\Image\Facades\Image;
-use Spatie\Activitylog\ActivitylogFacade;
 use Styde\Html\Facades\Alert;
 
 class DesignerController extends Controller
@@ -53,8 +51,6 @@ class DesignerController extends Controller
         $page = Page::findOrFail($id);
         $page->fill(request()->all());
         $page->save();
-
-        ActivitylogFacade::log('Diseñó página: '. $page->id);
 
         Alert::success('Page '. $page->page_number . ' diseñada lista');
         return redirect()->route('photo-pages.index');

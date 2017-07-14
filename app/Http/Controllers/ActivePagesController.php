@@ -8,7 +8,6 @@ use App\Model;
 use App\Note;
 use App\Page;
 use Illuminate\Http\Request;
-use Spatie\Activitylog\ActivitylogFacade;
 use Styde\Html\Facades\Alert;
 
 class ActivePagesController extends Controller
@@ -63,7 +62,6 @@ class ActivePagesController extends Controller
         $page = Page::findOrFail($id);
         $page->changeStatusAddingNotes();
         $page->save();
-        ActivitylogFacade::log('Agregando notas a página: '. $page->id);
         $notes= $request->note_id;
 
         for ($i=0; $i<count($notes); $i++){
@@ -71,7 +69,6 @@ class ActivePagesController extends Controller
             $note->changeStatusSelected();
             $note->page_id = $page->id;
             $note->save();
-            ActivitylogFacade::log('Seleccionó noticia: '. $note->id);
         }
 
         Alert::success('Notas fueron asignadas');
@@ -85,7 +82,6 @@ class ActivePagesController extends Controller
         if($page->hasModelAndArea() && $page->hasNotes() && $page->status == 2){
             $page->fill(request()->all());
             $page->save();
-            ActivitylogFacade::log('Agregó noticias a página: '. $page->id);
             Alert::success('Page '. $page->page_number . ' esta lista');
             return redirect()->route('active-pages.index');
         }else{

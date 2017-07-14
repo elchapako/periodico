@@ -16,7 +16,7 @@
         "barryvdh/laravel-dompdf": "0.7.*",
         "laravel/tinker": "^1.0",
         "creativeorange/gravatar": "~1.0",
-        "spatie/activitylog": "^2.4"
+        "spatie/laravel-activitylog": "^1.15"
 
     },
     "require-dev": {
