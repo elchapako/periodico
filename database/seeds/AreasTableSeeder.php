@@ -12,16 +12,31 @@ class AreasTableSeeder extends Seeder
     public function run()
     {
         factory(App\Area::class)->create([
+            'name' => 'Tapa'
+        ]);
+        factory(App\Area::class)->create([
+            'name' => 'Editorial'
+        ]);
+        factory(App\Area::class)->create([
+            'name' => 'Opinión'
+        ]);
+        factory(App\Area::class)->create([
+            'name' => 'Seguridad'
+        ]);
+        factory(App\Area::class)->create([
+            'name' => 'Educación'
+        ]);
+        factory(App\Area::class)->create([
             'name' => 'Política'
         ]);
         factory(App\Area::class)->create([
-            'name' => 'Economía'
+            'name' => 'Reportaje'
         ]);
         factory(App\Area::class)->create([
             'name' => 'Sociedad'
         ]);
         factory(App\Area::class)->create([
-            'name' => 'Al Cierre'
+            'name' => 'Cultura'
         ]);
         factory(App\Area::class)->create([
             'name' => 'Nacional'
@@ -30,14 +45,10 @@ class AreasTableSeeder extends Seeder
             'name' => 'Internacional'
         ]);
         factory(App\Area::class)->create([
-            'name' => 'Reportaje'
+            'name' => 'Al Cierre'
         ]);
         factory(App\Area::class)->create([
-            'name' => 'Opinion'
+            'name' => 'Contra Tapa'
         ]);
-        factory(App\Area::class)->create([
-            'name' => 'Editorial'
-        ]);
-
     }
 }

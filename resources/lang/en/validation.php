@@ -253,7 +253,10 @@ return [
         'designed_pages'        => 'Designed Pages',
         'list_of_reviewed_pages'    => 'List of Reviewed Pages',
         'printed_page'          => 'Printed Page',
-        'reviewed_pages'        => 'Reviewed Pages'
+        'reviewed_pages'        => 'Reviewed Pages',
+        'ads'                   => 'Publicities',
+        'submit_note'           => 'Submit Note',
+        'corrected_note'        => 'Corrected Note'
     ],
 
 ];

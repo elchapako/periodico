@@ -29,7 +29,7 @@ class SendNoteToCorrectionTest extends FeatureTestCase
             ->see('esto es el titulo')
             ->see('local')
             ->see('Editar')
-            ->press('Enviar a Corrección')
+            ->press('Presentar Noticia')
             ->seePageIs(route('assigned-notes.index'))
             ->seeInDatabase('notes', [
                'status' => 2

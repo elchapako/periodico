@@ -282,6 +282,9 @@ return [
         'designed_pages'        => 'Páginas Diseñadas',
         'list_of_reviewed_pages' => 'Lista de Páginas Revisadas',
         'printed_page'          => 'Página Impresa',
-        'reviewed_pages'        => 'Páginas Revisadas'
+        'reviewed_pages'        => 'Páginas Revisadas',
+        'ads'                   => 'Publicidades',
+        'submit_note'           => 'Presentar Noticia',
+        'corrected_note'        => 'Noticia Corregida'
     ],
 ];

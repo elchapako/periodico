@@ -3,6 +3,7 @@
         <th>{{ trans('validation.attributes.page') }}</th>
         <th>{{ trans('validation.attributes.section') }}</th>
         <th>{{ trans('validation.attributes.area') }}</th>
+        <th>{{ trans('validation.attributes.ads') }}</th>
         <th>{{ trans('validation.attributes.model') }}</th>
         <th>{{ trans('validation.attributes.actions') }}</th>
         <th></th>
@@ -12,6 +13,15 @@
             <td>{{ $page->page_number }}</td>
             <td>{{ $page->editionsection->section->name }}</td>
             <td>{{ $page->area->name }}</td>
+            <td>
+            @foreach($page->ads as $ad)
+                @if($ad == null)
+                    <td></td>
+                @else
+                    {{$ad->size->size}}<br>
+                @endif
+            @endforeach
+            </td>
             <td>{{ $page->model->name }}</td>
             <td><a href="{{route('ready-pages-to-design.show-page', $page->id)}}" class="btn btn-primary">{{ trans('validation.attributes.show_page') }}</a></td>
             @if($page->designed == null)

@@ -42,7 +42,7 @@ class ReviewingNotesController extends Controller
         $note->fill(request()->all());
         $note->save();
 
-        Alert::success('Note '. $note->title . ' fue enviada para redacción');
+        Alert::success('Note '. $note->title . ' fue corregida');
         return redirect()->route('reviewing-notes.index');
     }
 }

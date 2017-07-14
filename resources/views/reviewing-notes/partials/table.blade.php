@@ -18,7 +18,7 @@
                 <td>
                     {!! Form::open(['route' => ['reviewing-notes.corrected', $note->id], 'method' => 'POST']) !!}
                     {!! Form::hidden('status', 3) !!}
-                    <button type="submit" class="btn btn-primary">{{ trans('validation.attributes.send_to_redaction') }}</button>
+                    <button type="submit" class="btn btn-success">{{ trans('validation.attributes.corrected_note') }}</button>
                     {!! Form::close() !!}
                 </td>
             @else

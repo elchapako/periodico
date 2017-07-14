@@ -14,14 +14,14 @@
             @if($note->status == 1)
             <td><a href="{{route('assigned-notes.edit', $note->id)}}" class="btn btn-primary">{{ trans('validation.attributes.edit') }}</a></td>
             <td>
-                {!! Form::open(['route' => ['assigned-notes.correction', $note->id], 'method' => 'POST']) !!}
+                {!! Form::open(['route' => ['assigned-notes.submit-note', $note->id], 'method' => 'POST']) !!}
                 {!! Form::hidden('status', 2) !!}
-                <button type="submit" class="btn btn-primary">{{ trans('validation.attributes.send_to_correction') }}</button>
+                <button type="submit" class="btn btn-success">{{ trans('validation.attributes.submit_note') }}</button>
                 {!! Form::close() !!}
             </td>
                 @else
-                <td>Noticia enviada a corrección</td>
-                <td></td>
+                <td><a href="{{route('assigned-notes.edit', $note->id)}}" class="btn btn-primary" disabled="disabled">{{ trans('validation.attributes.edit') }}</a></td>
+                <td><a href="#" class="btn btn-primary" disabled="disabled">{{ trans('validation.attributes.submit_note') }}</a></td>
             @endif
         </tr>
     @endforeach

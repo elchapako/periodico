@@ -48,8 +48,8 @@ $factory->define(App\Client::class, function (Faker\Generator $faker) {
 
     return [
         'full_name' => $faker->name,
-        'phone' => $faker->phoneNumber,
-        'cellphone' => $faker->phoneNumber,
+        'phone' => $faker->randomNumber(8),
+        'cellphone' => $faker->randomNumber(8),
         'ci' => $faker->randomNumber(8),
         'address' => $faker->address,
         'email' => $faker->email,
@@ -58,7 +58,8 @@ $factory->define(App\Client::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Note::class, function (Faker\Generator $faker){
    return[
-        'title' => $faker->title,
+        'title' => $faker->text(150),
+        'note'  => $faker->realText(2500)
    ];
 });
 

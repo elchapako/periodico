@@ -72,9 +72,9 @@ Route::post('noticias-asignadas.update/{id}', [
     'as' => 'assigned-notes.update'
 ]);
 
-Route::post('noticias-asignadas.correction/{id}', [
-    'uses' => 'AssignedNotesController@correction',
-    'as' => 'assigned-notes.correction'
+Route::post('noticias-asignadas.submit-note/{id}', [
+    'uses' => 'AssignedNotesController@submitNote',
+    'as' => 'assigned-notes.submit-note'
 ]);
 
 Route::get('revisando-noticias', [

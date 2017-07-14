@@ -36,13 +36,13 @@ class AssignedNotesController extends Controller
         return redirect()->route('assigned-notes.index');
     }
 
-    public function correction($id)
+    public function submitNote($id)
     {
         $note = Note::findOrFail($id);
         $note->fill(request()->all());
         $note->save();
 
-        Alert::success('Note '. $note->title . ' fue enviada para corrección');
+        Alert::success('Note '. $note->title . ' fue presentada');
         return redirect()->route('assigned-notes.index');
     }
 }

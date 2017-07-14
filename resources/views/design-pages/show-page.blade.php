@@ -18,7 +18,7 @@
                         {!! Alert::render() !!}
                     </div>
                     <div class="panel-body">
-                        @if($notes)
+                        @if($page)
                             @include('design-pages.partials.fields')
                         @endif
                         <a href="{{url()->previous()}}" class="btn btn-primary">{{ trans('validation.attributes.back') }}</a>

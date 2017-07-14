@@ -113,7 +113,7 @@ class CorrectorEditNotesOfReporterTest extends FeatureTestCase
             ->type('cambiando lo que dice la noticia', 'note')
             ->press('Guardar Noticia')
             ->seePageIs(route('reviewing-notes.index'))
-            ->press('Enviar a Redacción')
+            ->press('Noticia Corregida')
             ->dontSee('Editar')
             ->dontSee('Enviar a Redacción')
             ->seePageIs(route('reviewing-notes.index'))

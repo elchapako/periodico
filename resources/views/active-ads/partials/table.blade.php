@@ -18,9 +18,9 @@
             <td>{{$ad->size->size}}</td>
             <td>{{$ad->client->full_name}}</td>
             @if($ad->pivot->assigned == 0)
-            <td><a href="{{route('active-ads.edit', $ad->id)}}" class="btn btn-primary">{{ trans('validation.attributes.assign_to_page') }}</a></td>
+            <td><a href="{{route('active-ads.edit', $ad->id)}}" class="btn btn-success">{{ trans('validation.attributes.assign_to_page') }}</a></td>
             @else
-            <td><a href="#" class="btn btn-danger">{{ trans('validation.attributes.assigned') }}</a></td>
+            <td><a href="#" class="btn btn-primary" disabled="disabled">{{ trans('validation.attributes.assigned') }}</a></td>
             @endif
             <td></td>
         </tr>

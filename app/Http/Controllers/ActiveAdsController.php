@@ -6,6 +6,7 @@ use App\Ad;
 use App\Date;
 use App\Edition;
 use App\Page;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Styde\Html\Facades\Alert;
 
@@ -41,7 +42,8 @@ class ActiveAdsController extends Controller
 
         $ad = Ad::findOrFail($id);
         $page = Page::findOrFail($request->page_id);
-        $ad->dates()->updateExistingPivot($id, ['assigned' => true]);
+        $date = Date::where('dates', Carbon::tomorrow()->format('Y-m-d'))->first();
+        $ad->dates()->updateExistingPivot($date->id, ['assigned' => true]);
         $ad->pages()->save($page);
 
         Alert::success('Advertising fue asignada');

@@ -14,7 +14,7 @@ class ActivePagesController extends Controller
 {
     public function index()
     {
-        $activeEdition = Edition::active()->with('editionsection.section', 'editionsection.pages.area', 'editionsection.pages.notes')->first();
+        $activeEdition = Edition::active()->with('editionsection.section', 'editionsection.pages.area', 'editionsection.pages.notes', 'editionsection.pages.ads.size')->first();
         return view('active-pages.list', compact('activeEdition'));
     }
 

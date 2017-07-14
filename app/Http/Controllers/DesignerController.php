@@ -11,16 +11,15 @@ class DesignerController extends Controller
 {
     public function index()
     {
-        $pages = Page::statusAddedPhotos()->with('notes', 'editionsection.section')->get();
+        $pages = Page::statusAddedPhotos()->with('notes', 'editionsection.section', 'ads.size')->get();
         return view('design-pages.list', compact('pages'));
     }
 
     public function showPage($id)
     {
-        $page = Page::findOrFail($id);
-        $notes = Note::where('page_id', $page->id)->get();
+        $page = Page::where('id', $id)->with('notes', 'ads', 'ads.size')->first();
 
-        return view('design-pages.show-page', compact('notes'));
+        return view('design-pages.show-page', compact('page'));
     }
 
     public function store($id)

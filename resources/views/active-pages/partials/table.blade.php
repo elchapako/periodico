@@ -3,6 +3,7 @@
         <th>{{ trans('validation.attributes.page') }}</th>
         <th>{{ trans('validation.attributes.section') }}</th>
         <th>{{ trans('validation.attributes.area') }}</th>
+        <th>{{ trans('validation.attributes.ads') }}</th>
         <th>{{ trans('validation.attributes.added_notes') }}</th>
         <th>{{ trans('validation.attributes.status') }}</th>
         <th>{{ trans('validation.attributes.actions') }}</th>
@@ -19,6 +20,15 @@
                 @else
                 <td>{{ $pages->area->name }}</td>
                 @endif
+                <td>
+                @foreach($pages->ads as $ad)
+                    @if($ad == null)
+                        <td></td>
+                    @else
+                        {{$ad->size->size}}<br>
+                    @endif
+                @endforeach
+                </td>
                 <td>
                 @foreach($pages->notes as $note)
                     @if($note == null)
