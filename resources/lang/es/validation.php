@@ -285,6 +285,10 @@ return [
         'reviewed_pages'        => 'Páginas Revisadas',
         'ads'                   => 'Publicidades',
         'submit_note'           => 'Presentar Noticia',
-        'corrected_note'        => 'Noticia Corregida'
+        'corrected_note'        => 'Noticia Corregida',
+        'change_password'       => 'Cambiar Contraseña',
+        'old_password'          => 'Contraseña Anterior',
+        'password'              => 'Contraseña',
+        'confirm_password'      => 'Confirmar Contraseña'
     ],
 ];

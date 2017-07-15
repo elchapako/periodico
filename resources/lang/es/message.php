@@ -132,4 +132,5 @@ return [
     'advertising'             => 'Lista de publicidad',
     'clients'                 => 'Clientes',
     'sizes'                   => 'Tamaños',
+    'change_password'         => 'Cambiar Contraseña'
 ];

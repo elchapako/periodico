@@ -256,7 +256,11 @@ return [
         'reviewed_pages'        => 'Reviewed Pages',
         'ads'                   => 'Publicities',
         'submit_note'           => 'Submit Note',
-        'corrected_note'        => 'Corrected Note'
+        'corrected_note'        => 'Corrected Note',
+        'change_password'       => 'Change Password',
+        'old_password'          => 'Old Password',
+        'password'              => 'Password',
+        'confirm_password'      => 'Confirm Password'
     ],
 
 ];

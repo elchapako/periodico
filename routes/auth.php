@@ -283,3 +283,9 @@ Route::get('reportes', [
    'uses' => 'ReportsController@index',
    'as'   => 'reports.index'
 ]);
+
+Route::get('change-password', function()
+    {return view('auth.passwords.change-password');
+});
+
+Route::post('change-password', 'Auth\UpdatePasswordController@update');
