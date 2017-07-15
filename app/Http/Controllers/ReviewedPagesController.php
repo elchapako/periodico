@@ -39,6 +39,13 @@ class ReviewedPagesController extends Controller
         $pages= Edition::countPagesActiveEdition();
         if ($pages[0]->pages_count==$pages[0]->pages_status_count){
             Edition::active()->first()->done();
+
+            $discardNotes = Note::where('discarded', false)->whereNotIn('status', [7])->get();
+            for ($i = 0; $i< count($discardNotes); $i++){
+                $discardNote = Note::findOrFail($discardNotes[$i]->id);
+                $discardNote->discard();
+                $discardNote->save();
+            }
         }
 
         Alert::success('Page '. $page->page_number . ' impresa');

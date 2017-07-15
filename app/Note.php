@@ -3,10 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model as Models;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Note extends Models
 {
+    use LogsActivity;
+
+    protected static $ignoreChangedAttributes = ['note', 'updated_at'];
+
     protected $fillable = ['title', 'note', 'area_id', 'reporter_id', 'status', 'page_id', 'titular', 'photo'];
+
+    protected static $logAttributes = ['status', 'note'];
 
     public function reporter()
     {
@@ -43,6 +50,11 @@ class Note extends Models
     public function scopeCorrected($query)
     {
         return $query->where('status', 3)->where('page_id', null);
+    }
+
+    public function scopeDiscard($query)
+    {
+        return $query->update(['discarded' => true]);
     }
 
     public function changeStatusSelected()

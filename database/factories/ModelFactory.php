@@ -58,7 +58,7 @@ $factory->define(App\Client::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Note::class, function (Faker\Generator $faker){
    return[
-        'title' => $faker->text(150),
+        'title' => $faker->realText(150),
         'note'  => $faker->realText(2500)
    ];
 });

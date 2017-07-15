@@ -21,9 +21,9 @@
         <ul class="sidebar-menu">
             <li class="header">{{ trans('message.header') }}</li>
         <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('/') }}"><i class='fa fa-link'></i><span>{{ trans('message.home') }}</span></a></li>
+            <li class="active"><a href="{{ url('/') }}"><i class='fa fa-home'></i><span>{{ trans('message.home') }}</span></a></li>
             @if (Auth::user()->isA('reporter', 'admin'))
-                <li><a href="{{ route('assigned-notes.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.assigned_notes') }}</span></a></li>
+                <li><a href="{{ route('assigned-notes.index') }}"><i class='fa fa-pencil'></i> <span>{{ trans('validation.attributes.assigned_notes') }}</span></a></li>
             @endif
             @if (Auth::user()->isA('info-manager', 'admin'))
                 <li><a href="{{ route('notes.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.assign_notes') }}</span></a></li>
@@ -35,7 +35,7 @@
                 <li><a href="{{ route('active-pages.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.active_pages') }}</span></a></li>
                 <li><a href="{{ route('designed-pages.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.designed_pages') }}</span></a></li>
                 <li class=“treeview">
-                    <a href="#"><i class='fa fa-link'></i><span>{{ trans('validation.attributes.config') }}</span><i class="fa fa-angle-left pull-right"></i></a>
+                    <a href="#"><i class='fa fa-bars'></i><span>{{ trans('validation.attributes.config') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         <li><a href="{{ route('areas.index') }}"><i class='fa fa-link'></i><span>{{ trans('message.areas') }}</span></a></li>
 
@@ -46,7 +46,7 @@
             @endif
             @if (Auth::user()->isA('secretary', 'admin'))
                 <li class="treeview">
-                    <a href="#"><i class='fa fa-link'></i><span>{{ trans('message.publicity') }}</span><i class="fa fa-angle-left pull-right"></i></a>
+                    <a href="#"><i class='fa fa-bars'></i><span>{{ trans('message.publicity') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         <li><a href="{{ route('ads.index') }}"><i class='fa fa-link'></i>{{ trans('message.advertising') }}</a></li>
                         <li><a href="{{ route('clients.index') }}"><i class='fa fa-link'></i>{{ trans('message.clients') }}</a></li>
@@ -61,11 +61,11 @@
                 <li><a href="{{ route('reviewing-notes.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.review_notes') }}</span></a></li>
             @endif
             @if (Auth::user()->isA('photographer', 'admin'))
-                <li><a href="{{ route('photo-pages.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.pages_need_photo') }}</span></a></li>
+                <li><a href="{{ route('photo-pages.index') }}"><i class='fa fa-camera'></i> <span>{{ trans('validation.attributes.pages_need_photo') }}</span></a></li>
             @endif
             @if (Auth::user()->isA('designer', 'admin'))
                 <li><a href="{{ route('ready-pages-to-design.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.pages_to_design') }}</span></a></li>
-                <li><a href="{{ route('reviewed-pages.index') }}"><i class='fa fa-link'></i> <span>{{ trans('validation.attributes.reviewed_pages') }}</span></a></li>
+                <li><a href="{{ route('reviewed-pages.index') }}"><i class='fa fa-print'></i> <span>{{ trans('validation.attributes.reviewed_pages') }}</span></a></li>
             @endif
         </ul><!-- /.sidebar-menu -->
     </section>

@@ -3,10 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model as Models;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Page extends Models
 {
+    use LogsActivity;
+
     protected $fillable = ['page_number', 'editionsection_id', 'status', 'area_id', 'model_id'];
+
+    protected static $logAttributes = ['status'];
+
+    protected static $logOnlyDirty = true;
 
     public function editionsection()
     {

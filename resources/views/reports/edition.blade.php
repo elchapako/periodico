@@ -9,30 +9,10 @@
 @endsection
 
 @section('main-content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                @include('partials/errors')
-                <div class="panel panel-default">
-                    <div class="panel-heading">{{ trans('validation.attributes.active_edition') }}
-
-                    </div>
-                    <div class="panel-body">
-                        @if($activeEdition)
-                        <p>Número de Edicion: {{ $activeEdition->number_of_edition }} - Fecha en desarrollo: {{ $activeEdition->publish_date }} </p>
-                        <p>Secciones</p>
-                        @foreach($activeEdition->editionsection as $sections)
-                        <p>{{ $sections->section->name }}</p>
-                            @foreach($sections->pages as $pages)
-                                    <p>Página: {{ $pages->page_number }} - {{ $pages->status_text }}</p>
-                            @endforeach
-                        @endforeach
-                        @else
-                            <p>No existe Edición Activa</p>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
+    @include('partials/errors')
+        @include('reports.partials.small-box')
+    <div class="row">
+        @include('reports.partials.page-status')
+        @include('reports.partials.notes-status')
     </div>
 @endsection

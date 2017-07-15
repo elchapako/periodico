@@ -32,6 +32,7 @@ class CreateNotesTable extends Migration
 
             $table->boolean('photo')->default(false);
             $table->boolean('titular')->default(false);
+            $table->boolean('discarded')->default(false);
 
             $table->timestamps();
         });
