@@ -280,8 +280,8 @@ Route::post('editions.store', [
 ]);
 
 Route::get('reportes', [
-   'uses' => 'ReportsController@index',
-   'as'   => 'reports.index'
+    'uses' => 'ReportsController@index',
+    'as'   => 'reports.index'
 ]);
 
 Route::get('change-password', function()

@@ -289,6 +289,7 @@ return [
         'change_password'       => 'Cambiar Contraseña',
         'old_password'          => 'Contraseña Anterior',
         'password'              => 'Contraseña',
-        'confirm_password'      => 'Confirmar Contraseña'
+        'confirm_password'      => 'Confirmar Contraseña',
+        'register_user'         => 'Registrar Usuario'
     ],
 ];

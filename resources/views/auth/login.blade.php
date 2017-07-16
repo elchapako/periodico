@@ -39,7 +39,7 @@
                         <div class="col-xs-8">
                             <div class="checkbox icheck">
                                 <label>
-                                    <input type="checkbox" name="remember"> {{ trans('message.remember') }} <br>
+                                <!--<input type="checkbox" name="remember"> {{ trans('message.remember') }} <br> -->
                                     <a href="{{ url('/password/reset') }}">{{ trans('message.forgotpassword') }}</a><br>
                                 <!-- <a href="{{ url('/register') }}" class="text-center">{{ trans('message.registermember') }}</a> -->
                                 </label>

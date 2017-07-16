@@ -67,6 +67,9 @@
                 <li><a href="{{ route('ready-pages-to-design.index') }}"><i class='fa fa-newspaper-o'></i> <span>{{ trans('validation.attributes.pages_to_design') }}</span></a></li>
                 <li><a href="{{ route('reviewed-pages.index') }}"><i class='fa fa-print'></i> <span>{{ trans('validation.attributes.reviewed_pages') }}</span></a></li>
             @endif
+            @if (Auth::user()->isA('admin'))
+                <li><a href="/register"><i class='fa fa-user-plus'></i> <span>{{ trans('validation.attributes.register_user') }}</span></a></li>
+            @endif
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

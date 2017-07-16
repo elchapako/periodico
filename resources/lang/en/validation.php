@@ -260,7 +260,8 @@ return [
         'change_password'       => 'Change Password',
         'old_password'          => 'Old Password',
         'password'              => 'Password',
-        'confirm_password'      => 'Confirm Password'
+        'confirm_password'      => 'Confirm Password',
+        'register_user'         => 'Register User'
     ],
 
 ];

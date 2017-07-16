@@ -134,5 +134,6 @@ return [
     'advertising'             => 'List of publicity',
     'clients'                 => 'Clients',
     'sizes'                   => 'Sizes',
-    'change_password'         => 'Change Password'
+    'change_password'         => 'Change Password',
+    'select_a_rol'            => 'Select a Rol'
 ];

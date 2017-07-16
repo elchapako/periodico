@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Http\Request;
+use Silber\Bouncer\Database\Role;
+use Styde\Html\Facades\Alert;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -34,9 +37,38 @@ class RegisterController extends Controller
      *
      * @return void
      */
+    public function showRegistrationForm()
+    {
+        $roles = Role::whereNotIn('title', ['Administrador'])->pluck('title', 'id');
+        return view('auth.register', compact('roles'));
+    }
+
+    public function register(Request $request)
+    {
+        $this->validate(request(), [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+            'rol_id'    => 'required'
+        ]);
+        $password = bcrypt($request->password);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $password
+        ]);
+
+        $rol = Role::findOrFail($request->rol_id);
+        $user->assign($rol);
+
+        Alert::success('Usuario fue creado');
+
+        return back();
+    }
+
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**

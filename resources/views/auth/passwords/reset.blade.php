@@ -61,7 +61,7 @@
             </form>
 
             <a href="{{ url('/login') }}">{{ trans('message.login') }}</a><br>
-            <a href="{{ url('/register') }}" class="text-center">{{ trans('message.membreship') }}</a>
+
 
         </div><!-- /.login-box-body -->
 
