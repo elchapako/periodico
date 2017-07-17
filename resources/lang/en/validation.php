@@ -235,6 +235,7 @@ return [
         'adding_notes'          => 'Adding Notes',
         'designed'              => 'Designed',
         'revised'               => 'Revised',
+        'selected'              => 'Selected',
         'printed'               => 'Printed',
         'name'                  => 'Name',
         'phone'                 => 'Phone',
@@ -261,7 +262,8 @@ return [
         'old_password'          => 'Old Password',
         'password'              => 'Password',
         'confirm_password'      => 'Confirm Password',
-        'register_user'         => 'Register User'
+        'register_user'         => 'Register User',
+        'more_info'             => 'More Info'
     ],
 
 ];

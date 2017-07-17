@@ -3,14 +3,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>150</h3>
+                <h3>{{$activeEdition->pages_count}}</h3>
 
-                <p>New Orders</p>
+                <p>{{ trans('validation.attributes.pages') }}</p>
             </div>
             <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion ion-document-text"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">{{ trans('validation.attributes.more_info') }} <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -18,14 +18,14 @@
         <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>{{count($notes)}}</h3>
 
-                <p>Bounce Rate</p>
+                <p>{{ trans('validation.attributes.notes') }}</p>
             </div>
             <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="ion ion-edit"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">{{ trans('validation.attributes.more_info') }} <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -33,14 +33,14 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-                <h3>44</h3>
+                <h3>{{count($activeEdition)}}</h3>
 
-                <p>User Registrations</p>
+                <p>{{ trans('validation.attributes.editions') }}</p>
             </div>
             <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-clock"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">{{ trans('validation.attributes.more_info') }} <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -55,7 +55,7 @@
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">{{ trans('validation.attributes.more_info') }} <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->

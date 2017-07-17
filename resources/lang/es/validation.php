@@ -268,6 +268,7 @@ return [
         'pages_need_photo'      => 'Páginas que Necesitan Fotos',
         'designed'              => 'Diseñada',
         'revised'               => 'Revisada',
+        'selected'             => 'Seleccionada',
         'printed'               => 'Impresa',
         'list_of_pages_to_design'   => 'Lista de Páginas para Diseñar',
         'show_page'             => 'Mostrar Página',
@@ -290,6 +291,7 @@ return [
         'old_password'          => 'Contraseña Anterior',
         'password'              => 'Contraseña',
         'confirm_password'      => 'Confirmar Contraseña',
-        'register_user'         => 'Registrar Usuario'
+        'register_user'         => 'Registrar Usuario',
+        'more_info'             => 'Más Información'
     ],
 ];

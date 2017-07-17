@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model as Models;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -9,11 +10,18 @@ class Page extends Models
 {
     use LogsActivity;
 
+    protected static $ignoreChangedAttributes = ['area_id', 'model_id', 'updated_at'];
+
     protected $fillable = ['page_number', 'editionsection_id', 'status', 'area_id', 'model_id'];
 
     protected static $logAttributes = ['status'];
 
-    protected static $logOnlyDirty = true;
+    public function getLogNameToUse(string $eventName = ''): string
+    {
+        $edition = $this->editionsection->edition->date;
+        return date_format($edition, 'Y-m-d');
+
+    }
 
     public function editionsection()
     {

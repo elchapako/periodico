@@ -9,11 +9,20 @@ class Note extends Models
 {
     use LogsActivity;
 
-    protected static $ignoreChangedAttributes = ['note', 'updated_at'];
+    protected static $ignoreChangedAttributes = ['note', 'titular', 'photo', 'page_id', 'discarded', 'updated_at'];
 
-    protected $fillable = ['title', 'note', 'area_id', 'reporter_id', 'status', 'page_id', 'titular', 'photo'];
+    protected $fillable = ['title', 'note', 'area_id', 'reporter_id', 'status', 'page_id', 'titular', 'photo', 'discarded'];
 
     protected static $logAttributes = ['status', 'note'];
+
+    public function getLogNameToUse(string $eventName = ''): string
+    {
+        if($editionActive = Edition::active()->first()){
+            return date_format($editionActive->date, 'Y-m-d');
+        }else{
+        return 'borrador';
+        }
+    }
 
     public function reporter()
     {

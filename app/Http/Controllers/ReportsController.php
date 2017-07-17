@@ -12,7 +12,7 @@ class ReportsController extends Controller
 {
     public function index()
     {
-        $activeEdition = Edition::active()->with('editionsection.section', 'editionsection.pages.area', 'editionsection.pages.notes', 'editionsection.pages.ads.size')->first();
+        $activeEdition = Edition::active()->withCount('pages')->with('editionsection.section', 'editionsection.pages.area', 'editionsection.pages.notes', 'editionsection.pages.ads.size')->first();
         //dd($activeEdition);
         $notes = Note::where('discarded', false)->whereNotIn('status', [7])->get();
 
