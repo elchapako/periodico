@@ -10,9 +10,9 @@ class Page extends Models
 {
     use LogsActivity;
 
-    protected static $ignoreChangedAttributes = ['area_id', 'model_id', 'updated_at'];
+    protected static $ignoreChangedAttributes = ['area_id', 'model_id', 'updated_at', 'designed', 'reviewed'];
 
-    protected $fillable = ['page_number', 'editionsection_id', 'status', 'area_id', 'model_id'];
+    protected $fillable = ['page_number', 'editionsection_id', 'status', 'area_id', 'model_id', 'designed', 'reviewed'];
 
     protected static $logAttributes = ['status'];
 

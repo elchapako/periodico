@@ -263,7 +263,9 @@ return [
         'password'              => 'Password',
         'confirm_password'      => 'Confirm Password',
         'register_user'         => 'Register User',
-        'more_info'             => 'More Info'
+        'more_info'             => 'More Info',
+        'list_of_pages_and_status_change_hours' => 'List of Pages and Status Change Hours',
+        'by'                    => 'by'
     ],
 
 ];

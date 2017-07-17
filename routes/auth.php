@@ -284,6 +284,11 @@ Route::get('reportes', [
     'as'   => 'reports.index'
 ]);
 
+Route::get('reportes.infoPages', [
+    'uses' => 'ReportsController@infoPages',
+    'as'   => 'reports.infoPages'
+]);
+
 Route::get('change-password', function()
     {return view('auth.passwords.change-password');
 });

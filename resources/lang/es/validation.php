@@ -292,6 +292,8 @@ return [
         'password'              => 'Contraseña',
         'confirm_password'      => 'Confirmar Contraseña',
         'register_user'         => 'Registrar Usuario',
-        'more_info'             => 'Más Información'
+        'more_info'             => 'Más Información',
+        'list_of_pages_and_status_change_hours' => 'Lista de Páginas y Horas de Cambio de Estados',
+        'by'                    => 'por'
     ],
 ];

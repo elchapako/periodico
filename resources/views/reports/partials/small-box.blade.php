@@ -10,7 +10,7 @@
             <div class="icon">
                 <i class="ion ion-document-text"></i>
             </div>
-            <a href="#" class="small-box-footer">{{ trans('validation.attributes.more_info') }} <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('reports.infoPages')}}" class="small-box-footer">{{ trans('validation.attributes.more_info') }} <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
