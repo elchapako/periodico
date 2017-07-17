@@ -232,7 +232,7 @@ return [
         'corrected_notes'       => 'Noticias Corregidas',
         'assigning_notes'       => 'Asignando Noticias',
         'list_of_ads_to_post'   => 'Lista de Publicidades para Publicar',
-        'active_ads'            => 'Publicidades Activadas',
+        'active_ads'            => 'Publicidades Activas',
         'list_of_pages_of_active_edition' => 'Lista de Páginas de la Edición Activa',
         'page'                  => 'Página',
         'update_page'           => 'Actualizar Página',
@@ -294,6 +294,8 @@ return [
         'register_user'         => 'Registrar Usuario',
         'more_info'             => 'Más Información',
         'list_of_pages_and_status_change_hours' => 'Lista de Páginas y Horas de Cambio de Estados',
-        'by'                    => 'por'
+        'list_of_notes_and_status_change_hours' => 'Lista de Noticias y Horas de Cambio de Estados',
+        'by'                    => 'por',
+        'list_of_ads_for_this_edition'  => 'Lista de Publicidades para esta Edición'
     ],
 ];

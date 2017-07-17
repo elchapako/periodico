@@ -10,7 +10,7 @@
 
 @section('main-content')
     @include('partials/errors')
-    @if($activeEdition && $notes)
+    @if($activeEdition && $notes && $ads)
         @include('reports.partials.small-box')
     <div class="row">
         @include('reports.partials.page-status')

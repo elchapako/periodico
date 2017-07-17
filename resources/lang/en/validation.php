@@ -265,7 +265,9 @@ return [
         'register_user'         => 'Register User',
         'more_info'             => 'More Info',
         'list_of_pages_and_status_change_hours' => 'List of Pages and Status Change Hours',
-        'by'                    => 'by'
+        'list_of_notes_and_status_change_hours' => 'List of Notes and Status Change Hours',
+        'by'                    => 'by',
+        'list_of_ads_of_this_edition'  => 'List of Publicities for this edition'
     ],
 
 ];

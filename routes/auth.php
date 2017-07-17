@@ -289,6 +289,16 @@ Route::get('reportes.infoPages', [
     'as'   => 'reports.infoPages'
 ]);
 
+Route::get('reportes.infoNotes', [
+    'uses' => 'ReportsController@infoNotes',
+    'as'   => 'reports.infoNotes'
+]);
+
+Route::get('reportes.infoAds', [
+    'uses' => 'ReportsController@infoAds',
+    'as'   => 'reports.infoAds'
+]);
+
 Route::get('change-password', function()
     {return view('auth.passwords.change-password');
 });
