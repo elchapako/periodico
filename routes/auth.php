@@ -284,19 +284,24 @@ Route::get('reportes', [
     'as'   => 'reports.index'
 ]);
 
-Route::get('reportes.infoPages', [
+Route::get('reportes/infoPages', [
     'uses' => 'ReportsController@infoPages',
     'as'   => 'reports.infoPages'
 ]);
 
-Route::get('reportes.infoNotes', [
+Route::get('reportes/infoNotes', [
     'uses' => 'ReportsController@infoNotes',
     'as'   => 'reports.infoNotes'
 ]);
 
-Route::get('reportes.infoAds', [
+Route::get('reportes/infoAds', [
     'uses' => 'ReportsController@infoAds',
     'as'   => 'reports.infoAds'
+]);
+
+Route::get('reportes/infoReporters', [
+    'uses' => 'ReportsController@infoReporters',
+    'as'   => 'reports.infoReporters'
 ]);
 
 Route::get('change-password', function()

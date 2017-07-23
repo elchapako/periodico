@@ -22,8 +22,9 @@ class ReportsController extends Controller
         }else{
             $ads = $date->ads()->paginate(15);
         }
+        $reporters = User::whereIs('reporter')->get();
 
-        return view('reports.edition', compact('activeEdition', 'notes', 'ads'));
+        return view('reports.edition', compact('activeEdition', 'notes', 'ads', 'reporters'));
     }
 
     public function infoPages()
@@ -59,5 +60,16 @@ class ReportsController extends Controller
         }
 
         return view('reports.info-ads', compact('ads'));
+    }
+
+    public function infoReporters()
+    {
+        $activeEdition = Edition::active()->first();
+        $date = date_format($activeEdition->date, 'Y-m-d');
+        $notes = Note::where('discarded', false)->whereNotIn('status', [7])->orderBy('reporter_id', 'asc')->get();
+        $activityNotes = Activity::where('log_name', $date)->where('subject_type', 'App\Note')->orderBy('subject_id', 'asc')->get();
+        $reporters = User::whereIs('reporter')->get();
+
+        return view('reports.info-reporters', compact('activityNotes', 'notes', 'reporters'));
     }
 }

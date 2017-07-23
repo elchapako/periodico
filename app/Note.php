@@ -9,9 +9,9 @@ class Note extends Models
 {
     use LogsActivity;
 
-    protected static $ignoreChangedAttributes = ['note', 'titular', 'photo', 'page_id', 'discarded', 'updated_at'];
+    protected static $ignoreChangedAttributes = ['title', 'note', 'area_id', 'reporter_id', 'image', 'titular', 'photo', 'page_id', 'discarded', 'updated_at'];
 
-    protected $fillable = ['title', 'note', 'area_id', 'reporter_id', 'status', 'page_id', 'titular', 'photo', 'discarded'];
+    protected $fillable = ['title', 'note', 'area_id', 'reporter_id', 'status', 'page_id', 'titular', 'photo', 'discarded', 'image'];
 
     protected static $logAttributes = ['status', 'note'];
 

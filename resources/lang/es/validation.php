@@ -296,6 +296,8 @@ return [
         'list_of_pages_and_status_change_hours' => 'Lista de Páginas y Horas de Cambio de Estados',
         'list_of_notes_and_status_change_hours' => 'Lista de Noticias y Horas de Cambio de Estados',
         'by'                    => 'por',
-        'list_of_ads_for_this_edition'  => 'Lista de Publicidades para esta Edición'
+        'list_of_ads_for_this_edition'  => 'Lista de Publicidades para esta Edición',
+        'reporters'             => 'Periodistas',
+        'list_of_notes_by_reporters'    => 'Lista de Noticias por Periodistas'
     ],
 ];
